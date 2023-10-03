@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
-//Lab demo for Padmaja that will be sync
+
 namespace ContosoCrafts.WebSite.Pages
 {
     /// <summary>
