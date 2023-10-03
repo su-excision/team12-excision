@@ -16,7 +16,7 @@ using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Pages;
 using ContosoCrafts.WebSite.Services;
-// Lab Demo for Emily to syncs
+
 namespace UnitTests.Pages.Index
 {
     public class IndexTests
