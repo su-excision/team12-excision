@@ -10,6 +10,9 @@ namespace ContosoCrafts.WebSite.Pages
 {
     /// <summary>
     /// Padmaja
+    /// Mike Koenig
+    /// Andrew Asplund
+    /// Eduardo Sousa Silva
     /// </summary>
     public class IndexModel : PageModel
     {
