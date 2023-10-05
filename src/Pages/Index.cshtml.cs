@@ -9,10 +9,7 @@ using ContosoCrafts.WebSite.Services;
 namespace ContosoCrafts.WebSite.Pages
 {
     /// <summary>
-    /// Padmaja
-    /// Mike Koenig
-    /// Andrew Asplund
-    /// Eduardo Sousa Silva
+    /// Emily Bazar
     /// </summary>
     public class IndexModel : PageModel
     {
