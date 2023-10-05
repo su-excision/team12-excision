@@ -13,6 +13,7 @@ namespace ContosoCrafts.WebSite.Pages
     /// Mike Koenig
     /// Andrew Asplund
     /// Eduardo Sousa Silva
+    /// Emily Bazar
     /// </summary>
     public class IndexModel : PageModel
     {
