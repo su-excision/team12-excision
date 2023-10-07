@@ -1,6 +1,7 @@
 [
     {
         "Id": "jenlooper-cactus",
+        "Name": "Pineco",
         "Maker": "@jenlooper",
         "img": "https://user-images.githubusercontent.com/41929050/61567048-13938600-aa33-11e9-9cfd-712191013192.jpeg",
         "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
@@ -10,6 +11,7 @@
     },
     {
         "Id": "jenlooper-light",
+        "Name": "Heracross",
         "Maker": "jenlooper",
         "img": "https://user-images.githubusercontent.com/41929050/61567049-13938600-aa33-11e9-9c69-a4184bf8e524.jpeg",
         "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
@@ -19,6 +21,7 @@
     },
     {
         "Id": "jenlooper-lightshow",
+        "Name": "Shroomish",
         "Maker": "@jenlooper",
         "img": "https://user-images.githubusercontent.com/41929050/61567053-13938600-aa33-11e9-9780-104fe4019659.png",
         "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",

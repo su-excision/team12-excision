@@ -6,8 +6,13 @@ namespace ContosoCrafts.WebSite.Models
     public class ProductModel
     {
         public string Id { get; set; }
+
+        /// <summary>
+        /// Name printed on the card. Not necessarily unique.
+        /// </summary>
+        public string Name { get; set; }
         public string Maker { get; set; }
-        
+
         [JsonPropertyName("img")]
         public string Image { get; set; }
         public string Url { get; set; }
@@ -17,6 +22,6 @@ namespace ContosoCrafts.WebSite.Models
 
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
 
- 
+
     }
 }
