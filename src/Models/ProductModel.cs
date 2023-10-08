@@ -18,6 +18,11 @@ namespace ContosoCrafts.WebSite.Models
         /// </summary>
         public string Value { get; set; }
 
+        /// <summary>
+        /// Name of the Expansion Set that the card comes from.
+        /// </summary>
+        public string Expansion { get; set; }
+
         [JsonPropertyName("img")]
         public string Image { get; set; }
         public string Url { get; set; }
