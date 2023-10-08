@@ -13,6 +13,11 @@ namespace ContosoCrafts.WebSite.Models
         public string Name { get; set; }
         public string Maker { get; set; }
 
+        /// <summary>
+        ///  Value of card in USD.
+        /// </summary>
+        public string Value { get; set; }
+
         [JsonPropertyName("img")]
         public string Image { get; set; }
         public string Url { get; set; }
