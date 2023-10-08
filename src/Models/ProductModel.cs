@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace ContosoCrafts.WebSite.Models
 {
@@ -14,7 +15,7 @@ namespace ContosoCrafts.WebSite.Models
         public string Maker { get; set; }
 
         /// <summary>
-        ///  Value of card in USD.
+        /// Value of card in USD.
         /// </summary>
         public string Value { get; set; }
 
@@ -22,6 +23,14 @@ namespace ContosoCrafts.WebSite.Models
         /// Name of the Expansion Set that the card comes from.
         /// </summary>
         public string Expansion { get; set; }
+
+        /// <summary>
+        /// Energy types of the card which include:
+        /// grass, lightning, darkness, fairy, fire, psychic, 
+        /// metal, dragon, water, fighting and colorless.
+        /// Card may have more multiple types.
+        /// </summary>
+        public List<string> Type { get; set; }
 
         [JsonPropertyName("img")]
         public string Image { get; set; }
