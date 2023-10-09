@@ -11,7 +11,8 @@
         "Title": "The Quantified Cactus: An Easy Plant Soil Moisture Sensor",
         "Description": "This project is a good learning project to get comfortable with soldering and programming an Arduino.",
         "Ratings": [5, 5, 3, 2, 1, 5],
-        "Rarity":  "Commom"
+        "Rarity":  "Commom",
+        "Availability" : 15
     },
     {
         "Id": "jenlooper-light",
@@ -25,7 +26,8 @@
         "Title": "A beautiful switch-on book light",
         "Description": "Use craft items you have around the house, plus two LEDs and a LilyPad battery holder, to create a useful book light for reading in the dark.",
         "Ratings": null,
-        "Rarity":  "Uncommom"
+        "Rarity":  "Uncommom",
+        "Availability" : 8
     },
     {
         "Id": "jenlooper-lightshow",
@@ -39,6 +41,7 @@
         "Title": "Bling your Laptop with an Internet-Connected Light Show",
         "Description": "Create a web-connected light-strip API controllable from your website, using the Particle.io.",
         "Ratings": null,
-        "Rarity":  "Rare"
+        "Rarity":  "Rare",
+        "Availability" : 3
     }
 ]

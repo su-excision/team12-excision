@@ -31,6 +31,12 @@ namespace ContosoCrafts.WebSite.Models
         public string Rarity { get; set; }
 
         /// <summary>
+        /// Field that holds the availability of the card
+        /// </summary>
+        public int Availability { get; set; }
+
+
+        /// <summary>
         /// Energy types of the card which include:
         /// grass, lightning, darkness, fairy, fire, psychic, 
         /// metal, dragon, water, fighting and colorless.
