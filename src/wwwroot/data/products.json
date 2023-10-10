@@ -1,47 +1,71 @@
 [
-    {
-        "Id": "jenlooper-cactus",
-        "Name": "Pineco",
-        "Value": "$1.76",
-        "Type":  ["Grass"],
-        "Expansion": "Scarlet & Violet",
-        "Maker": "@jenlooper",
-        "img": "https://user-images.githubusercontent.com/41929050/61567048-13938600-aa33-11e9-9cfd-712191013192.jpeg",
-        "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
-        "Title": "The Quantified Cactus: An Easy Plant Soil Moisture Sensor",
-        "Description": "This project is a good learning project to get comfortable with soldering and programming an Arduino.",
-        "Ratings": [5, 5, 3, 2, 1, 5],
-        "Rarity":  "Commom",
-        "Availability" : 15
-    },
-    {
-        "Id": "jenlooper-light",
-        "Name": "Heracross",
-        "Value": "$14.99",
-        "Type":  ["Bug","Fighting"],
-        "Expansion": "Scarlet & Violet",
-        "Maker": "jenlooper",
-        "img": "https://user-images.githubusercontent.com/41929050/61567049-13938600-aa33-11e9-9c69-a4184bf8e524.jpeg",
-        "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
-        "Title": "A beautiful switch-on book light",
-        "Description": "Use craft items you have around the house, plus two LEDs and a LilyPad battery holder, to create a useful book light for reading in the dark.",
-        "Ratings": null,
-        "Rarity":  "Uncommom",
-        "Availability" : 8
-    },
-    {
-        "Id": "jenlooper-lightshow",
-        "Name": "Shroomish",
-        "Value": "$2.95",
-        "Type": ["Grass"],
-        "Expansion": "Scarlet & Violet",
-        "Maker": "@jenlooper",
-        "img": "https://user-images.githubusercontent.com/41929050/61567053-13938600-aa33-11e9-9780-104fe4019659.png",
-        "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
-        "Title": "Bling your Laptop with an Internet-Connected Light Show",
-        "Description": "Create a web-connected light-strip API controllable from your website, using the Particle.io.",
-        "Ratings": null,
-        "Rarity":  "Rare",
-        "Availability" : 3
-    }
+  {
+    "Id": "jenlooper-cactus",
+    "Name": "Pineco",
+    "Maker": "@jenlooper",
+    "Value": "$1.76",
+    "Expansion": "Scarlet \u0026 Violet",
+    "Rarity": "Commom",
+    "Availability": 15,
+    "Type": [
+      "Grass"
+    ],
+    "img": "https://user-images.githubusercontent.com/41929050/61567048-13938600-aa33-11e9-9cfd-712191013192.jpeg",
+    "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
+    "Title": "The Quantified Cactus: An Easy Plant Soil Moisture Sensor",
+    "Description": "This project is a good learning project to get comfortable with soldering and programming an Arduino.",
+    "Ratings": [
+      5,
+      5,
+      3,
+      2,
+      1,
+      5,
+      1
+    ]
+  },
+  {
+    "Id": "jenlooper-light",
+    "Name": "Heracross",
+    "Maker": "jenlooper",
+    "Value": "$14.99",
+    "Expansion": "Scarlet \u0026 Violet",
+    "Rarity": "Uncommom",
+    "Availability": 8,
+    "Type": [
+      "Bug",
+      "Fighting"
+    ],
+    "img": "https://user-images.githubusercontent.com/41929050/61567049-13938600-aa33-11e9-9c69-a4184bf8e524.jpeg",
+    "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
+    "Title": "A beautiful switch-on book light",
+    "Description": "Use craft items you have around the house, plus two LEDs and a LilyPad battery holder, to create a useful book light for reading in the dark.",
+    "Ratings": [
+      3,
+      4,
+      4,
+      5,
+      1
+    ]
+  },
+  {
+    "Id": "jenlooper-lightshow",
+    "Name": "Shroomish",
+    "Maker": "@jenlooper",
+    "Value": "$2.95",
+    "Expansion": "Scarlet \u0026 Violet",
+    "Rarity": "Rare",
+    "Availability": 3,
+    "Type": [
+      "Grass"
+    ],
+    "img": "https://user-images.githubusercontent.com/41929050/61567053-13938600-aa33-11e9-9780-104fe4019659.png",
+    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
+    "Title": "Bling your Laptop with an Internet-Connected Light Show",
+    "Description": "Create a web-connected light-strip API controllable from your website, using the Particle.io.",
+    "Ratings": [
+      2,
+      5
+    ]
+  }
 ]
