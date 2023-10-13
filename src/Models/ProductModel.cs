@@ -47,7 +47,13 @@ namespace ContosoCrafts.WebSite.Models
         [JsonPropertyName("img")]
         public string Image { get; set; }
         public string Url { get; set; }
+
+        // redundant; replace with Name or Description
         public string Title { get; set; }
+
+        /// <summary>
+        /// Detailed description of the card.
+        /// </summary>
         public string Description { get; set; }
         public int[] Ratings { get; set; }
 
