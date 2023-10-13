@@ -68,5 +68,40 @@
       2,
       5
     ]
+  },
+  {
+    "Id": "SSH-022",
+    "Name": "Vulpix",
+    "Maker": "@jenlooper",
+    "Value": "$0.15",
+    "Expansion": "Sword \u0026 Shield",
+    "Rarity": "Common",
+    "Availability": 15,
+    "Type": [
+      "Fire"
+    ],
+    "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_22.png",
+    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
+    "Title": "While young, it has six gorgeous tails. When it grows, several new tails are sprouted.",
+    "Description": "While young, it has six gorgeous tails. When it grows, several new tails are sprouted.",
+    "Ratings": null
+  },
+  {
+    "Id": "SSH-048",
+    "Name": "Lapras",
+    "Maker": "@jenlooper",
+    "Value": "$0.15",
+    "Expansion": "Sword \u0026 Shield",
+    "Rarity": "Rare",
+    "Availability": 4,
+    "Type": [
+      "Water"
+    ],
+    "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_48.png",
+    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
+    "Title": "It loves crossing the sea with people and Pokémon on its back. It understands human speech.",
+    "Description": "It loves crossing the sea with people and Pokémon on its back. It understands human speech.",
+    "Ratings": null
   }
+
 ]
