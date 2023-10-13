@@ -1,6 +1,6 @@
 [
   {
-    "Id": "jenlooper-cactus",
+    "Id": "SVI-001",
     "Name": "Pineco",
     "Maker": "@jenlooper",
     "Value": "$1.76",
@@ -26,7 +26,7 @@
     ]
   },
   {
-    "Id": "jenlooper-light",
+    "Id": "SVI-002",
     "Name": "Heracross",
     "Maker": "jenlooper",
     "Value": "$14.99",
@@ -50,7 +50,7 @@
     ]
   },
   {
-    "Id": "jenlooper-lightshow",
+    "Id": "SVI-003",
     "Name": "Shroomish",
     "Maker": "@jenlooper",
     "Value": "$2.95",
