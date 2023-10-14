@@ -50,6 +50,24 @@
     ]
   },
   {
+    "Id": "XY-088",
+    "Name": "Jigglypuff",
+    "Maker": "jenlooper",
+    "Value": "$0.20",
+    "Expansion": "XY",
+    "Rarity": "Common",
+    "Availability": 15,
+    "Type": [
+      "Normal",
+      "Fairy"
+    ],
+    "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/XY1/XY1_EN_88.png",
+    "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
+    "Title": "When its huge eyes waver, it sings a mysteriously soothing melody that lulls its enemies to sleep.",
+    "Description": "When its huge eyes waver, it sings a mysteriously soothing melody that lulls its enemies to sleep.",
+    "Ratings": null
+  },
+  {
     "Id": "SVI-003",
     "Name": "Shroomish",
     "Maker": "@jenlooper",
