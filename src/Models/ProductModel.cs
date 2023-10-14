@@ -12,6 +12,8 @@ namespace ContosoCrafts.WebSite.Models
         /// Name printed on the card. Not necessarily unique.
         /// </summary>
         public string Name { get; set; }
+
+        // consider deprecating as we don't use this
         public string Maker { get; set; }
 
         /// <summary>
@@ -44,8 +46,13 @@ namespace ContosoCrafts.WebSite.Models
         /// </summary>
         public List<string> Type { get; set; }
 
+        /// <summary>
+        /// Link to an image of the associated card.
+        /// </summary>
         [JsonPropertyName("img")]
         public string Image { get; set; }
+
+        // consider deprecating as we don't use this
         public string Url { get; set; }
 
         // redundant; replace with Name or Description
