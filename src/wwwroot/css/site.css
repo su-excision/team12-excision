@@ -13,13 +13,34 @@ for details on configuring this project to bundle and minify static web assets. 
     -webkit-transform-style: preserve-3d;
 }
 
+<style >
+.custom-image {
+    width: 200px; /* Set the desired width */
+    height: auto; /* Maintain the aspect ratio by setting height to 'auto' */
+}
+
+</style >
+
+<style >
+.image-with-text {
+    display: flex; /* Use a flex container to position the image and text side by side */
+    align-items: center; /* Vertically center the content */
+}
+
+.text {
+    margin-left: 20px; /* Adjust the margin to control the space between the image and text */
+}
+
+</style >
+
+
 
 .modal .card-img {
-  height: 500px;
-  vertical-align: bottom;
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+    height: 500px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 .card-deck .card:hover {

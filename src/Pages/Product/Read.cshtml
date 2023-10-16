@@ -4,16 +4,47 @@
 @model ContosoCrafts.WebSite.Pages.Product.ReadModel
 
 @{
-    ViewData["Title"] = "Read page";
+    ViewData["Title"] = "Read";
 }
 
-<h1>Read</h1>
+@{
+    double averageRating = 0;
+    @if (Model.Product.Ratings != null)
+    {
+        averageRating = Model.Product.Ratings.Length > 0 ? Model.Product.Ratings.Average() : 0;
+    }
+ }
+
+<style>
+    .content {
+        display: flex;
+        align-items: center;
+    }
+
+    .custom-image {
+        width: 400px; /* Set the desired width for your image */
+        height: auto;
+        margin-right: 20px; /* Adjust the margin to control the space between the image and text */
+    }
+
+    .text {
+        font-size:20px; /* Set the desired font size for your text */
+        align-items:start;
+    }
+</style>
+
+<h1>@Model.Product.Name</h1>
 
 <div class="content">
-    <h5 class="title" id="productTitle">@Model.Product.Title</h5>
-
-    <img class="card-img" src='@Model.Product.Image' alt='Image for @Model.Product.Title'>
-
-    <p class="card-text">@Model.Product.Description</p>
-
+    <img class="custom-image" src='@Model.Product.Image' alt='Image for @Model.Product.Title'>
+    <div class="text">
+        Name: @Model.Product.Name<br />
+        Description: @Model.Product.Description<br />
+        Rarity: @Model.Product.Rarity<br />
+        Availability: @Model.Product.Availability<br />
+        Type: @String.Join(", ", Model.Product.Type)<br />
+        Expansion: @Model.Product.Expansion<br />
+        Average Rating: @averageRating.ToString("F2")/5.00 ★<br />
+        Price: @Model.Product.Value
+    </div>
 </div>
