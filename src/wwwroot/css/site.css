@@ -82,6 +82,7 @@ a {
   border-color: #1861ac;
 }
 
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -138,11 +139,26 @@ ul {
     font-family: 'Nunito', sans-serif;
 }
 /*Backgrounds*/
+:root {
+    --color-pikachu: #FFCB05;
+    --color-charizard: #FF3B30;
+    --color-squirtle: #0099E1;
+    --color-bulbasaur: #77B85B;
+    --color-jigglypuff: #FFA6C9;
+}
 .bg-navbar {
-    background: -webkit-linear-gradient(110deg, #e9a8a6 60%, #252152 60%);
-    background: -o-linear-gradient(110deg, #e9a8a6 60%, #252152 60%);
-    background: -moz-linear-gradient(110deg, #e9a8a6 60%, #252152 60%);
-    background: linear-gradient(110deg, #e9a8a6 60%, #252152 60%);
+    background: linear-gradient(to right, var(--color-pikachu), var(--color-charizard), var(--color-squirtle), var(--color-bulbasaur), var(--color-jigglypuff));
+    animation: gradientAnimation 3s infinite alternate;
+    background-size: 200% 200%;
+}
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
 }
 .bg-footer {
     background: -webkit-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
