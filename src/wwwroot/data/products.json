@@ -120,6 +120,41 @@
     "Title": "It loves crossing the sea with people and Pokémon on its back. It understands human speech.",
     "Description": "It loves crossing the sea with people and Pokémon on its back. It understands human speech.",
     "Ratings": null
+  },
+  {
+    "Id": "BLW-032",
+    "Name": "Samurott",
+    "Maker": "@jenlooper",
+    "Value": "$0.43",
+    "Expansion": "Black & White",
+    "Rarity": "Rare",
+    "Availability": 2,
+    "Type": [
+      "Water"
+    ],
+    "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/BW1/BW1_EN_32.png",
+    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
+    "Title": "One swing of the sword incorporated in its armor can fell an opponent. A simple glare from one of them quiets everybody.",
+    "Description": "One swing of the sword incorporated in its armor can fell an opponent. A simple glare from one of them quiets everybody.",
+    "Ratings": null
+  },
+  {
+    "Id": "BLW-051",
+    "Name": "Swoobat",
+    "Maker": "@jenlooper",
+    "Value": "$0.14",
+    "Expansion": "Black & White",
+    "Rarity": "Uncommon",
+    "Availability": 8,
+    "Type": [
+      "Psychic",
+      "Flying"
+    ],
+    "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/BW1/BW1_EN_51.png",
+    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
+    "Title": "It emits sound waves of various frequencies from its nose, including some powerful enough to destroy rocks.",
+    "Description": "It emits sound waves of various frequencies from its nose, including some powerful enough to destroy rocks.",
+    "Ratings": null
   }
 
 ]
