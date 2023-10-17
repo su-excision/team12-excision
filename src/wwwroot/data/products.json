@@ -50,6 +50,30 @@
     ]
   },
   {
+    "Id": "FLI-122",
+    "Name": "Lucario-GX",
+    "Maker": "@jenlooper",
+    "Value": "$9.50",
+    "Expansion": "Forbidden Light",
+    "Rarity": "Ultra Rare",
+    "Availability": 2,
+    "Type": [
+      "Fighting",
+      "Steel"
+    ],
+    "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SM6/SM6_EN_122.png",
+    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
+    "Title": "They can detect the species of a living being— and its emotions—from over half a mile away. They control auras and hunt their prey in packs.",
+    "Description": "They can detect the species of a living being— and its emotions—from over half a mile away. They control auras and hunt their prey in packs.",
+    "Ratings": [
+      5,
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  {
     "Id": "XY-088",
     "Name": "Jigglypuff",
     "Maker": "jenlooper",
@@ -154,6 +178,24 @@
     "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
     "Title": "It emits sound waves of various frequencies from its nose, including some powerful enough to destroy rocks.",
     "Description": "It emits sound waves of various frequencies from its nose, including some powerful enough to destroy rocks.",
+    "Ratings": null
+  },
+  {
+    "Id": "SUM-077",
+    "Name": "Alolan Raticate",
+    "Maker": "@jenlooper",
+    "Value": "$0.18",
+    "Expansion": "Sun & Moon",
+    "Rarity": "Uncommon",
+    "Availability": 5,
+    "Type": [
+      "Dark",
+      "Normal"
+    ],
+    "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SM1/SM1_EN_77.png",
+    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
+    "Title": "Its disposition is far more violent than its looks would suggest. Don’t let your hand get too close to its face, as it could bite your hand clean off.",
+    "Description": "Its disposition is far more violent than its looks would suggest. Don’t let your hand get too close to its face, as it could bite your hand clean off.",
     "Ratings": null
   }
 
