@@ -8,6 +8,7 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
+                <th>Name</th>
                 <th>Title</th>
                 <th>Action</th>
             </tr>
@@ -16,6 +17,7 @@
             @foreach (var product in Model.Products)
             {
                 <tr>
+                    <td>@product.Name</td>
                     <td>@product.Title</td>
                     <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
                 </tr>
