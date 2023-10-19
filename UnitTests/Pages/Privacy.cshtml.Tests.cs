@@ -79,7 +79,7 @@ namespace UnitTests.Pages.Privacy
 
         #region OnGet
         [Test]
-        public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
+        public void OnGet_Valid_Default_Should_ReturnValid()
         {
             // Arrange
 
