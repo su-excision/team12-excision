@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 
 using ContosoCrafts.WebSite.Models;
@@ -59,25 +61,54 @@ namespace ContosoCrafts.WebSite.Services
         /// </summary>
         /// <param name="productId">Card ID for the Pokémon card in the database</param>
         /// <param name="rating">the rating (1 to 5) to add to the specific card entry</param>
-        public void AddRating(string productId, int rating)
+        /// <returns>true if the rating was successfully added to the Product, false otherwise</returns>
+        public bool AddRating(string productId, int rating)
         {
+
+            // if invalid Product
+            if (string.IsNullOrEmpty(productId))
+            {
+                return false;
+            }
+
+            // rating out of range low
+            if (rating < 1)
+            {
+                return false;
+            }
+
+            // rating out of range high
+            if (rating > 5)
+            {
+                return false;
+            }
+
             // list of products from the JSON database
             var products = GetProducts();
+            // get specific product
+            var product = products.FirstOrDefault(x => x.Id.Equals(productId));
 
-            // if the product has no ratings, create the new array with a single rating
-            if (products.First(x => x.Id == productId).Ratings == null)
+            // if product does not exist
+            if (product == null)
             {
-                products.First(x => x.Id == productId).Ratings = new int[] { rating };
-            }
-            // otherwise, add the new rating to the end of the rating list
-            else
-            {
-                // list of ratings for the product
-                var ratings = products.First(x => x.Id == productId).Ratings.ToList();
-                ratings.Add(rating);
-                products.First(x => x.Id == productId).Ratings = ratings.ToArray();
+                return false;
             }
 
+
+
+            // if the product has no ratings, create the new array
+            if (product.Ratings == null)
+            {
+                products.First(x => x.Id == productId).Ratings = Array.Empty<int>();
+            }
+
+
+            // list of ratings for the product
+            var ratings = product.Ratings.ToList();
+            ratings.Add(rating);
+            product.Ratings = ratings.ToArray();
+
+            // save the data - probably should pull out to independent method
             using (var outputStream = File.OpenWrite(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<ProductModel>>(
@@ -89,6 +120,8 @@ namespace ContosoCrafts.WebSite.Services
                     products
                 );
             }
+
+            return true;
         }
     }
 }
