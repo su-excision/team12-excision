@@ -6,15 +6,15 @@ namespace ContosoCrafts.WebSite.Models
 {
     public class ProductModel
     {
+        /// <summary>
+        /// Unique ID for the card (usually in the format of <c>SET-INDEX</c>.
+        /// </summary>
         public string Id { get; set; }
 
         /// <summary>
         /// Name printed on the card. Not necessarily unique.
         /// </summary>
         public string Name { get; set; }
-
-        // consider deprecating as we don't use this
-        public string Maker { get; set; }
 
         /// <summary>
         /// Value of card in USD.
@@ -51,9 +51,6 @@ namespace ContosoCrafts.WebSite.Models
         /// </summary>
         [JsonPropertyName("img")]
         public string Image { get; set; }
-
-        // consider deprecating as we don't use this
-        public string Url { get; set; }
 
         // redundant; replace with Name or Description
         public string Title { get; set; }
