@@ -28,7 +28,8 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .text {
-    margin-left: 20px; /* Adjust the margin to control the space between the image and text */
+    margin-left: 20px;
+    /* Adjust the margin to control the space between the image and text */
 }
 
 </style >
@@ -130,13 +131,13 @@ body {
     background-repeat: no-repeat;
 }
 p {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Creepster', cursive;
 }
 h1 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Creepster', cursive;
 }
 ul {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Creepster', cursive;
 }
 .footer {
     position: absolute;
