@@ -2,7 +2,6 @@
   {
     "Id": "SVI-001",
     "Name": "Pineco",
-    "Maker": "@jenlooper",
     "Value": "$1.76",
     "Expansion": "Scarlet \u0026 Violet",
     "Rarity": "Commom",
@@ -11,7 +10,6 @@
       "Grass"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SV01/SV01_EN_1.png",
-    "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
     "Title": "A blue-green, pinecone-like pokemon",
     "Description": "A blue-green, pinecone-like pokemon",
     "Ratings": [
@@ -28,7 +26,6 @@
   {
     "Id": "SVI-002",
     "Name": "Heracross",
-    "Maker": "jenlooper",
     "Value": "$14.99",
     "Expansion": "Scarlet \u0026 Violet",
     "Rarity": "Uncommom",
@@ -38,7 +35,6 @@
       "Fighting"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SV01/SV01_EN_2.png",
-    "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
     "Title": "A bug type pokemon with sharp claws on his feet.",
     "Description": "A bug type pokemon with sharp claws on his feet.",
     "Ratings": [
@@ -52,7 +48,6 @@
   {
     "Id": "FLI-122",
     "Name": "Lucario-GX",
-    "Maker": "@jenlooper",
     "Value": "$9.50",
     "Expansion": "Forbidden Light",
     "Rarity": "Ultra Rare",
@@ -62,7 +57,6 @@
       "Steel"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SM6/SM6_EN_122.png",
-    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
     "Title": "They can detect the species of a living being— and its emotions—from over half a mile away. They control auras and hunt their prey in packs.",
     "Description": "They can detect the species of a living being— and its emotions—from over half a mile away. They control auras and hunt their prey in packs.",
     "Ratings": [
@@ -76,7 +70,6 @@
   {
     "Id": "XY-088",
     "Name": "Jigglypuff",
-    "Maker": "jenlooper",
     "Value": "$0.20",
     "Expansion": "XY",
     "Rarity": "Common",
@@ -86,7 +79,6 @@
       "Fairy"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/XY1/XY1_EN_88.png",
-    "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
     "Title": "When its huge eyes waver, it sings a mysteriously soothing melody that lulls its enemies to sleep.",
     "Description": "When its huge eyes waver, it sings a mysteriously soothing melody that lulls its enemies to sleep.",
     "Ratings": null
@@ -94,7 +86,6 @@
   {
     "Id": "SVI-003",
     "Name": "Shroomish",
-    "Maker": "@jenlooper",
     "Value": "$2.95",
     "Expansion": "Scarlet \u0026 Violet",
     "Rarity": "Rare",
@@ -103,7 +94,6 @@
       "Grass"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SV01/SV01_EN_3.png",
-    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
     "Title": "A small egg-shaped Pokemon",
     "Description": "A small egg-shaped Pokemon",
     "Ratings": [
@@ -114,7 +104,6 @@
   {
     "Id": "SSH-022",
     "Name": "Vulpix",
-    "Maker": "@jenlooper",
     "Value": "$0.15",
     "Expansion": "Sword \u0026 Shield",
     "Rarity": "Common",
@@ -123,7 +112,6 @@
       "Fire"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_22.png",
-    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
     "Title": "While young, it has six gorgeous tails. When it grows, several new tails are sprouted.",
     "Description": "While young, it has six gorgeous tails. When it grows, several new tails are sprouted.",
     "Ratings": null
@@ -131,7 +119,6 @@
   {
     "Id": "SSH-048",
     "Name": "Lapras",
-    "Maker": "@jenlooper",
     "Value": "$0.15",
     "Expansion": "Sword \u0026 Shield",
     "Rarity": "Rare",
@@ -140,7 +127,6 @@
       "Water"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_48.png",
-    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
     "Title": "It loves crossing the sea with people and Pokémon on its back. It understands human speech.",
     "Description": "It loves crossing the sea with people and Pokémon on its back. It understands human speech.",
     "Ratings": null
@@ -148,7 +134,6 @@
   {
     "Id": "BLW-032",
     "Name": "Samurott",
-    "Maker": "@jenlooper",
     "Value": "$0.43",
     "Expansion": "Black & White",
     "Rarity": "Rare",
@@ -157,7 +142,6 @@
       "Water"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/BW1/BW1_EN_32.png",
-    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
     "Title": "One swing of the sword incorporated in its armor can fell an opponent. A simple glare from one of them quiets everybody.",
     "Description": "One swing of the sword incorporated in its armor can fell an opponent. A simple glare from one of them quiets everybody.",
     "Ratings": null
@@ -165,7 +149,6 @@
   {
     "Id": "BLW-051",
     "Name": "Swoobat",
-    "Maker": "@jenlooper",
     "Value": "$0.14",
     "Expansion": "Black & White",
     "Rarity": "Uncommon",
@@ -175,7 +158,6 @@
       "Flying"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/BW1/BW1_EN_51.png",
-    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
     "Title": "It emits sound waves of various frequencies from its nose, including some powerful enough to destroy rocks.",
     "Description": "It emits sound waves of various frequencies from its nose, including some powerful enough to destroy rocks.",
     "Ratings": null
@@ -183,7 +165,6 @@
   {
     "Id": "SUM-077",
     "Name": "Alolan Raticate",
-    "Maker": "@jenlooper",
     "Value": "$0.18",
     "Expansion": "Sun & Moon",
     "Rarity": "Uncommon",
@@ -193,7 +174,6 @@
       "Normal"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SM1/SM1_EN_77.png",
-    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
     "Title": "Its disposition is far more violent than its looks would suggest. Don’t let your hand get too close to its face, as it could bite your hand clean off.",
     "Description": "Its disposition is far more violent than its looks would suggest. Don’t let your hand get too close to its face, as it could bite your hand clean off.",
     "Ratings": null
