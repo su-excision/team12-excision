@@ -4,5 +4,25 @@
 @{
     ViewData["Title"] = "Update";
 }
-<h1>@ViewData["Title"]</h1>
 
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td><a asp-page="Update" asp-route-id="@product.Id">Update</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
