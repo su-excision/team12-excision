@@ -108,8 +108,22 @@ namespace ContosoCrafts.WebSite.Services
             ratings.Add(rating);
             product.Ratings = ratings.ToArray();
 
-            // save the data - probably should pull out to independent method
-            using (var outputStream = File.OpenWrite(JsonFileName))
+            // write the JSON file
+            WriteJsonFile(products);
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// WriteJsonFile writes the contents of list of products to the JSON
+        /// file for storage.
+        /// This procedure overwrites any existing file.
+        /// </summary>
+        /// <param name="products">the list of products to be written</param>
+        public void WriteJsonFile(IEnumerable<ProductModel> products)
+        {
+            using (var outputStream = File.Create(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<ProductModel>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions
@@ -120,8 +134,6 @@ namespace ContosoCrafts.WebSite.Services
                     products
                 );
             }
-
-            return true;
         }
     }
 }
