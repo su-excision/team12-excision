@@ -7,7 +7,7 @@ using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
-namespace ContosoCrafts.WebSite.Pages.Update
+namespace ContosoCrafts.WebSite.Pages.Product.Update
 {
     /// <summary>
     /// Update page will return Product data such as Name and Description
