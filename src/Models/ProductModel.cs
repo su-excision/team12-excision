@@ -52,13 +52,14 @@ namespace ContosoCrafts.WebSite.Models
         [JsonPropertyName("img")]
         public string Image { get; set; }
 
-        // redundant; replace with Name or Description
-        public string Title { get; set; }
-
         /// <summary>
         /// Detailed description of the card.
         /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// Array of ratings of the specific product. Ratings are from 1 to 5.
+        /// </summary>
         public int[] Ratings { get; set; }
 
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
