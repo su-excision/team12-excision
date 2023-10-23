@@ -34,12 +34,23 @@ namespace ContosoCrafts.WebSite.Pages.Product.Update
         public ProductModel Product { get; set; }
 
         /// <summary>
+        /// Available product types as a list of strings
+        /// </summary>
+        public List<string> AvailableTypes { get; set; }
+
+        /// <summary>
         /// GET requests 
         /// </summary>
         /// <param name="id"></param>
         public void OnGet(string id)
         {
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+
+                AvailableTypes = new List<string>
+            {
+                "grass", "lightning", "darkness", "fairy", "fire",
+                "psychic", "metal", "dragon", "water", "fighting", "colorless"
+            };
         }
 
         /// <summary>
