@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace ContosoCrafts.WebSite.Pages.Update
 {
@@ -12,27 +14,51 @@ namespace ContosoCrafts.WebSite.Pages.Update
     /// </summary>
     public class UpdateModel : PageModel
     {
-        /// <summary>
         /// Default Constructor
-        /// </summary>
         /// <param name="productService"></param>
         public UpdateModel(JsonFileProductService productService)
         {
             ProductService = productService;
         }
 
-        // Data Service
+        /// <summary>
+        /// Establishes product service for managing products
+        /// </summary>
         public JsonFileProductService ProductService { get; }
 
-        // Collection of the Data
-        public IEnumerable<ProductModel> Products { get; private set; }
+        /// <summary>
+        /// Establishes product data to display and update
+        /// [BindProperty] to ensure data is posted back to page
+        /// </summary>
+        [BindProperty]
+        public ProductModel Product { get; set; }
 
         /// <summary>
-        /// REST OnGet, return all data
+        /// GET requests 
         /// </summary>
-        public void OnGet()
+        /// <param name="id"></param>
+        public void OnGet(string id)
         {
-            Products = ProductService.GetProducts();
+            Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+        }
+
+        /// <summary>
+        /// POST request
+        /// Updates product data
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult OnPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+            ProductService.UpdateData(Product);
+            return RedirectToPage("./Index");
+
         }
     }
 }
+
+
+
