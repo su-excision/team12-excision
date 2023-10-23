@@ -55,7 +55,7 @@
       "Steel"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SM6/SM6_EN_122.png",
-    "Description": "They can detect the species of a living being— and its emotions—from over half a mile away. They control auras and hunt their prey in packs.",
+    "Description": "They can detect the species of a living being\u2014 and its emotions\u2014from over half a mile away. They control auras and hunt their prey in packs.",
     "Ratings": [
       5,
       5,
@@ -121,14 +121,14 @@
       "Water"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_48.png",
-    "Description": "It loves crossing the sea with people and Pokémon on its back. It understands human speech.",
+    "Description": "It loves crossing the sea with people and Pok\u00E9mon on its back. It understands human speech.",
     "Ratings": null
   },
   {
     "Id": "BLW-032",
     "Name": "Samurott",
     "Value": "$0.43",
-    "Expansion": "Black & White",
+    "Expansion": "Black \u0026 White",
     "Rarity": "Rare",
     "Availability": 2,
     "Type": [
@@ -142,7 +142,7 @@
     "Id": "BLW-051",
     "Name": "Swoobat",
     "Value": "$0.14",
-    "Expansion": "Black & White",
+    "Expansion": "Black \u0026 White",
     "Rarity": "Uncommon",
     "Availability": 8,
     "Type": [
@@ -157,7 +157,7 @@
     "Id": "SUM-077",
     "Name": "Alolan Raticate",
     "Value": "$0.18",
-    "Expansion": "Sun & Moon",
+    "Expansion": "Sun \u0026 Moon",
     "Rarity": "Uncommon",
     "Availability": 5,
     "Type": [
@@ -165,8 +165,7 @@
       "Normal"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SM1/SM1_EN_77.png",
-    "Description": "Its disposition is far more violent than its looks would suggest. Don’t let your hand get too close to its face, as it could bite your hand clean off.",
+    "Description": "Its disposition is far more violent than its looks would suggest. Don\u2019t let your hand get too close to its face, as it could bite your hand clean off.",
     "Ratings": null
   }
-
 ]
