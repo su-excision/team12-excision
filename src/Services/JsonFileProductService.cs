@@ -135,5 +135,22 @@ namespace ContosoCrafts.WebSite.Services
                 );
             }
         }
+
+        /// <summary>
+        /// Updates products with new values and updates list of products to JSON file
+        /// </summary>
+        /// <param name="updatedProduct">product to be updated</param>
+        public void UpdateData(ProductModel updatedProduct)
+        {
+            var products = GetProducts().ToList(); 
+            var existingProduct = products.FirstOrDefault(p => p.Id == updatedProduct.Id);
+
+            if (existingProduct != null)
+            {
+                existingProduct.Name = updatedProduct.Name;
+                existingProduct.Description = updatedProduct.Description;
+                WriteJsonFile(products);
+            }
+        }
     }
 }
