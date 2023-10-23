@@ -142,13 +142,17 @@ namespace ContosoCrafts.WebSite.Services
         /// <param name="updatedProduct">product to be updated</param>
         public void UpdateData(ProductModel updatedProduct)
         {
-            var products = GetProducts().ToList(); 
+            var products = GetProducts().ToList();
             var existingProduct = products.FirstOrDefault(p => p.Id == updatedProduct.Id);
 
             if (existingProduct != null)
             {
                 existingProduct.Name = updatedProduct.Name;
                 existingProduct.Description = updatedProduct.Description;
+                existingProduct.Rarity = updatedProduct.Rarity;
+                existingProduct.Availability = updatedProduct.Availability;
+                existingProduct.Type = updatedProduct.Type;
+                existingProduct.Value = updatedProduct.Value;
                 WriteJsonFile(products);
             }
         }
