@@ -1,9 +1,9 @@
 ﻿.checked {
-  color: orange;
+    color: orange;
 }
 
 .fa-star {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
@@ -13,41 +13,22 @@ for details on configuring this project to bundle and minify static web assets. 
     -webkit-transform-style: preserve-3d;
 }
 
-<style >
-.custom-image {
-    width: 200px; /* Set the desired width */
-    height: auto; /* Maintain the aspect ratio by setting height to 'auto' */
-}
-
-</style >
-
-<style >
-.image-with-text {
-    display: flex; /* Use a flex container to position the image and text side by side */
-    align-items: center; /* Vertically center the content */
-}
-
-.text {
-    margin-left: 20px;
-    /* Adjust the margin to control the space between the image and text */
-}
-
-</style >
-
-
-
 .modal .card-img {
     height: 500px;
     vertical-align: bottom;
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
 }
 
 .card-deck .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
+    box-shadow: 0 10px 20px rgba(37, 33, 82, .12), 0 4px 8px rgba(37, 33, 82, .06);
 }
+
 .card-footer {
     background: #fbfafd;
 }
@@ -63,7 +44,7 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-   color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
@@ -72,17 +53,20 @@ a {
     border-color: #ffde59;
     font-family: 'Creepster', cursive;
 }
+
 .btn-primary:hover {
     color: black;
     background-color: #ff9f10;
     border-color: #ff9f10;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
+
 .nav-link {
     font-family: 'Press Start 2P', sans-serif;
     font-size: 13px;
@@ -91,35 +75,37 @@ a {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -131,23 +117,29 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
+
 p {
     font-family: 'Creepster', cursive;
 }
+
 h1 {
     font-family: 'Creepster', cursive;
 }
+
 ul {
     font-family: 'Creepster', cursive;
 }
+
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
+    line-height: 60px;
+    /* Vertically center the text there */
     font-family: 'Nunito', sans-serif;
 }
+
 /*Backgrounds*/
 :root {
     --color-pikachu: #FFCB05;
@@ -156,11 +148,13 @@ ul {
     --color-bulbasaur: #77B85B;
     --color-jigglypuff: #FFA6C9;
 }
+
 .bg-navbar {
     background: linear-gradient(to right, var(--color-pikachu), var(--color-charizard), var(--color-squirtle), var(--color-bulbasaur), var(--color-jigglypuff));
     animation: gradientAnimation 3s infinite alternate;
     background-size: 200% 200%;
 }
+
 @keyframes gradientAnimation {
     0% {
         background-position: 0 0;
@@ -170,6 +164,7 @@ ul {
         background-position: 100% 50%;
     }
 }
+
 .bg-footer {
     background: -webkit-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
     background: -o-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
@@ -177,6 +172,97 @@ ul {
     background: linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
 }
 
-.clickable{
+.clickable {
     cursor: pointer;
+}
+
+.poketitle {
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+ul.type-list {
+    list-type: none;
+    padding-left: 0;
+}
+
+ul.type-list li {
+    display: inline;
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.5rem;
+    font-family: sans-serif;
+    color: white;
+    background-color: gray;
+    text-transform: uppercase;
+}
+
+.poketype.bug {
+    background-color: #a8b820;
+}
+
+.poketype.dark {
+    background-color: #705848;
+}
+
+.poketype.dragon {
+    background-color: #7038f8;
+}
+
+.poketype.electric {
+    background-color: #f8d030;
+}
+
+.poketype.fairy {
+    background-color: #ee99ac;
+}
+
+.poketype.fighting {
+    background-color: #c03028;
+}
+
+.poketype.fire {
+    background-color: #f08030;
+}
+
+.poketype.flying {
+    background-color: #a890f0;
+}
+
+.poketype.ghost {
+    background-color: #705898;
+}
+
+.poketype.grass {
+    background-color: #78c850;
+}
+
+.poketype.ground {
+    background-color: #e0c068;
+}
+
+.poketype.ice {
+    background-color: #98d8d8;
+}
+
+.poketype.normal {
+    background-color: #a8a878;
+}
+
+.poketype.poison {
+    background-color: #a040a0;
+}
+
+.poketype.psychic {
+    background-color: #f85888;
+}
+
+.poketype.rock {
+    background-color: #b8a038;
+}
+
+.poketype.steel {
+    background-color: #b8b8d0;
+}
+
+.poketype.water {
+    background-color: #6890f0;
 }
