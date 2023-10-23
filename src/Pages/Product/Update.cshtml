@@ -7,9 +7,23 @@
     ViewData["Title"] = "Update";
 }
 
+<!--CSS for dropdown menu-->
+<style>
+    .type-dropdown {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 20px;
+        float: left;
+    }
+
+    .clear {
+        clear: both;
+    }
+</style>
+
 <div class="container">
     <form method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"><</div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @Html.HiddenFor(x => x.Product.Id)
 
         <div class="form-group">
@@ -37,15 +51,14 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="Product.Type" class="control-label"></label>
-            <input asp-for="Product.Type" class="form-control" />
+            <div class="type-dropdown">
+                <label asp-for="Product.Type" class="control-label"></label>
+                <select asp-for="Product.Type" asp-items="new SelectList(Model.AvailableTypes)">
+                    <option value=""></option>
+                </select>
+            </div>
             <span asp-validation-for="Product.Type" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Product.Expansion" class="control-label"></label>
-            <input asp-for="Product.Expansion" class="form-control" />
-            <span asp-validation-for="Product.Expansion" class="text-danger"></span>
+            <div class="clear"></div>
         </div>
 
         <div class="form-group">
@@ -54,7 +67,6 @@
             <span asp-validation-for="Product.Value" class="text-danger"></span>
         </div>
     </form>
-
 </div>
 
 @section Scripts
