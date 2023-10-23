@@ -13,7 +13,7 @@
     {
         averageRating = Model.Product.Ratings.Length > 0 ? Model.Product.Ratings.Average() : 0;
     }
- }
+}
 
 <style>
     .content {
@@ -22,21 +22,24 @@
     }
 
     .custom-image {
-        width: 400px; /* Set the desired width for your image */
+        width: 400px;
+        /* Set the desired width for your image */
         height: auto;
-        margin-right: 20px; /* Adjust the margin to control the space between the image and text */
+        margin-right: 20px;
+        /* Adjust the margin to control the space between the image and text */
     }
 
     .text {
-        font-size:20px; /* Set the desired font size for your text */
-        align-items:start;
+        font-size: 20px;
+        /* Set the desired font size for your text */
+        align-items: start;
     }
 </style>
 
 <h1>@Model.Product.Name</h1>
 
 <div class="content">
-    <img class="custom-image" src='@Model.Product.Image' alt='Image for @Model.Product.Title'>
+    <img class="custom-image" src='@Model.Product.Image' alt='Image for @Model.Product.Description'>
     <div class="text">
         Name: @Model.Product.Name<br />
         Description: @Model.Product.Description<br />
