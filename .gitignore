@@ -32,3 +32,6 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+/TestResults/f2ce81f2-6a17-45b3-88e9-c73781fd5dda/Emily Bazar_DESKTOP-AQ5AU4N_2023-10-23.22_15_28.coverage
+/TestResults/c6471faf-f5e0-462c-9748-b55f3ccbe728/Emily Bazar_DESKTOP-AQ5AU4N_2023-10-23.21_49_46.coverage
+/TestResults/1a818f4e-c26a-4286-a34f-b7eec4d88af8/Emily Bazar_DESKTOP-AQ5AU4N_2023-10-23.21_38_50.coverage
