@@ -188,5 +188,39 @@ namespace UnitTests.Pages.Product.Update
             CollectionAssert.AreEqual(expectedProduct.Type, actualProduct.Type);
         }
         #endregion ProductProperty setter
+
+        #region AvailableTypesProperty Getter
+        [Test]
+        public void AvailableTypesProperty_Get_Should_Return_Expected_Value()
+        {
+            // Arrange
+            var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
+            mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
+            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
+            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
+
+            var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
+            var updateModel = new UpdateModel(productService);
+
+            updateModel.AvailableTypes = new List<string>
+            {
+                "grass", "lightning", "darkness", "fairy", "fire",
+                "psychic", "metal", "dragon", "water", "fighting", "colorless"
+            };
+                var expectedTypes = new List<string>
+            {
+                "grass", "lightning", "darkness", "fairy", "fire",
+                "psychic", "metal", "dragon", "water", "fighting", "colorless"
+            };
+
+            // Act
+
+            // Assert
+            CollectionAssert.AreEqual(expectedTypes, updateModel.AvailableTypes);
+        }
+        #endregion AvailableTypesProperty Getter
     }
+
+
+
 }
