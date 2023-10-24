@@ -46,8 +46,19 @@
           <div class="card">
             <img class="custom-image" src="@selectedProduct.Image" style="width: 400px; height: auto;">
             <div class="card-body">
-              <p class="card-text">@selectedProduct.Description</p>
+              <p class="card-text">Name: @selectedProduct.Name</p>
+              <p class="card-text">Description: @selectedProduct.Description</p>
               <p class="card-text">Availability: @selectedProduct.Availability</p>
+              <p class="card-text">Rarity: @selectedProduct.Rarity</p>
+              <p class="card-text">Expansion: @selectedProduct.Expansion</p>
+              <p class="card-text">Type:</p>
+                            <ul class="card-text">
+                                @foreach (var typeName in @selectedProduct.Type)
+                                {
+                                    <li class="card-text @typeName">@typeName</li>
+                                }
+                            </ul>
+              <p class="card-text">Price: @selectedProduct.Value</p>
             </div>
           </div>
         </div>
