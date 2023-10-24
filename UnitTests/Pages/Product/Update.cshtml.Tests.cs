@@ -126,7 +126,7 @@ namespace UnitTests.Pages.Product.Update
             var updateModel = new UpdateModel(expectedProductService);
             var expectedProduct = new ProductModel
             {
-                Id = "2",
+                Id = "SVI-002",
                 Name = "Heracross",
                 Description = "A bug type Pokémon with sharp claws on his feet.",
                 Value = "$14.99",
@@ -165,7 +165,7 @@ namespace UnitTests.Pages.Product.Update
             var updateModel = new UpdateModel(productService);
             var expectedProduct = new ProductModel
             {
-                Id = "2",
+                Id = "SVI-002",
                 Name = "Heracross",
                 Description = "A bug type Pokémon with sharp claws on his feet.",
                 Value = "$14.99",
