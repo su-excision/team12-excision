@@ -4,10 +4,10 @@
     "Name": "Pineco",
     "Value": "$1.76",
     "Expansion": "Scarlet \u0026 Violet",
-    "Rarity": "Commom",
+    "Rarity": "Common",
     "Availability": 15,
     "Type": [
-      "Grass"
+      "grass"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SV01/SV01_EN_1.png",
     "Description": "A blue-green, pinecone-like pokemon",
@@ -27,7 +27,7 @@
     "Name": "Heracross",
     "Value": "$14.99",
     "Expansion": "Scarlet \u0026 Violet",
-    "Rarity": "Uncommom",
+    "Rarity": "Uncommon",
     "Availability": 8,
     "Type": [
       "Bug",
