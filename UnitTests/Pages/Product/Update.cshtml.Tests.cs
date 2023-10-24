@@ -109,7 +109,7 @@ namespace UnitTests.Pages.Product.Update
             Assert.IsNotNull(updateModel.Product);
             Assert.AreEqual(productId, updateModel.Product.Id);
             Assert.AreEqual("Heracross", updateModel.Product.Name);
-            Assert.AreEqual("A bug type pokemon with sharp claws on his feet.", updateModel.Product.Description);
+            Assert.AreEqual("A bug type Pokémon with sharp claws on his feet.", updateModel.Product.Description);
             Assert.AreEqual("$14.99", updateModel.Product.Value);
             Assert.AreEqual("Uncommon", updateModel.Product.Rarity);
             Assert.AreEqual(8, updateModel.Product.Availability);
@@ -274,5 +274,64 @@ namespace UnitTests.Pages.Product.Update
             CollectionAssert.AreEqual(expectedTypes, updateModel.AvailableTypes);
         }
         #endregion AvailableTypesProperty Setter
+
+        #region OnPost
+        [Test]
+        public void OnPost_Valid_Model_Should_Return_Redirect_To_PageResult()
+        {
+            // Arrange
+            var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
+            mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
+            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
+            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
+
+            var testWebHostEnvironment = mockWebHostEnvironment.Object;
+            var productService = new JsonFileProductService(testWebHostEnvironment);
+            var updateModel = new UpdateModel(productService);
+
+            updateModel.ModelState.AddModelError("PropertyName", "Error");
+
+            // Act
+            var result = updateModel.OnPost();
+
+            // Assert
+            Assert.IsInstanceOf<PageResult>(result);
+        }
+
+        [Test]
+        public void OnPost_Valid_Model_Should_Update_Product_And_Redirect()
+        {
+            // Arrange
+            var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
+            mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
+            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
+            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
+
+            var testWebHostEnvironment = mockWebHostEnvironment.Object;
+            var productService = new JsonFileProductService(testWebHostEnvironment);
+            var updateModel = new UpdateModel(productService);
+            var validProduct = new ProductModel
+            {
+                Id = "SVI-002",
+                Name = "Heracross",
+                Description = "A bug type Pokémon with sharp claws on his feet.",
+                Value = "$14.99",
+                Rarity = "Uncommon",
+                Availability = 8,
+                Type = new List<string> { "Bug", "Fighting" }
+            };
+
+            updateModel.ModelState.Clear();
+            updateModel.Product = validProduct;
+
+            // Act
+            var result = updateModel.OnPost();
+
+            // Assert
+            Assert.IsInstanceOf<RedirectToPageResult>(result);
+            var redirectToPageResult = (RedirectToPageResult)result;
+            Assert.AreEqual("./Index", redirectToPageResult.PageName);
+        }
+        #endregion OnPost
     }
 }
