@@ -109,7 +109,7 @@ namespace UnitTests.Pages.Product.Update
             Assert.IsNotNull(updateModel.Product);
             Assert.AreEqual(productId, updateModel.Product.Id);
             Assert.AreEqual("Heracross", updateModel.Product.Name);
-            Assert.AreEqual("A bug type Pokemon with sharp claws on his feet.", updateModel.Product.Description);
+            Assert.AreEqual("It gathers in forests to search for tree sap, its favorite food. It's strong enough to hurl foes.", updateModel.Product.Description);
             Assert.AreEqual("$14.99", updateModel.Product.Value);
             Assert.AreEqual("Uncommon", updateModel.Product.Rarity);
             Assert.AreEqual(8, updateModel.Product.Availability);
@@ -157,11 +157,11 @@ namespace UnitTests.Pages.Product.Update
             {
                 Id = "SVI-002",
                 Name = "Heracross",
-                Description = "A bug type Pokémon with sharp claws on his feet.",
+                Description = "It gathers in forests to search for tree sap, its favorite food. It's strong enough to hurl foes.",
                 Value = "$14.99",
                 Rarity = "Uncommon",
                 Availability = 8,
-                Type = new List<string> {"Bug", "Fighting"}
+                Type = new List<string> { "Bug", "Fighting" }
 
             };
 
@@ -196,7 +196,7 @@ namespace UnitTests.Pages.Product.Update
             {
                 Id = "SVI-002",
                 Name = "Heracross",
-                Description = "A bug type Pokémon with sharp claws on his feet.",
+                Description = "It gathers in forests to search for tree sap, its favorite food. It's strong enough to hurl foes.",
                 Value = "$14.99",
                 Rarity = "Uncommon",
                 Availability = 8,
@@ -236,7 +236,7 @@ namespace UnitTests.Pages.Product.Update
                 "grass", "lightning", "darkness", "fairy", "fire",
                 "psychic", "metal", "dragon", "water", "fighting", "colorless"
             };
-                var expectedTypes = new List<string>
+            var expectedTypes = new List<string>
             {
                 "grass", "lightning", "darkness", "fairy", "fire",
                 "psychic", "metal", "dragon", "water", "fighting", "colorless"
@@ -314,7 +314,7 @@ namespace UnitTests.Pages.Product.Update
             {
                 Id = "SVI-002",
                 Name = "Heracross",
-                Description = "A bug type Pokémon with sharp claws on his feet.",
+                Description = "It gathers in forests to search for tree sap, its favorite food. It's strong enough to hurl foes.",
                 Value = "$14.99",
                 Rarity = "Uncommon",
                 Availability = 8,
