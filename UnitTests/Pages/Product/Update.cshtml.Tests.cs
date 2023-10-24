@@ -109,7 +109,7 @@ namespace UnitTests.Pages.Product.Update
             Assert.IsNotNull(updateModel.Product);
             Assert.AreEqual(productId, updateModel.Product.Id);
             Assert.AreEqual("Heracross", updateModel.Product.Name);
-            Assert.AreEqual("A bug type Pokémon with sharp claws on his feet.", updateModel.Product.Description);
+            Assert.AreEqual("A bug type Pokemon with sharp claws on his feet.", updateModel.Product.Description);
             Assert.AreEqual("$14.99", updateModel.Product.Value);
             Assert.AreEqual("Uncommon", updateModel.Product.Rarity);
             Assert.AreEqual(8, updateModel.Product.Availability);
