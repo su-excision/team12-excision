@@ -88,6 +88,35 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(10, pageModel.Products.ToList().Count);
         }
+
+        [Test]
+        public void OnGet_Should_Populate_Product_And_AvailableTypes()
+        {
+            // Arrange
+            var productId = "SVI-002";
+            var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
+            mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
+            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
+            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
+
+            var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
+            var updateModel = new UpdateModel(productService);
+
+            // Act
+            updateModel.OnGet(productId);
+
+            // Assert
+            Assert.IsNotNull(updateModel.Product);
+            Assert.AreEqual(productId, updateModel.Product.Id);
+            Assert.AreEqual("Heracross", updateModel.Product.Name);
+            Assert.AreEqual("A bug type pokemon with sharp claws on his feet.", updateModel.Product.Description);
+            Assert.AreEqual("$14.99", updateModel.Product.Value);
+            Assert.AreEqual("Uncommon", updateModel.Product.Rarity);
+            Assert.AreEqual(8, updateModel.Product.Availability);
+            CollectionAssert.AreEqual(
+                new List<string> { "grass", "lightning", "darkness", "fairy", "fire", "psychic", "metal", "dragon", "water", "fighting", "colorless" },
+                updateModel.AvailableTypes);
+        }
         #endregion OnGet
 
 
@@ -246,7 +275,4 @@ namespace UnitTests.Pages.Product.Update
         }
         #endregion AvailableTypesProperty Setter
     }
-
-
-
 }
