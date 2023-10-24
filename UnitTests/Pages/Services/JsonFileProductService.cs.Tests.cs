@@ -20,6 +20,11 @@ namespace UnitTests.Pages.Product.AddRating
         #endregion TestSetup
 
         #region AddRating
+
+        /// <summary>
+        /// Tests to verify that an attempt to add a Rating that is out
+        /// of the acceptable bounds for a rating (1-5) is not successful.
+        /// </summary>
         [Test]
         public void AddRating_InValid_RatingInvalid_Should_ReturnFalse()
         {
@@ -33,6 +38,11 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(false, resultHigh);
             Assert.AreEqual(false, resultLow);
         }
+
+        /// <summary>
+        /// Tests to verify that an attempt to add a Rating with an invalid (null)
+        /// Product ID is not successful.
+        /// </summary>
         [Test]
         public void AddRating_InValid_ProductNull_Should_ReturnFalse()
         {
@@ -44,6 +54,11 @@ namespace UnitTests.Pages.Product.AddRating
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        /// <summary>
+        /// Tests to verify that an attempt to add a Rating with an Empty String
+        /// Product ID is not successful.
+        /// </summary>
         [Test]
         public void AddRating_InValid_ProductEmpty_Should_ReturnFalse()
         {
@@ -56,8 +71,12 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(false, result);
         }
 
+        /// <summary>
+        /// Tests to verify that an attempt to add a Rating to a product that does
+        /// not exist in the Products list is not successful.
+        /// </summary>
         [Test]
-        public void AddRating_Invalid_ProductDoesNotExist_Should_ReturnFalase()
+        public void AddRating_Invalid_ProductDoesNotExist_Should_ReturnFalse()
         {
             // Arrange
 
@@ -69,31 +88,52 @@ namespace UnitTests.Pages.Product.AddRating
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        /// <summary>
+        /// Tests to verify that an attempt to add a valid rating to a valid product that already
+        /// has an existing Ratings array is successful.
+        /// </summary>
         [Test]
-        public void AddRating_Valid_PriorRatingsExist_Should_ReturnTrue()
+        public void AddRating_Valid_PriorRatingsExist_Should_AddToRatingArray()
         {
             // Arrange
+            const int TestRating = 3;
+            const string TestID = "SVI-001";
+            var preCount = TestHelper.ProductService.GetProducts().FirstOrDefault(p => p.Id == TestID).Ratings.Length;
 
             // Act
-            var result = TestHelper.ProductService.AddRating("SVI-001", 3);
+            var methodOutcome = TestHelper.ProductService.AddRating(TestID, TestRating);
+            var testProduct = TestHelper.ProductService.GetProducts().FirstOrDefault(p => p.Id == TestID);
 
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, methodOutcome);
+            Assert.AreEqual(preCount + 1, testProduct.Ratings.Length);
+            Assert.AreEqual(testProduct.Ratings.Last(), TestRating);
         }
+
+        /// <summary>
+        /// Tests to verify that an attempt to add a valid rating to a valid product that does
+        /// not have an existing Ratings array is successful.
+        /// </summary>
         [Test]
-        public void AddRating_Valid_NoRatings_Should_ReturnTrue()
+        public void AddRating_Valid_NoRatings_Should_CreateNewRatingsArray()
         {
             // Arrange
+            const int TestRating = 3;
+            const string TestID = "BLW-051";
 
             // Act
-            var result = TestHelper.ProductService.AddRating("BLW-051", 3);
+            var methodOutcome = TestHelper.ProductService.AddRating(TestID, TestRating);
+            var testProduct = TestHelper.ProductService.GetProducts().FirstOrDefault(p => p.Id == TestID);
 
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, methodOutcome);
+            Assert.AreEqual(1, testProduct.Ratings.Length);
+            Assert.AreEqual(testProduct.Ratings.Last(), TestRating);
         }
 
 
