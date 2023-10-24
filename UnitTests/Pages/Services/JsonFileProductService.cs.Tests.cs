@@ -24,9 +24,11 @@ namespace UnitTests.Pages.Product.AddRating
         public void AddRating_InValid_RatingInvalid_Should_ReturnFalse()
         {
             // Arrange
+
             // Act
             var resultHigh = TestHelper.ProductService.AddRating("mike-cloud", 6);
             var resultLow = TestHelper.ProductService.AddRating("mike-cloud", -1);
+
             // Assert
             Assert.AreEqual(false, resultHigh);
             Assert.AreEqual(false, resultLow);
@@ -96,6 +98,50 @@ namespace UnitTests.Pages.Product.AddRating
 
 
         #endregion AddRating
+
+        #region UpdateData
+
+        [Test]
+        public void UpdateData_Invalid_NoProduct_Should_ReturnFalse()
+        {
+            // Arrange
+
+            // Act
+            var invalidProduct = new ProductModel
+            {
+                Id = "invalid product"
+            };
+            var result = TestHelper.ProductService.UpdateData(invalidProduct);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+
+        }
+
+        [Test]
+        public void UpdateData_Valid_Default_Should_ReturnTrue()
+        {
+            // Arrange
+            const string TestDescription = "test description";
+
+            var testProduct = TestHelper.ProductService.GetProducts().First<ProductModel>();
+            testProduct.Description = TestDescription;
+
+            // Act
+            var result = TestHelper.ProductService.UpdateData(testProduct);
+            var updatedProduct = TestHelper.ProductService.GetProducts().First<ProductModel>();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(TestDescription, updatedProduct.Description);
+
+        }
+
+        #endregion UpdateData
 
     }
 }
