@@ -137,24 +137,37 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
-        /// Updates products with new values and updates list of products to JSON file
+        /// UpdateData takes updated prodcut data and updates the list of products
+        /// in the JSON data file wiht the new data.
         /// </summary>
-        /// <param name="updatedProduct">product to be updated</param>
-        public void UpdateData(ProductModel updatedProduct)
+        /// <param name="updatedProduct">new product data to update</param>
+        /// <returns>true if the update was successful, false otherwise</returns>
+
+        public bool UpdateData(ProductModel updatedProduct)
         {
-            var products = GetProducts().ToList();
+
+            // product list
+            var products = GetProducts();
             var existingProduct = products.FirstOrDefault(p => p.Id == updatedProduct.Id);
 
-            if (existingProduct != null)
+            // if product not in list
+            if (existingProduct == null)
             {
-                existingProduct.Name = updatedProduct.Name;
-                existingProduct.Description = updatedProduct.Description;
-                existingProduct.Rarity = updatedProduct.Rarity;
-                existingProduct.Availability = updatedProduct.Availability;
-                existingProduct.Type = updatedProduct.Type;
-                existingProduct.Value = updatedProduct.Value;
-                WriteJsonFile(products);
+                return false;
             }
+
+            // update the properties affected by the Update page
+            existingProduct.Name = updatedProduct.Name;
+            existingProduct.Description = updatedProduct.Description;
+            existingProduct.Rarity = updatedProduct.Rarity;
+            existingProduct.Availability = updatedProduct.Availability;
+            existingProduct.Type = updatedProduct.Type;
+            existingProduct.Value = updatedProduct.Value;
+
+            // write the product list to the file
+            WriteJsonFile(products);
+            return true;
+
         }
     }
 }
