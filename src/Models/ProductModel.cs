@@ -19,7 +19,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Value of card in USD.
         /// </summary>
-        public string Value { get; set; }
+        public float Value { get; set; }
 
         /// <summary>
         /// Name of the Expansion Set that the card comes from.

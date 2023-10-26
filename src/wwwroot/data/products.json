@@ -2,7 +2,7 @@
   {
     "Id": "SVI-001",
     "Name": "Pineco",
-    "Value": "$1.76",
+    "Value": 1.76,
     "Expansion": "Scarlet \u0026 Violet",
     "Rarity": "Common",
     "Availability": 15,
@@ -25,7 +25,7 @@
   {
     "Id": "SVI-002",
     "Name": "Heracross",
-    "Value": "$14.99",
+    "Value": 14.99,
     "Expansion": "Scarlet \u0026 Violet",
     "Rarity": "Uncommon",
     "Availability": 8,
@@ -46,7 +46,7 @@
   {
     "Id": "FLI-122",
     "Name": "Lucario-GX",
-    "Value": "$9.50",
+    "Value": 9.50,
     "Expansion": "Forbidden Light",
     "Rarity": "Ultra Rare",
     "Availability": 2,
@@ -67,7 +67,7 @@
   {
     "Id": "XY-088",
     "Name": "Jigglypuff",
-    "Value": "$0.20",
+    "Value": 0.20,
     "Expansion": "XY",
     "Rarity": "Common",
     "Availability": 15,
@@ -82,7 +82,7 @@
   {
     "Id": "SVI-003",
     "Name": "Shroomish",
-    "Value": "$2.95",
+    "Value": 2.95,
     "Expansion": "Scarlet \u0026 Violet",
     "Rarity": "Rare",
     "Availability": 3,
@@ -99,7 +99,7 @@
   {
     "Id": "SSH-022",
     "Name": "Vulpix",
-    "Value": "$0.15",
+    "Value": 0.15,
     "Expansion": "Sword \u0026 Shield",
     "Rarity": "Common",
     "Availability": 15,
@@ -113,7 +113,7 @@
   {
     "Id": "SSH-048",
     "Name": "Lapras",
-    "Value": "$0.15",
+    "Value": 0.15,
     "Expansion": "Sword \u0026 Shield",
     "Rarity": "Rare",
     "Availability": 4,
@@ -127,7 +127,7 @@
   {
     "Id": "BLW-032",
     "Name": "Samurott",
-    "Value": "$0.43",
+    "Value": 0.43,
     "Expansion": "Black \u0026 White",
     "Rarity": "Rare",
     "Availability": 2,
@@ -141,7 +141,7 @@
   {
     "Id": "BLW-051",
     "Name": "Swoobat",
-    "Value": "$0.14",
+    "Value": 0.14,
     "Expansion": "Black \u0026 White",
     "Rarity": "Uncommon",
     "Availability": 8,
@@ -156,7 +156,7 @@
   {
     "Id": "SUM-077",
     "Name": "Alolan Raticate",
-    "Value": "$0.18",
+    "Value": 0.18,
     "Expansion": "Sun \u0026 Moon",
     "Rarity": "Uncommon",
     "Availability": 5,
