@@ -110,7 +110,7 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual(productId, updateModel.Product.Id);
             Assert.AreEqual("Heracross", updateModel.Product.Name);
             Assert.AreEqual("It gathers in forests to search for tree sap, its favorite food. It's strong enough to hurl foes.", updateModel.Product.Description);
-            Assert.AreEqual("$14.99", updateModel.Product.Value);
+            Assert.AreEqual(14.99f, updateModel.Product.Value);
             Assert.AreEqual("Uncommon", updateModel.Product.Rarity);
             Assert.AreEqual(8, updateModel.Product.Availability);
             CollectionAssert.AreEqual(
@@ -158,7 +158,7 @@ namespace UnitTests.Pages.Product.Update
                 Id = "SVI-002",
                 Name = "Heracross",
                 Description = "It gathers in forests to search for tree sap, its favorite food. It's strong enough to hurl foes.",
-                Value = "$14.99",
+                Value = 14.99f,
                 Rarity = "Uncommon",
                 Availability = 8,
                 Type = new List<string> { "Bug", "Fighting" }
@@ -197,7 +197,7 @@ namespace UnitTests.Pages.Product.Update
                 Id = "SVI-002",
                 Name = "Heracross",
                 Description = "It gathers in forests to search for tree sap, its favorite food. It's strong enough to hurl foes.",
-                Value = "$14.99",
+                Value = 14.99f,
                 Rarity = "Uncommon",
                 Availability = 8,
                 Type = new List<string> { "Bug", "Fighting" }
@@ -315,7 +315,7 @@ namespace UnitTests.Pages.Product.Update
                 Id = "SVI-002",
                 Name = "Heracross",
                 Description = "It gathers in forests to search for tree sap, its favorite food. It's strong enough to hurl foes.",
-                Value = "$14.99",
+                Value = 14.99f,
                 Rarity = "Uncommon",
                 Availability = 8,
                 Type = new List<string> { "Bug", "Fighting" }
