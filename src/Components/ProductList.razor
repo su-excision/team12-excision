@@ -8,17 +8,17 @@
   @foreach (var product in ProductService.GetProducts())
   {
     <div class="col-md-4 my-4">
-        <div class="card-header">
-          <h4 class="card-title">@product.Name</h4>
-        </div>
-        <img class="card-img-top img-fluid" src="@product.Image" alt="@product.Description">
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <p class="card-text my-0">Availabity: @product.Availability</p>
-          <p class="card-text my-0">Value: @product.Value</p>
-          <small class="text-muted">
-              <button @onclick="(e => SelectProduct(product.Id))"data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
-          </small>
-        </div>
+      <div class="card-header">
+        <h4 class="card-title">@product.Name</h4>
+      </div>
+      <img class="card-img-top img-fluid" src="@product.Image" alt="@product.Description">
+      <div class="card-footer d-flex justify-content-between align-items-center">
+        <p class="card-text my-0">Availabity: @product.Availability</p>
+        <p class="card-text my-0">Value: @product.Value.ToString("C")</p>
+        <small class="text-muted">
+          <button @onclick="(e => SelectProduct(product.Id))" data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
+        </small>
+      </div>
     </div>
   }
 </div>
@@ -52,13 +52,13 @@
               <p class="card-text">Rarity: @selectedProduct.Rarity</p>
               <p class="card-text">Expansion: @selectedProduct.Expansion</p>
               <p class="card-text">Type:</p>
-                            <ul class="card-text">
-                                @foreach (var typeName in @selectedProduct.Type)
-                                {
-                                    <li class="card-text @typeName">@typeName</li>
-                                }
-                            </ul>
-              <p class="card-text">Price: @selectedProduct.Value</p>
+              <ul class="card-text">
+                @foreach (var typeName in @selectedProduct.Type)
+                {
+                  <li class="card-text @typeName">@typeName</li>
+                }
+              </ul>
+              <p class="card-text">Price: @selectedProduct.Value.ToString("C")</p>
             </div>
           </div>
         </div>
@@ -93,54 +93,54 @@
 
 @code
 {
-    ProductModel selectedProduct;
-    string selectedProductId;
+  ProductModel selectedProduct;
+  string selectedProductId;
 
-    void SelectProduct(string productId)
+  void SelectProduct(string productId)
+  {
+    selectedProductId = productId;
+    selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
+    GetCurrentRating();
+  }
+
+  void SelectedProduct(string productId)
+  {
+    selectedProductId = productId;
+    selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
+    GetCurrentRating();
+  }
+
+  int currentRating = 0;
+  int voteCount = 0;
+  string voteLabel;
+
+  void GetCurrentRating()
+  {
+    if (selectedProduct.Ratings == null)
     {
-        selectedProductId = productId;
-        selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
-        GetCurrentRating();
+      currentRating = 0;
+      voteCount = 0;
+    }
+    else
+    {
+      voteCount = selectedProduct.Ratings.Count();
+      voteLabel = voteCount > 1 ? "Votes" : "Vote";
+      currentRating = selectedProduct.Ratings.Sum() / voteCount;
     }
 
-    void SelectedProduct(string productId)
-    {
-        selectedProductId = productId;
-        selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
-        GetCurrentRating();
-    }
+    System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
+  }
 
-    int currentRating = 0;
-    int voteCount = 0;
-    string voteLabel;
+  void SubmitRating(int rating)
+  {
+    System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
+    ProductService.AddRating(selectedProductId, rating);
+    SelectProduct(selectedProductId);
+  }
 
-    void GetCurrentRating()
-    {
-        if (selectedProduct.Ratings == null)
-        {
-            currentRating = 0;
-            voteCount = 0;
-        }
-        else
-        {
-            voteCount = selectedProduct.Ratings.Count();
-            voteLabel = voteCount > 1 ? "Votes" : "Vote";
-            currentRating = selectedProduct.Ratings.Sum() / voteCount;
-        }
-
-        System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
-    }
-
-    void SubmitRating(int rating)
-    {
-        System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
-        ProductService.AddRating(selectedProductId, rating);
-        SelectProduct(selectedProductId);
-    }
-
-    void NavigateToReadPage(string productId)
-    {
-        var url = $"/Product/Read/{productId}";
-        Navigation.NavigateTo(url, true);
-    }
+  void NavigateToReadPage(string productId)
+  {
+    var url = $"/Product/Read/{productId}";
+    Navigation.NavigateTo(url, true);
+  }
 }
