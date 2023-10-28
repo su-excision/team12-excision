@@ -50,10 +50,10 @@ namespace ContosoCrafts.WebSite.Pages.Product.Create
                 Expansion = "Enter the Expansion",
                 Rarity = "Enter the Rarity",
                 Availability = 0,
-                Type = ["Fire"],
+                Type = new List<string> { "Fire" },
                 Image = "https://i.imgflip.com/4u072l.png",
                 Description = "Enter the Description",
-                Ratings = {} // Use an array for 'Ratings'
+                Ratings = { } // Use an array for 'Ratings'
             };
 
             /// Display the list of types
