@@ -169,12 +169,19 @@ namespace ContosoCrafts.WebSite.Services
             return true;
 
         }
-        public bool CreateData(ProductModel updatedProduct)
+
+        /// <summary>
+        /// CreateData takes the product data and insert in the list of products
+        /// in the JSON data file.
+        /// </summary>
+        /// <param name="Product">new product data to be inserted</param>
+        /// <returns>true if the update was successful, false otherwise</returns>
+        public bool CreateData(ProductModel Product)
         {
 
             // product list
             var newProduct = GetProducts(); // Load existing data
-            newProduct = newProduct.Append(updatedProduct);
+            newProduct = newProduct.Append(Product);
 
             // if product not in list
             if (newProduct == null)
