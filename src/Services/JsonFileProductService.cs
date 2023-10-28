@@ -169,5 +169,25 @@ namespace ContosoCrafts.WebSite.Services
             return true;
 
         }
+        public bool CreateData(ProductModel updatedProduct)
+        {
+
+            // product list
+            var newProduct = GetProducts(); // Load existing data
+            newProduct = newProduct.Append(updatedProduct);
+
+            // if product not in list
+            if (newProduct == null)
+            {
+                return false;
+            }
+
+            // write the product list to the file
+            WriteJsonFile(newProduct);
+            return true;
+
+        }
+
+
     }
 }
