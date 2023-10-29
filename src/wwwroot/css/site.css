@@ -211,10 +211,10 @@ ul {
 
 .walking-pokemon {
     position: absolute;
-    bottom: -15px;
+    bottom: 0px;
     left: -100px;
     width: 70px;
-    height: 100px; 
+    height: 83px; 
     background-image: url('https://i.ibb.co/0M3WfHj/d9jn0zy-e054c650-f044-4d19-912c-3c5d597d29e3.gif');
     background-size: 100%; 
     animation: walk 15s linear infinite;
