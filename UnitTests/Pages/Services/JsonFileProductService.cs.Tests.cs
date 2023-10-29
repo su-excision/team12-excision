@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Models;
+using Namespace;
 
 namespace UnitTests.Services.JsonFileProductService
 {
@@ -195,14 +196,16 @@ namespace UnitTests.Services.JsonFileProductService
         {
             // Arrange
             const string IdToDelete = "Invalid ID";
+            int startingCount = TestHelper.ProductService.GetProducts().Count();
+
 
             // Act
             var result = TestHelper.ProductService.DeleteProduct(IdToDelete);
-            var productCount = TestHelper.ProductService.GetProducts().Count();
+            var finalCount = TestHelper.ProductService.GetProducts().Count();
 
             // Assert
             Assert.AreEqual(false, result);
-            Assert.AreEqual(10, productCount);
+            Assert.AreEqual(startingCount, finalCount);
         }
 
 
@@ -211,20 +214,21 @@ namespace UnitTests.Services.JsonFileProductService
         /// that does exist in the database deletes the product successfully.
         /// </summary>
         [Test]
-        public void DeleteProduct_Valid_Default_Should_RemoveItem()
+        public void DeleteProduct_Valid_ContainsProduct_Should_RemoveItem()
         {
             // Arrange
-            const string IdToDelete = "SVI-001";
-
+            string idToDelete = TestHelper.ProductService.GetProducts().First<ProductModel>().Id;
+            int startingCount = TestHelper.ProductService.GetProducts().Count();
 
             // Act
-            var result = TestHelper.ProductService.DeleteProduct(IdToDelete);
-            var products = TestHelper.ProductService.GetProducts();
+            var result = TestHelper.ProductService.DeleteProduct(idToDelete);
+            var isProductInList = (TestHelper.ProductService.GetProducts().FirstOrDefault(p => p.Id == idToDelete) != null);
+            var finalCount = TestHelper.ProductService.GetProducts().Count();
 
             // Assert
             Assert.AreEqual(true, result);
-            Assert.AreEqual(null, products.FirstOrDefault(p => p.Id == IdToDelete));
-            Assert.AreEqual(9, products.Count());
+            Assert.AreEqual(false, isProductInList);
+            Assert.AreEqual(startingCount - 1, finalCount);
 
         }
 
