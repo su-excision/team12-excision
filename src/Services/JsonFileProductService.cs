@@ -171,26 +171,33 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
-        /// CreateData takes the product data and insert in the list of products
-        /// in the JSON data file.
+        /// AddProduct adds a new product to the product database. If the product
+        /// database already contains a prdocut with the same unique ID, the
+        /// opreation does not update the database.
         /// </summary>
-        /// <param name="Product">new product data to be inserted</param>
-        /// <returns>true if the update was successful, false otherwise</returns>
-        public bool CreateData(ProductModel Product)
+        /// <param name="newProduct">new product data to be inserted</param>
+        /// <returns>true if the add was successful, false otherwise</returns>
+        public bool AddProduct(ProductModel newProduct)
         {
 
-            // product list
-            var newProduct = GetProducts(); // Load existing data
-            newProduct = newProduct.Append(Product);
+            // load existing product list
+            var products = GetProducts();
 
-            // if product not in list
-            if (newProduct == null)
+            // if product ID already exists
+            if (products.FirstOrDefault(p => p.Id == newProduct.Id) != null)
             {
+                // operation fails
                 return false;
             }
 
+            // append the new product to the end of the product list
+            products = products.Append(newProduct);
+
+
             // write the product list to the file
-            WriteJsonFile(newProduct);
+            WriteJsonFile(products);
+
+            // operation was successful
             return true;
 
         }

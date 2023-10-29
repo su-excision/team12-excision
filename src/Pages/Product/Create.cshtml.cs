@@ -74,7 +74,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Create
         {
             if (ModelState.IsValid)
             {
-                ProductService.CreateData(Product); // Save the updated data
+                ProductService.AddProduct(Product); // Save the updated data
 
                 return RedirectToPage("./Index"); // Redirect to the product list page
             }
