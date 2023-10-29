@@ -184,6 +184,57 @@ namespace UnitTests.Services.JsonFileProductService
 
         #endregion UpdateData
 
+        #region AddProduct
+
+        /// <summary>
+        /// Tests to verify that an attempt to add a product to the database where there
+        /// already exists a product with the same Product ID is not successful.
+        /// </summary>
+        [Test]
+        public void AddProduct_Invalid_ExistingProduct_Should_ReturnFalse()
+        {
+            // Arrange
+            const string DuplicateId = "SVI-001";
+            var duplicateProduct = new TestProductBuilder().WithId(DuplicateId).Build();
+
+            var startingCount = TestHelper.ProductService.GetProducts().Count();
+
+            // Act
+            var result = TestHelper.ProductService.AddProduct(duplicateProduct);
+            var finalCount = TestHelper.ProductService.GetProducts().Count();
+
+            // Assert
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(startingCount, finalCount);
+        }
+
+        /// <summary>
+        /// Tests to verify that an attempt to add a product to the database where there
+        /// is product with that Product ID results in adding the product to the list.
+        /// </summary>
+        [Test]
+        public void AddProduct_Valid_Default_Should_AddToProductList()
+        {
+            // Arrange
+            const string NewTestId = "New ID";
+            var newProduct = new TestProductBuilder().WithId(NewTestId).Build();
+            var startingCount = TestHelper.ProductService.GetProducts().Count();
+
+            // Act
+            var result = TestHelper.ProductService.AddProduct(newProduct);
+            var isProductInList = (TestHelper.ProductService.GetProducts().FirstOrDefault(p => p.Id == NewTestId) != null);
+            var finalCount = TestHelper.ProductService.GetProducts().Count();
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, isProductInList);
+            Assert.AreEqual(startingCount + 1, finalCount);
+
+
+        }
+
+        #endregion AddProduct
+
 
         #region DeleteProduct
 
