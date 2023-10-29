@@ -209,6 +209,27 @@ ul {
     background-repeat: repeat-x; 
 }
 
+.walking-pokemon {
+    position: absolute;
+    bottom: -15px;
+    left: -100px;
+    width: 70px;
+    height: 100px; 
+    background-image: url('https://i.ibb.co/0M3WfHj/d9jn0zy-e054c650-f044-4d19-912c-3c5d597d29e3.gif');
+    background-size: 100%; 
+    animation: walk 15s linear infinite;
+}
+
+@keyframes walk {
+    0% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(2760%); 
+    }
+}
+
 .clickable {
     cursor: pointer;
 }
