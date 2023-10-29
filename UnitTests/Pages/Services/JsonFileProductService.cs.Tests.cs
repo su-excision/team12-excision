@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Models;
 
-namespace UnitTests.Pages.Product.AddRating
+namespace UnitTests.Services.JsonFileProductService
 {
     public class JsonFileProductServiceTests
     {
@@ -182,6 +182,53 @@ namespace UnitTests.Pages.Product.AddRating
         }
 
         #endregion UpdateData
+
+
+        #region DeleteProduct
+
+        /// <summary>
+        /// Tests to verify that an attempt to delete a productID for a product
+        /// that does not exist in the database does not delete anything.
+        /// </summary>
+        [Test]
+        public void DeleteProduct_Invalid_NoProductId_Should_ReturnFalse()
+        {
+            // Arrange
+            const string IdToDelete = "Invalid ID";
+
+            // Act
+            var result = TestHelper.ProductService.DeleteProduct(IdToDelete);
+            var productCount = TestHelper.ProductService.GetProducts().Count();
+
+            // Assert
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(10, productCount);
+        }
+
+
+        /// <summary>
+        /// Tests to verify that an attempt to delete a productID for a product
+        /// that does exist in the database deletes the product successfully.
+        /// </summary>
+        [Test]
+        public void DeleteProduct_Valid_Default_Should_RemoveItem()
+        {
+            // Arrange
+            const string IdToDelete = "SVI-001";
+
+
+            // Act
+            var result = TestHelper.ProductService.DeleteProduct(IdToDelete);
+            var products = TestHelper.ProductService.GetProducts();
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(null, products.FirstOrDefault(p => p.Id == IdToDelete));
+            Assert.AreEqual(9, products.Count());
+
+        }
+
+        #endregion DeleteProduct
 
     }
 }
