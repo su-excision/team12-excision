@@ -2,7 +2,7 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Models;
 using Namespace;
 
-namespace UnitTests.Models.ProdutModel
+namespace UnitTests.Models.ProductModel
 {
 
     public class ProductModelTests
