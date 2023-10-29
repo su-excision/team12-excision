@@ -142,7 +142,6 @@ namespace ContosoCrafts.WebSite.Services
         /// </summary>
         /// <param name="updatedProduct">new product data to update</param>
         /// <returns>true if the update was successful, false otherwise</returns>
-
         public bool UpdateData(ProductModel updatedProduct)
         {
 
@@ -198,6 +197,35 @@ namespace ContosoCrafts.WebSite.Services
             WriteJsonFile(products);
 
             // operation was successful
+            return true;
+
+        }
+
+        /// <summary>
+        /// DeleteProduct deletes a product with the specified product ID. If the
+        /// ID does not exist in the database, it does not delete anything.
+        /// </summary>
+        /// <param name="productId">the ID corresponding to the product to delete.</param>
+        /// <returns>true if the product was deleted, false otherwise</returns>
+        public bool DeleteProduct(string productId)
+        {
+            // product list
+            var products = GetProducts();
+
+            // if product ID does not exist in the list
+            if (products.FirstOrDefault(p => p.Id == productId) == null)
+            {
+                // operation fails
+                return false;
+            }
+
+            // make a new product list without the deleted product
+            var newProducts = products.Where(x => x.Id != productId);
+
+            // write the new product list
+            WriteJsonFile(newProducts);
+
+            // let it know it worked
             return true;
 
         }
