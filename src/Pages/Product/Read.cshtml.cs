@@ -7,31 +7,39 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
+    /// <summary>
+    /// Page Model for the Read page of the website.
+    /// </summary>
     public class ReadModel : PageModel
     {
-        // Data middletier
-        public JsonFileProductService ProductService { get; }
+        /// <summary>
+        /// ProductService for retrieving products from the datastore.
+        /// </summary>
+        private readonly JsonFileProductService _productService;
 
         /// <summary>
-        /// Defualt Construtor
+        /// Constructor for the Product/Read Page Model.
         /// </summary>
-        /// <param name="logger"></param>
-        /// <param name="productService"></param>
+        /// <param name="productService">ProductService for retrieivng products
+        /// from the datastore.</param>
         public ReadModel(JsonFileProductService productService)
         {
-            ProductService = productService;
+            _productService = productService;
         }
 
-        // The data to show
+        /// <summary>
+        /// The product data to be displayed on the Page.
+        /// </summary>
         public ProductModel Product;
 
         /// <summary>
-        /// REST Get request
+        /// Method that is called when the page is loaded (after a GET request). Loads
+        /// the desired Product from the datastore based on the product Id passed to it.
         /// </summary>
         /// <param name="id"></param>
         public void OnGet(string id)
         {
-            Product  = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            Product = _productService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
         }
     }
 }
