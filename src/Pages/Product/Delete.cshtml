@@ -6,15 +6,13 @@
 @{
     ViewData["Title"] = "Delete";
 }
-
 @{
     double averageRating = 0;
-    @if (Model.Product.Ratings != null)
+    if (Model.Product.Ratings != null)
     {
         averageRating = Model.Product.Ratings.Length > 0 ? Model.Product.Ratings.Average() : 0;
     }
 }
-
 <div class="card">
     <div class="card-header">
         <h1 class="card-title text-center poketitle">@Model.Product.Name</h1>
@@ -61,16 +59,14 @@
                     <p class="text-center">@averageRating.ToString("F2")/5.00</p>
                 </div>
 
-                <div class="text-center">
+                <div class="text-center mt-3">
                     <form method="post">
                         @Html.HiddenFor(x => x.Product.Id)
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger" id="confirmDeleteButton">Confirm deletion by clicking</button>
                     </form>
                 </div>
 
             </div>
-
-
         </div>
     </div>
 </div>
