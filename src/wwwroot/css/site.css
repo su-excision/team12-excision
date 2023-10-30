@@ -324,3 +324,7 @@ ul.type-list li {
 .poketype.water {
     background-color: #6890f0;
 }
+.products-container {
+    background: url('https://i.pinimg.com/564x/73/2c/89/732c8940506bc9cde99c29cb4fcab47d.jpg');
+    background-size:cover;
+}
