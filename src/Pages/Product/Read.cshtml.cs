@@ -36,7 +36,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// Method that is called when the page is loaded (after a GET request). Loads
         /// the desired Product from the datastore based on the product Id passed to it.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">the Product Id for the desired Product to load.</param>
         public void OnGet(string id)
         {
             Product = _productService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
