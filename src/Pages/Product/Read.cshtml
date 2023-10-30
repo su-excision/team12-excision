@@ -9,9 +9,15 @@
 
 @{
     double averageRating = 0;
+    string rating;
     @if (Model.Product.Ratings != null)
     {
         averageRating = Model.Product.Ratings.Length > 0 ? Model.Product.Ratings.Average() : 0;
+        rating = averageRating.ToString("F2") + "/5.00";
+    }
+    else
+    {
+        rating = "Not rated yet.";
     }
 }
 
@@ -58,7 +64,7 @@
 
                 <div class="col-md-12">
                     <h3 class="h6 poketitle text-center">Average Rating</h3>
-                    <p class="text-center">@averageRating.ToString("F2")/5.00</p>
+                    <p class="text-center">@rating</p>
                 </div>
 
             </div>
