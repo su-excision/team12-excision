@@ -9,10 +9,16 @@ using Namespace;
 
 namespace UnitTests.Services.JsonFileProductService
 {
+    /// <summary>
+    /// Tests for Services/JsonFileProductServices
+    /// </summary>
     public class JsonFileProductServiceTests
     {
         #region TestSetup
 
+        /// <summary>
+        /// Initialization for tests assocaited with JsonFileProductServices
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -142,6 +148,10 @@ namespace UnitTests.Services.JsonFileProductService
 
         #region UpdateData
 
+        /// <summary>
+        /// Test to verify that an attempt to add an invalid product is
+        /// unsuccessful and returns a failure.
+        /// </summary>
         [Test]
         public void UpdateData_Invalid_NoProduct_Should_ReturnFalse()
         {
@@ -161,6 +171,11 @@ namespace UnitTests.Services.JsonFileProductService
 
         }
 
+        /// <summary>
+        /// Tests to verify that an attempt to update a valid product
+        /// is successful, modifying the product and returning a successful
+        /// result.
+        /// </summary>
         [Test]
         public void UpdateData_Valid_Default_Should_ReturnTrue()
         {
