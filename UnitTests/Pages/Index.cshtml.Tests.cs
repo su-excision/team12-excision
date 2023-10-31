@@ -19,6 +19,9 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.Index
 {
+    /// <summary>
+    /// Tests associated with Index
+    /// </summary>
     public class IndexTests
     {
         #region TestSetup
@@ -34,6 +37,9 @@ namespace UnitTests.Pages.Index
 
         public static IndexModel pageModel;
 
+        /// <summary>
+        /// Initialization for tests associated with Index
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -73,6 +79,11 @@ namespace UnitTests.Pages.Index
         #endregion TestSetup
 
         #region OnGet
+
+        /// <summary>
+        /// Test to verify that on a GET request, the page is valid and
+        /// has successfully loaded the products form the datastore.
+        /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
