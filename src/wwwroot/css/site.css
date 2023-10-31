@@ -330,3 +330,13 @@ ul.type-list li {
     font-family: 'Happy Monkey', cursive;
     font-weight: bold;
 }
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+}

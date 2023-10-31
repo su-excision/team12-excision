@@ -19,7 +19,9 @@
       1,
       5,
       1,
-      5
+      5,
+      4,
+      4
     ]
   },
   {
@@ -34,7 +36,7 @@
       "Fighting"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SV01/SV01_EN_2.png",
-    "Description": "It gathers in forests to search for tree sap, its favorite food. It's strong enough to hurl foes.",
+    "Description": "It gathers in forests to search for tree sap, its favorite food. It\u0027s strong enough to hurl foes.",
     "Ratings": [
       3,
       4,
@@ -46,7 +48,7 @@
   {
     "Id": "FLI-122",
     "Name": "Lucario-GX",
-    "Value": 9.50,
+    "Value": 9.5,
     "Expansion": "Forbidden Light",
     "Rarity": "Ultra Rare",
     "Availability": 2,
@@ -67,7 +69,7 @@
   {
     "Id": "XY-088",
     "Name": "Jigglypuff",
-    "Value": 0.20,
+    "Value": 0.2,
     "Expansion": "XY",
     "Rarity": "Common",
     "Availability": 15,
