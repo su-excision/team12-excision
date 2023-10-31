@@ -42,11 +42,6 @@ namespace ContosoCrafts.WebSite.Pages.Product.Delete
         public void OnGet(string id)
         {
             Product = _productService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
-
-            if (Product == null)
-            {
-                TempData["ErrorMessage"] = "The product with the given ID was not found.";
-            }
         }
 
         /// <summary>
@@ -55,16 +50,8 @@ namespace ContosoCrafts.WebSite.Pages.Product.Delete
         /// <returns> Index page if successful 
         public IActionResult OnPost(string id)
         {
-            ProductModel product = _productService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
-            if (product == null)
-            {
-                TempData["ErrorMessage"] = "The product with the given ID was not found.";
-            }
-            else
-            {
-                _productService.DeleteProduct(id);
-                TempData["SuccessMessage"] = "Product deleted successfully.";
-            }
+            ProductModel product = _productService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));   
+            _productService.DeleteProduct(id);
             return RedirectToPage("/Index"); 
         }
     }
