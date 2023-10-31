@@ -86,7 +86,7 @@ public class DeleteTests
 
         var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
-        var existingProductId = "FLI-122";
+        var existingProductId = "SSH-022";
         var deleteModel = new DeleteModel(productService);
 
         // Act
@@ -95,9 +95,36 @@ public class DeleteTests
         // Assert
         Assert.AreEqual(true, deleteModel.ModelState.IsValid);
         Assert.IsNotNull(deleteModel.Product);
-        Assert.AreEqual("FLI-122", deleteModel.Product.Id);
+        Assert.AreEqual("SSH-022", deleteModel.Product.Id);
     }
     #endregion OnGet
 
+    [Test]
+    #region OnPost
+    public void OnPost_Valid_Should_Delete_Product()
+    {
+        // Arrange
+        var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
+        mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
+        mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
+        mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
+        var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
+
+        var existingProductId = "SSH-048";
+        var deleteModel = new DeleteModel(productService);
+
+        // Act
+        var result = deleteModel.OnPost(existingProductId);
+
+        // Assert
+        var deletedProduct = productService.GetProducts().FirstOrDefault(p => p.Id.Equals(existingProductId));
+        Assert.IsNull(deletedProduct, "The product should be deleted.");
+
+        Assert.IsInstanceOf<RedirectToPageResult>(result);
+        var redirectToPageResult = result as RedirectToPageResult;
+        Assert.AreEqual("/Index", redirectToPageResult.PageName);
+
+    }
+    #endregion OnPost
 }
