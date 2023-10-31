@@ -73,4 +73,31 @@ public class DeleteTests
         };
     }
     #endregion TestSetup
+
+    #region OnGet
+    [Test]
+    public void OnGet_Valid_Should_Return_Product()
+    {
+        // Arrange
+        var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
+        mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
+        mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
+        mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
+
+        var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
+
+        var existingProductId = "FLI-122";
+        var deleteModel = new DeleteModel(productService);
+
+        // Act
+        deleteModel.OnGet(existingProductId);
+
+        // Assert
+        Assert.AreEqual(true, deleteModel.ModelState.IsValid);
+        Assert.IsNotNull(deleteModel.Product);
+        Assert.AreEqual("FLI-122", deleteModel.Product.Id);
+    }
+    #endregion OnGet
+
+
 }
