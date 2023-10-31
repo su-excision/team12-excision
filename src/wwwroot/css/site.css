@@ -330,7 +330,7 @@ ul.type-list li {
     font-family: 'Happy Monkey', cursive;
     font-weight: bold;
 }
-.card{
+.card-modal{
     position: relative;
     display: -ms-flexbox;
     display: flex;
