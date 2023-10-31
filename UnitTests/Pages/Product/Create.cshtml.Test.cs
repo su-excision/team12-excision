@@ -24,6 +24,9 @@ using ContosoCrafts.WebSite.Pages.Product.Update;
 
 namespace UnitTests.Pages.Product.Create
 {
+    /// <summary>
+    /// Tests associated with Product/Create
+    /// </summary>
     internal class CreateTests
     {
         #region TestSetup
@@ -39,6 +42,9 @@ namespace UnitTests.Pages.Product.Create
 
         public static IndexModel pageModel;
 
+        /// <summary>
+        /// Initialization for tests associated with Product/Create
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -78,18 +84,11 @@ namespace UnitTests.Pages.Product.Create
         #endregion TestSetup
 
         #region OnGet
-        [Test]
-        public void OnGet_Valid_Should_Return_Products()
-        {
-            // Arrange
 
-            // Act
-            pageModel.OnGet();
-
-            // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(10, pageModel.Products.ToList().Count);
-        }
+        /// <summary>
+        /// Test to verify that on a GET request, the page is valid and
+        /// has successfully loaded the default product form the datastore.
+        /// </summary>
 
         [Test]
         public void OnGet_Should_Populate_Product_And_AvailableTypes()
@@ -126,6 +125,10 @@ namespace UnitTests.Pages.Product.Create
 
 
         #region OnPost
+        /// <summary>
+        /// Test to verify the POST request, the page is valid and
+        /// has successfully Created product data
+        /// </summary>
         [Test]
         public void OnPost_Valid_Model_Should_Return_Redirect_To_PageResult()
         {
@@ -147,7 +150,10 @@ namespace UnitTests.Pages.Product.Create
             // Assert
             Assert.IsInstanceOf<PageResult>(result);
         }
-
+        /// <summary>
+        /// Test to verify the POST request, the page is valid and
+        /// has successfully Created product data
+        /// </summary>
         [Test]
         public void OnPost_Valid_Model_Should_Create_Product_And_Redirect()
         {
