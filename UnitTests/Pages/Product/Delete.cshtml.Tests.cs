@@ -17,8 +17,6 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Pages.Product.Delete;
-using ContosoCrafts.WebSite.Models;
-using System.Collections.Generic;
 
 namespace UnitTests.Pages.Product.Delete;
 

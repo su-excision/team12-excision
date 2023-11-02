@@ -169,5 +169,19 @@
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SM1/SM1_EN_77.png",
     "Description": "Its disposition is far more violent than its looks would suggest. Don\u2019t let your hand get too close to its face, as it could bite your hand clean off.",
     "Ratings": null
+  },
+  {
+    "Id": "ID",
+    "Name": "Enter the Name of the Pokemon",
+    "Value": 0,
+    "Expansion": "Enter the Expansion",
+    "Rarity": "Enter the Rarity",
+    "Availability": 0,
+    "Type": [
+      "fire"
+    ],
+    "img": "https://i.imgflip.com/4u072l.png",
+    "Description": "Enter the Description",
+    "Ratings": null
   }
 ]
