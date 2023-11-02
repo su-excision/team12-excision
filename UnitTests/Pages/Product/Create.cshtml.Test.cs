@@ -1,5 +1,4 @@
-﻿using System.Linq;
-
+﻿
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -19,8 +18,7 @@ using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Pages.Product.Create;
 using ContosoCrafts.WebSite.Models;
 using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using ContosoCrafts.WebSite.Pages.Product.Update;
+
 
 namespace UnitTests.Pages.Product.Create
 {
