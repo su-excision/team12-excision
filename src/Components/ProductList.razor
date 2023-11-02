@@ -9,14 +9,14 @@
   {
     <div class="col-md-4 my-4">
       <div class="card-header">
-        <h4 class="card-title">@product.Name</h4>
+        <h4 class="card-title happy">@product.Name</h4>
       </div>
       <img class="card-img-top img-fluid" src="@product.Image" alt="@product.Description">
       <div class="card-footer d-flex justify-content-between align-items-center">
-        <p class="card-text my-0">Availabity: @product.Availability</p>
-        <p class="card-text my-0">Value: @product.Value.ToString("C")</p>
+        <p class="card-text my-0 happy">Availabity: @product.Availability</p>
+        <p class="card-text my-0 happy">Value: @product.Value.ToString("C")</p>
         <small class="text-muted">
-          <button @onclick="(e => SelectProduct(product.Id))" data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
+          <button @onclick="(e => SelectProduct(product.Id))" data-toggle="modal" data-target="#productModal" class="btn btn-primary happy">More Info</button>
         </small>
       </div>
     </div>
@@ -37,7 +37,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="productTitle">@selectedProduct.Name</h5>
+        <h5 class="modal-title happy" id="productTitle">@selectedProduct.Name</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -46,19 +46,19 @@
           <div class="card card-modal">
             <img class="custom-image" src="@selectedProduct.Image">
             <div class="card-body">
-              <p class="card-text">Name: @selectedProduct.Name</p>
-              <p class="card-text">Description: @selectedProduct.Description</p>
-              <p class="card-text">Availability: @selectedProduct.Availability</p>
-              <p class="card-text">Rarity: @selectedProduct.Rarity</p>
-              <p class="card-text">Expansion: @selectedProduct.Expansion</p>
-              <p class="card-text">Type:</p>
+              <p class="card-text happy">Name: @selectedProduct.Name</p>
+              <p class="card-text happy">Description: @selectedProduct.Description</p>
+              <p class="card-text happy">Availability: @selectedProduct.Availability</p>
+              <p class="card-text happy">Rarity: @selectedProduct.Rarity</p>
+              <p class="card-text happy">Expansion: @selectedProduct.Expansion</p>
+              <p class="card-text happy">Type:</p>
               <ul class="card-text">
                 @foreach (var typeName in @selectedProduct.Type)
                 {
-                  <li class="card-text @typeName">@typeName</li>
+                  <li class="card-text @typeName happy">@typeName</li>
                 }
               </ul>
-              <p class="card-text">Price: @selectedProduct.Value.ToString("C")</p>
+              <p class="card-text happy">Price: @selectedProduct.Value.ToString("C")</p>
             </div>
           </div>
         </div>
