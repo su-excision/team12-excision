@@ -73,7 +73,7 @@ a {
     color: black;
     background-color: #ffde59;
     border-color: #ffde59;
-    font-family: 'Creepster', cursive;
+    
 }
 
 .btn-primary:hover {
@@ -140,17 +140,7 @@ body {
     background-repeat: no-repeat;
 }
 
-p {
-    font-family: 'Creepster', cursive;
-}
 
-h1 {
-    font-family: 'Creepster', cursive;
-}
-
-ul {
-    font-family: 'Creepster', cursive;
-}
 
 .footer {
     position: absolute;
@@ -339,4 +329,8 @@ ul.type-list li {
     min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
+}
+.card-text {
+    font-family: 'Happy Monkey', cursive;
+    font-weight: bold;
 }
