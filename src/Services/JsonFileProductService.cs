@@ -57,6 +57,21 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
+        /// GetProduct returns a single product, reference by Product ID. If
+        /// the Product ID does not exist, it returns null.
+        /// </summary>
+        /// <param name="productId">the Product ID to search for</param>
+        /// <returns>the corresponding </returns>
+        public ProductModel GetProduct(string productId)
+        {
+            // get products
+            var products = GetProducts();
+
+            // return the desired product or sadness
+            return products.FirstOrDefault(x => x.Id.Equals(productId));
+        }
+
+        /// <summary>
         /// AddRating adds a single rating (numbered 1 to 5) to an entry in the database.
         /// </summary>
         /// <param name="productId">Card ID for the Pokémon card in the database</param>
