@@ -61,7 +61,7 @@ namespace ContosoCrafts.WebSite.Services
         /// the Product ID does not exist, it returns null.
         /// </summary>
         /// <param name="productId">the Product ID to search for</param>
-        /// <returns>the corresponding </returns>
+        /// <returns>the Product matching the Product ID or null </returns>
         public ProductModel GetProduct(string productId)
         {
             // get products
