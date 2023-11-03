@@ -39,7 +39,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <param name="id">the Product Id for the desired Product to load.</param>
         public void OnGet(string id)
         {
-            Product = _productService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            Product = _productService.GetProduct(id);
         }
     }
 }
