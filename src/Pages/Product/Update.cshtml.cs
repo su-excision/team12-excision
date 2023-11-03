@@ -44,9 +44,9 @@ namespace ContosoCrafts.WebSite.Pages.Product.Update
         /// <param name="id"></param>
         public void OnGet(string id)
         {
-            Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            Product = ProductService.GetProduct(id);
 
-                AvailableTypes = new List<string>
+            AvailableTypes = new List<string>
             {
                 "grass", "lightning", "darkness", "fairy", "fire",
                 "psychic", "metal", "dragon", "water", "fighting", "colorless"
