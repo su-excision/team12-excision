@@ -146,6 +146,53 @@ namespace UnitTests.Services.JsonFileProductService
 
         #endregion AddRating
 
+        #region GetProduct
+
+        /// <summary>
+        /// Test to verify that GetProduct returns null if the provided
+        /// Product ID is not in the datastore.
+        /// </summary>
+        [Test]
+        public void GetProduct_Invalid_InvalidProductId_Should_ReturnNull()
+        {
+            // Arrange
+            const string TestId = "Invalid ID";
+
+            // Act
+
+            var result = TestHelper.ProductService.GetProduct(TestId);
+
+            // Assert
+            Assert.AreEqual(null, result);
+
+        }
+
+        /// <summary>
+        /// Test to verify that GetProduct returns the desired product
+        /// if the provided Product ID is contained in the datastore.
+        /// </summary>
+        [Test]
+        public void GetProduct_Valid_ValidProduct_Should_ReturnProduct()
+        {
+            // Arrange
+            const string TestId = "Test ID";
+            var testProduct = new TestProductBuilder().WithId(TestId).Build();
+            TestHelper.ProductService.AddProduct(testProduct); // add test product
+
+            // Act
+            var result = TestHelper.ProductService.GetProduct(testProduct.Id);
+            TestHelper.ProductService.DeleteProduct(TestId); // delete test product
+
+
+            // Assert
+            Assert.AreEqual(testProduct.Id, result.Id);
+            Assert.AreEqual(testProduct.Name, result.Name);
+            Assert.AreEqual(testProduct.Description, result.Description);
+
+        }
+
+        #endregion GetProduct
+
         #region UpdateData
 
         /// <summary>
