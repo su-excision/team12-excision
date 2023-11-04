@@ -4,13 +4,9 @@
     ViewData["Title"] = "Index page";
 }
 
-<small class="create-button">
-    <small class="create-button-container">
-        <small class="create-button-container">
-            <a href="Product/Create" class="create-button">Create a New Card</a>
-        </small>
-    </small>
-</small>
+<button type="button" class="btn btn-primary">
+    <a asp-page="Create" asp-rout-id ="">Create a New Card</a>
+</button>
 <div class="products-container">
     <table class="table table-bordered table-striped">
         <thead>
