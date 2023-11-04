@@ -332,3 +332,6 @@ ul.type-list li {
     font-family: 'Happy Monkey', cursive;
     font-weight: bold;
 }
+.aboutpage {
+    backdrop-filter: blur(10px);
+}
