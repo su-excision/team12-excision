@@ -330,7 +330,7 @@ namespace UnitTests.Services.JsonFileProductService
 
             // Act
             var result = TestHelper.ProductService.DeleteProduct(idToDelete);
-            var isProductInList = (TestHelper.ProductService.GetProducts().FirstOrDefault(p => p.Id == idToDelete) != null);
+            var isProductInList = TestHelper.ProductService.GetProduct(idToDelete) != null;
             var finalCount = TestHelper.ProductService.GetProducts().Count();
 
             // Assert
