@@ -72,6 +72,26 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
+        /// GetFirstProduct returns the first product in the datastore.
+        /// If there the datastore is empty, it returns null.
+        /// </summary>
+        /// <returns>the first Product in the datastore or, if no products
+        /// exist in the datastore, null</returns>
+        public ProductModel GetFirstProduct()
+        {
+            // get products
+            var products = GetProducts();
+
+            if (products == null)
+            {
+                return null;
+            }
+
+            // return the first product
+            return products.First<ProductModel>();
+        }
+
+        /// <summary>
         /// AddRating adds a single rating (numbered 1 to 5) to an entry in the database.
         /// </summary>
         /// <param name="productId">Card ID for the Pokémon card in the database</param>
