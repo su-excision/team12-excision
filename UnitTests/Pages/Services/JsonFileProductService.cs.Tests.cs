@@ -129,11 +129,11 @@ namespace UnitTests.Services.JsonFileProductService
         {
             // Arrange
             const int TestRating = 3;
-            const string TestID = "BLW-051";
+            const string TestId = "BLW-051";
 
             // Act
-            var methodOutcome = TestHelper.ProductService.AddRating(TestID, TestRating);
-            var testProduct = TestHelper.ProductService.GetProducts().FirstOrDefault(p => p.Id == TestID);
+            var methodOutcome = TestHelper.ProductService.AddRating(TestId, TestRating);
+            var testProduct = TestHelper.ProductService.GetProduct(TestId);
 
             // Reset
 
@@ -205,10 +205,8 @@ namespace UnitTests.Services.JsonFileProductService
             // Arrange
 
             // Act
-            var invalidProduct = new ProductModel
-            {
-                Id = "invalid product"
-            };
+            const string TestId = "Invalid ID";
+            var invalidProduct = new TestProductBuilder().WithId(TestId).Build();
             var result = TestHelper.ProductService.UpdateData(invalidProduct);
 
             // Reset
@@ -251,13 +249,14 @@ namespace UnitTests.Services.JsonFileProductService
         /// <summary>
         /// Tests to verify that an attempt to add a product to the database where there
         /// already exists a product with the same Product ID is not successful.
+        /// Test will fail if there are no products in the datastore.
         /// </summary>
         [Test]
         public void AddProduct_Invalid_ExistingProduct_Should_ReturnFalse()
         {
             // Arrange
-            const string DuplicateId = "SVI-001";
-            var duplicateProduct = new TestProductBuilder().WithId(DuplicateId).Build();
+            var duplicateId = TestHelper.ProductService.GetProducts().First<ProductModel>().Id;
+            var duplicateProduct = new TestProductBuilder().WithId(duplicateId).Build();
 
             var startingCount = TestHelper.ProductService.GetProducts().Count();
 
