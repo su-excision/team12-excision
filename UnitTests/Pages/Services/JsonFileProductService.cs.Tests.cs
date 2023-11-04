@@ -105,12 +105,12 @@ namespace UnitTests.Services.JsonFileProductService
         {
             // Arrange
             const int TestRating = 3;
-            const string TestID = "SVI-001";
-            var preCount = TestHelper.ProductService.GetProducts().FirstOrDefault(p => p.Id == TestID).Ratings.Length;
+            const string TestId = "SVI-001";
+            var preCount = TestHelper.ProductService.GetProduct(TestId).Ratings.Length;
 
             // Act
-            var methodOutcome = TestHelper.ProductService.AddRating(TestID, TestRating);
-            var testProduct = TestHelper.ProductService.GetProducts().FirstOrDefault(p => p.Id == TestID);
+            var methodOutcome = TestHelper.ProductService.AddRating(TestId, TestRating);
+            var testProduct = TestHelper.ProductService.GetProduct(TestId);
 
             // Reset
 
