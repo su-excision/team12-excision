@@ -227,12 +227,12 @@ namespace UnitTests.Services.JsonFileProductService
             // Arrange
             const string TestDescription = "test description";
 
-            var testProduct = TestHelper.ProductService.GetProducts().First<ProductModel>();
+            var testProduct = TestHelper.ProductService.GetFirstProduct();
             testProduct.Description = TestDescription;
 
             // Act
             var result = TestHelper.ProductService.UpdateData(testProduct);
-            var updatedProduct = TestHelper.ProductService.GetProducts().First<ProductModel>();
+            var updatedProduct = TestHelper.ProductService.GetProduct(testProduct.Id);
 
             // Reset
 
@@ -255,7 +255,7 @@ namespace UnitTests.Services.JsonFileProductService
         public void AddProduct_Invalid_ExistingProduct_Should_ReturnFalse()
         {
             // Arrange
-            var duplicateId = TestHelper.ProductService.GetProducts().First<ProductModel>().Id;
+            var duplicateId = TestHelper.ProductService.GetFirstProduct().Id;
             var duplicateProduct = new TestProductBuilder().WithId(duplicateId).Build();
 
             var startingCount = TestHelper.ProductService.GetProducts().Count();
@@ -282,9 +282,10 @@ namespace UnitTests.Services.JsonFileProductService
             var startingCount = TestHelper.ProductService.GetProducts().Count();
 
             // Act
-            var result = TestHelper.ProductService.AddProduct(newProduct);
-            var isProductInList = (TestHelper.ProductService.GetProducts().FirstOrDefault(p => p.Id == NewTestId) != null);
-            var finalCount = TestHelper.ProductService.GetProducts().Count();
+            var result = TestHelper.ProductService.AddProduct(newProduct); // add new prod
+            var isProductInList = TestHelper.ProductService.GetProduct(NewTestId) != null;
+            var finalCount = TestHelper.ProductService.GetProducts().Count(); // get count
+            TestHelper.ProductService.DeleteProduct(NewTestId); // delete new prod
 
             // Assert
             Assert.AreEqual(true, result);
@@ -329,7 +330,7 @@ namespace UnitTests.Services.JsonFileProductService
         public void DeleteProduct_Valid_ContainsProduct_Should_RemoveItem()
         {
             // Arrange
-            string idToDelete = TestHelper.ProductService.GetProducts().First<ProductModel>().Id;
+            string idToDelete = TestHelper.ProductService.GetFirstProduct().Id;
             int startingCount = TestHelper.ProductService.GetProducts().Count();
 
             // Act
