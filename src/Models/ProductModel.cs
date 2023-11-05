@@ -33,6 +33,8 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Name of the Expansion Set that the card comes from.
         /// </summary>
+        [Display(Name = "Pokémon Expansion", Prompt = "Enter the Expansion that the Pokémon Card comes from.")]
+        [Required]
         public string Expansion { get; set; }
 
 
