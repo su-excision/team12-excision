@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ContosoCrafts.WebSite.Models
 {
@@ -9,6 +10,9 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Unique ID for the card (usually in the format of <c>SET-INDEX</c>.
         /// </summary>
+        [Display(Name = "Pokémon Card Unique ID", Prompt = "Enter the Unique ID of the Pokémon Card.")]
+        [StringLength(maximumLength: 8, MinimumLength = 6, ErrorMessage = "Unique Card ID should be between {1} and {2} characters long.")]
+        [Required]
         public string Id { get; set; }
 
         /// <summary>
