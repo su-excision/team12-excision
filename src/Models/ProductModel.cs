@@ -41,6 +41,8 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Field that holds the rarity of the card
         /// </summary>
+        [Display(Name = "Pokémon Card Rarity", Prompt = "Enter the Rarity (Common, Uncommon, Rare, Ultra Rare) for the Pokémon Card.")]
+        [Required]
         public string Rarity { get; set; }
 
         /// <summary>
