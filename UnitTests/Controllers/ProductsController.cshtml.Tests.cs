@@ -6,6 +6,8 @@ using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace ContosoCrafts.WebSite.Controllers
 {
@@ -34,8 +36,8 @@ namespace ContosoCrafts.WebSite.Controllers
         [Test]
         public void Get_Valid_Test_Reading_Should_Return_IsBadImage_False()
         {
-            // Arrange - Create test product data directly
-            var expectedProductCount = 10; // Adjust this value as needed
+            // Arrange
+            var expectedProductCount = 10;
 
             // Act
             var result = productsController.Get();
@@ -48,5 +50,33 @@ namespace ContosoCrafts.WebSite.Controllers
             Assert.AreEqual(expectedProductCount, actualProducts.Count());
         }
         #endregion Get
+
+        #region Patch
+        [Test]
+        public void Patch_With_ValidRequest_Should_ReturnOk()
+        {
+            // Arrange 
+            var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
+            mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
+            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
+            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data");
+
+            var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
+
+            var productsController = new ProductsController(productService);
+
+            var request = new ProductsController.RatingRequest
+            {
+                ProductId = "testProductId",
+                Rating = 5
+            };
+
+            // Act
+            var result = productsController.Patch(request);
+
+            // Assert
+            Assert.IsInstanceOf<OkResult>(result);
+        }
+        #endregion Patch
     }
 }
