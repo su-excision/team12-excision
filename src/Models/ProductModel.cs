@@ -48,6 +48,9 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Field that holds the availability of the card
         /// </summary>
+        [Display(Name = "Number of Cards Available", Prompt = "Enter the number of Pokémon Cards currently availabled.")]
+        [Range(0, 1000, ErrorMessage = "Card Availability must be greater than or equal to {1} and less than {2}.")]
+        [Required]
         public int Availability { get; set; }
 
 
