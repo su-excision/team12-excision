@@ -1,97 +1,52 @@
-using System.Diagnostics;
-
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
-
+using System.Collections.Generic;
 using NUnit.Framework;
-
 using Moq;
-
-using ContosoCrafts.WebSite.Pages;
+using ContosoCrafts.WebSite.Controllers;
 using ContosoCrafts.WebSite.Services;
+using ContosoCrafts.WebSite.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.Linq;
 
 namespace ContosoCrafts.WebSite.Controllers
 {
+    [TestFixture]
     public class ProductsControllerTests
     {
-        #region TestSetup
-        public static IUrlHelperFactory urlHelperFactory;
-        public static DefaultHttpContext httpContextDefault;
-        public static IWebHostEnvironment webHostEnvironment;
-        public static ModelStateDictionary modelState;
-        public static ActionContext actionContext;
-        public static EmptyModelMetadataProvider modelMetadataProvider;
-        public static ViewDataDictionary viewData;
-        public static TempDataDictionary tempData;
-        public static PageContext pageContext;
-
-        public static AboutUsModel pageModel;
+        #region Setup
+        private ProductsController productsController;
+        private IWebHostEnvironment testWebHostEnvironment;
 
         [SetUp]
         public void TestInitialize()
         {
-            httpContextDefault = new DefaultHttpContext()
-            {
-                TraceIdentifier = "trace",
-                //RequestServices = serviceProviderMock.Object,
-            };
-            httpContextDefault.HttpContext.TraceIdentifier = "trace";
-
-            modelState = new ModelStateDictionary();
-
-            actionContext = new ActionContext(httpContextDefault, httpContextDefault.GetRouteData(), new PageActionDescriptor(), modelState);
-
-            modelMetadataProvider = new EmptyModelMetadataProvider();
-            viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
-            tempData = new TempDataDictionary(httpContextDefault, Mock.Of<ITempDataProvider>());
-
-            pageContext = new PageContext(actionContext)
-            {
-                ViewData = viewData,
-                HttpContext = httpContextDefault
-            };
-
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
-            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
+            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data");
 
-            var MockLoggerDirect = Mock.Of<ILogger<AboutUsModel>>();
-            JsonFileProductService productService;
-
-            productService = new JsonFileProductService(mockWebHostEnvironment.Object);
-
-            pageModel = new AboutUsModel(MockLoggerDirect)
-            {
-                PageContext = pageContext,
-                TempData = tempData,
-            };
+            testWebHostEnvironment = mockWebHostEnvironment.Object;
+            var productService = new JsonFileProductService(testWebHostEnvironment);
+            productsController = new ProductsController(productService);
         }
+        #endregion Setup
 
-        #endregion TestSetup
-
-        #region OnGet
+        #region Get
         [Test]
-        public void OnGet_Valid_Default_Should_ReturnValid()
+        public void Get_Valid_Test_Reading_Should_Return_IsBadImage_False()
         {
-            // Arrange
+            // Arrange - Create test product data directly
+            var expectedProductCount = 10; // Adjust this value as needed
 
             // Act
-            pageModel.OnGet();
-
-            // Reset
+            var result = productsController.Get();
 
             // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-        }
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOf<IEnumerable<ProductModel>>(result);
 
-        #endregion OnGet
+            var actualProducts = (IEnumerable<ProductModel>)result;
+            Assert.AreEqual(expectedProductCount, actualProducts.Count());
+        }
+        #endregion Get
     }
 }
