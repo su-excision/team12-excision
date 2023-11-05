@@ -65,6 +65,8 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Link to an image of the associated card.
         /// </summary>
+        [Display(Name = "Pokémon Card Image URL", Prompt = "Enter the URL for the Pokémon Card Image")]
+        [Required]
         [JsonPropertyName("img")]
         public string Image { get; set; }
 
