@@ -73,6 +73,9 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Detailed description of the card.
         /// </summary>
+        [Display(Name = "Pokémon Card Description", Prompt = "Enter the description for the Pokémon Card.")]
+        [StringLength(maximumLength: 200, MinimumLength = 10, ErrorMessage = "Card Description should be between {1} and {2} characters long.")]
+        [Required]
         public string Description { get; set; }
 
         /// <summary>
