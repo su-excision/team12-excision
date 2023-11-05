@@ -1,22 +1,26 @@
 ﻿.create-button {
-    display: inline-block;
-    background-color: #007BFF; /* Background color */
-    color: #fff; /* Text color */
-    padding: 10px 20px; /* Padding around the text */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px; /* Text size */
-    cursor: pointer; /* Show hand cursor on hover */
-    text-decoration: none; /* Remove default link underline */
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
 }
 
-    .create-button:hover {
-        background-color: #0056b3; /* Darker background color on hover */
-    }
-
-/* If you want to center the button, you can use the following styles */
-.create-button-container {
-    text-align: center; /* Center-align the button within its container */
+.create-button {
+    background-color: #ffde59 !important;
+    color: black !important;
+    border: 10px !important;
+    padding: 25px 40px !important;
+    font-size: 20px !important;
+    border-radius: 10px !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+    background-image: url('https://www.photofunky.net/output/image/b/f/2/f/bf2f44/photofunky.gif');
+    background-size: 150px;
+}
+.create-button:hover {
+    background-color: #55ebf5 !important;
 }
 
 
