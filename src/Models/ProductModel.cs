@@ -26,6 +26,8 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Value of card in USD.
         /// </summary>
+        [Range(0, 1000, ErrorMessage = "Card Price must be greater than ${1} and less than ${2}.")]
+        [Required]
         public float Value { get; set; }
 
         /// <summary>
