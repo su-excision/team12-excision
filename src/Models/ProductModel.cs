@@ -18,6 +18,9 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Name printed on the card. Not necessarily unique.
         /// </summary>
+        [Display(Name = "Pokémon Card Name", Prompt = "Enter the Name of the Pokémon Card.")]
+        [StringLength(maximumLength: 24, MinimumLength = 3, ErrorMessage = "Card Name should be between {1} and {2} characters long.")]
+        [Required]
         public string Name { get; set; }
 
         /// <summary>
