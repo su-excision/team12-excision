@@ -83,6 +83,10 @@ namespace ContosoCrafts.WebSite.Models
         /// </summary>
         public int[] Ratings { get; set; }
 
+        /// <summary>
+        /// ToString returns a string of the Product data, serialized in JSON format.
+        /// </summary>
+        /// <returns>The Product data serialized in JSON format</returns>
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
 
 
