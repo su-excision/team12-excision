@@ -327,4 +327,8 @@ ul.type-list li {
 .aboutpage {
     backdrop-filter: blur(10px);
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
