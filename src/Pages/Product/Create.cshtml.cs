@@ -41,19 +41,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Create
         public IActionResult OnGet()
         {
             /// Initialize the ProductModel with default values
-            Product = new ProductModel
-            {
-                Id = "ID",
-                Name = "Enter the Name of the Pokemon",
-                Value = 0f,
-                Expansion = "Enter the Expansion",
-                Rarity = "Enter the Rarity",
-                Availability = 0,
-                Type = new List<string> { "Fire" },
-                Image = "https://i.imgflip.com/4u072l.png",
-                Description = "Enter the Description",
-                Ratings = { } // Use an array for 'Ratings'
-            };
+            Product = new ProductModel();
 
             /// Display the list of types
             AvailableTypes = new List<string>
