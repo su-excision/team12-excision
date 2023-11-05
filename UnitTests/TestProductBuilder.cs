@@ -1,9 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
 using ContosoCrafts.WebSite.Models;
 
+/// <summary>
+/// A builder class for creating instances of the ProductModel for testing
+/// </summary>
 namespace Namespace;
 public class TestProductBuilder
 {
