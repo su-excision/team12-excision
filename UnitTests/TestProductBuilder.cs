@@ -56,8 +56,7 @@ public class TestProductBuilder
     /// <summary>
     /// Array of Ratings for the test product to be built
     /// </summary>
-    private int[] _ratings;
-
+    private int[] _ratings = new int[] { };
     /// <summary>
     /// Sets the Id for the Test Product to be built.
     /// </summary>
