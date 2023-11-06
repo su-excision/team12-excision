@@ -107,13 +107,13 @@ namespace UnitTests.Pages.Product.Create
             // Assert
             Assert.IsNotNull(createModel.Product);
             Assert.AreEqual(productId, "ID");
-            Assert.AreEqual("Enter the Name of the Pokemon", createModel.Product.Name);
+            Assert.AreEqual(null, createModel.Product.Name);
             Assert.AreEqual(0f, createModel.Product.Value);
-            Assert.AreEqual("Enter the Expansion", createModel.Product.Expansion);
-            Assert.AreEqual("Enter the Rarity", createModel.Product.Rarity);
+            Assert.AreEqual(null, createModel.Product.Expansion);
+            Assert.AreEqual(null, createModel.Product.Rarity);
             Assert.AreEqual(0, createModel.Product.Availability);
-            Assert.AreEqual("https://i.imgflip.com/4u072l.png", createModel.Product.Image);
-            Assert.AreEqual("Enter the Description", createModel.Product.Description);
+            Assert.AreEqual(null, createModel.Product.Image);
+            Assert.AreEqual(null, createModel.Product.Description);
             Assert.AreEqual(null, createModel.Product.Ratings);
             CollectionAssert.AreEqual(
                 new List<string> { "grass", "lightning", "darkness", "fairy", "fire", "psychic", "metal", "dragon", "water", "fighting", "colorless" },
