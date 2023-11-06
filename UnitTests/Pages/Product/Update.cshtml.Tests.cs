@@ -333,5 +333,52 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual("./Index", redirectToPageResult.PageName);
         }
         #endregion OnPost
+
+        #region Update
+        [Test]
+        public void OnPost_Update_Product_Should_Reflect_Changes()
+        {
+            // Arrange
+            var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
+            mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
+            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
+            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
+
+            var testWebHostEnvironment = mockWebHostEnvironment.Object;
+            var productService = new JsonFileProductService(testWebHostEnvironment);
+            var updateModel = new UpdateModel(productService);
+            var validProduct = new ProductModel
+            {
+                Id = "SVI-002",
+                Name = "Heracross",
+                Description = "It gathers in forests to search for tree sap, its favorite food. It's strong enough to hurl foes.",
+                Value = 14.99f,
+                Rarity = "Uncommon",
+                Availability = 8,
+                Type = new List<string> { "Bug", "Fighting" }
+            };
+
+            updateModel.ModelState.Clear();
+            updateModel.Product = validProduct;
+
+            // Act
+            var result = updateModel.OnPost();
+
+            // Assert
+            Assert.IsInstanceOf<RedirectToPageResult>(result);
+            var redirectToPageResult = (RedirectToPageResult)result;
+            Assert.AreEqual("./Index", redirectToPageResult.PageName);
+
+            // to prove update, read again and verify changes
+            var updatedProduct = productService.GetProduct("SVI-002");
+            Assert.IsNotNull(updatedProduct);
+            Assert.AreEqual(validProduct.Name, updatedProduct.Name);
+            Assert.AreEqual(validProduct.Description, updatedProduct.Description);
+            Assert.AreEqual(validProduct.Value, updatedProduct.Value);
+            Assert.AreEqual(validProduct.Rarity, updatedProduct.Rarity);
+            Assert.AreEqual(validProduct.Availability, updatedProduct.Availability);
+            CollectionAssert.AreEqual(validProduct.Type, updatedProduct.Type);
+        }
+        #endregion Update
     }
 }
