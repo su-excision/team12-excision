@@ -1,0 +1,40 @@
+:root {
+    /* Light Mode Color Scheme */
+    --color-text-light: #000000;
+    --color-link-light: #0033FF;
+    --color-bg-light: #ffffff;
+    --color-card-bg-light: rgba(255, 255, 255, 0.5);
+    
+    /* Dark Mode Color Scheme */
+    --color-text-dark: #ffffff;
+    --color-bg-dark: #000000;
+    --color-card-bg-dark: rgba(255, 255, 255, 0.10);
+
+    /* Pokémon type colors */
+    --color-poketype-bug: #a8b820;
+    --color-poketype-dark: #705848;
+    --color-poketype-dragon: #7038f8;
+    --color-poketype-electric: #f8d030;
+    --color-poketype-fairy: #ee99ac;
+    --color-poketype-fighting: #c03028;
+    --color-poketype-fire: #f08030;
+    --color-poketype-flying: #a890f0;
+    --color-poketype-ghost: #705898;
+    --color-poketype-grass: #78c850;
+    --color-poketype-ground: #e0c068;
+    --color-poketype-ice: #98d8d8;
+    --color-poketype-normal: #a8a878;
+    --color-poketype-poison: #a040a0;
+    --color-poketype-psychic: #f85888;
+    --color-poketype-rock: #b8a038;
+    --color-poketype-steel: #b8b8d0;
+    --color-poketype-water: #6890f0;
+
+    /* Colors for gradient */
+    --color-pikachu: #FFCB05;
+    --color-charizard: #FF3B30;
+    --color-squirtle: #0099E1;
+    --color-bulbasaur: #77B85B;
+    --color-jigglypuff: #FFA6C9;
+    
+}
