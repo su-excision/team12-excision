@@ -4,6 +4,7 @@
     text-align: center;
     padding: 20px;
 }
+﻿@import url("./core-colors.css");
 
 .create-button {
     background-color: #ffde59 !important;
@@ -155,13 +156,6 @@ body {
     z-index: 2;
 }
 
-/*Backgrounds*/
-:root {
-    --color-pikachu: #FFCB05;
-    --color-charizard: #FF3B30;
-    --color-squirtle: #0099E1;
-    --color-bulbasaur: #77B85B;
-    --color-jigglypuff: #FFA6C9;
 }
 
 .bg-gradient {
