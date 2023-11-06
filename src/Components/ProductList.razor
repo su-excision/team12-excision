@@ -13,8 +13,8 @@
       </div>
       <img class="card-img-top img-fluid" src="@product.Image" alt="@product.Description">
       <div class="card-footer d-flex justify-content-between align-items-center">
-        <p class="card-text my-0 happy">Availabity: @product.Availability</p>
-        <p class="card-text my-0 happy">Value: @product.Value.ToString("C")</p>
+        <p class="card-text my-0 fancyscript">Availabity: @product.Availability</p>
+        <p class="card-text my-0 fancyscript">Value: @product.Value.ToString("C")</p>
         <small class="text-muted">
           <button @onclick="(e => SelectProduct(product.Id))" data-toggle="modal" data-target="#productModal" class="btn btn-primary happy">More Info</button>
         </small>
