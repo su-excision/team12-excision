@@ -1,10 +1,12 @@
-﻿.create-button {
+﻿@import url("./core-colors.css");
+
+.create-button {
     display: block;
     margin: 0 auto;
     text-align: center;
     padding: 20px;
 }
-﻿@import url("./core-colors.css");
+
 
 .create-button {
     background-color: #ffde59 !important;
@@ -20,6 +22,7 @@
     background-image: url('https://www.photofunky.net/output/image/b/f/2/f/bf2f44/photofunky.gif');
     background-size: 150px;
 }
+
 .create-button:hover {
     background-color: #55ebf5 !important;
 }
@@ -78,7 +81,7 @@ a {
     color: black;
     background-color: #ffde59;
     border-color: #ffde59;
-    
+
 }
 
 .btn-primary:hover {
@@ -156,8 +159,6 @@ body {
     z-index: 2;
 }
 
-}
-
 .bg-gradient {
     background: linear-gradient(to right, var(--color-pikachu), var(--color-charizard), var(--color-squirtle), var(--color-bulbasaur), var(--color-jigglypuff));
     animation: gradientAnimation 3s infinite alternate;
@@ -180,9 +181,9 @@ body {
     left: 0;
     width: 100%;
     height: 100px;
-    background-image: url('/images/Grass.png'); 
-    background-size: contain; 
-    background-repeat: repeat-x; 
+    background-image: url('/images/Grass.png');
+    background-size: contain;
+    background-repeat: repeat-x;
 }
 
 .walking-pokemon {
@@ -190,9 +191,9 @@ body {
     bottom: 0px;
     left: -100px;
     width: 70px;
-    height: 83px; 
+    height: 83px;
     background-image: url('/images/Ghastly.gif');
-    background-size: 100%; 
+    background-size: 100%;
     animation: walk 15s linear infinite;
 }
 
@@ -202,7 +203,7 @@ body {
     }
 
     100% {
-        transform: translateX(2760%); 
+        transform: translateX(2760%);
     }
 }
 
@@ -300,11 +301,13 @@ ul.type-list li {
 .poketype.water {
     background-color: #6890f0;
 }
+
 .products-container {
     font-family: 'Happy Monkey', cursive;
     font-weight: bold;
 }
-.card-modal{
+
+.card-modal {
     position: relative;
     display: -ms-flexbox;
     display: flex;
@@ -314,10 +317,12 @@ ul.type-list li {
     word-wrap: break-word;
     background-color: #fff;
 }
+
 .card-text {
     font-family: 'Happy Monkey', cursive;
     font-weight: bold;
 }
+
 .aboutpage {
     backdrop-filter: blur(10px);
     font-family: 'Poppins', sans-serif;
@@ -326,6 +331,7 @@ ul.type-list li {
     justify-content: center;
     align-items: center;
 }
+
 .about-title {
     font-family: 'Poppins', sans-serif;
     font-size: 48px;
