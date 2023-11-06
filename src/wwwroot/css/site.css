@@ -164,7 +164,7 @@ body {
     --color-jigglypuff: #FFA6C9;
 }
 
-.bg-navbar {
+.bg-gradient {
     background: linear-gradient(to right, var(--color-pikachu), var(--color-charizard), var(--color-squirtle), var(--color-bulbasaur), var(--color-jigglypuff));
     animation: gradientAnimation 3s infinite alternate;
     background-size: 200% 200%;
