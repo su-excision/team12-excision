@@ -1,151 +1,76 @@
 ﻿@import url("./core-colors.css");
 
-.create-button {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
+/****** || General Style *******/
+
+body {
+    color: var(--color-text);
+    font-family: 'Poppins', sans-serif;
 }
 
-
-.create-button {
-    background-color: #ffde59 !important;
-    color: black !important;
-    border: 10px !important;
-    padding: 25px 40px !important;
-    font-size: 20px !important;
-    border-radius: 10px !important;
-    text-transform: uppercase !important;
-    font-weight: bold !important;
-    cursor: pointer !important;
-    transition: background-color 0.3s !important;
-    background-image: url('https://www.photofunky.net/output/image/b/f/2/f/bf2f44/photofunky.gif');
-    background-size: 150px;
-}
-
-.create-button:hover {
-    background-color: #55ebf5 !important;
-}
-
-
-.checked {
-    color: orange;
-}
-
-.fa-star {
-    cursor: pointer;
-}
-
-/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-.card-columns .card:hover .card-img {
-    opacity: 1;
-    -webkit-transform-style: preserve-3d;
-}
-
-.modal .card-img {
-    height: 500px;
-    vertical-align: bottom;
-    background-position: center;
-    /* Center the image */
-    background-repeat: no-repeat;
-    /* Do not repeat the image */
-    background-size: cover;
-    /* Resize the background image to cover the entire container */
-}
-
-.card-deck .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(37, 33, 82, .12), 0 4px 8px rgba(37, 33, 82, .06);
-}
-
-.card-footer {
-    background: #fbfafd;
-}
-
-
-a.navbar-brand {
-    white-space: normal;
-    font-family: 'Press Start 2P', sans-serif;
-    font-size: xx-large;
-    text-align: center;
-    word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
 a {
-    color: #0366d6;
+    color: var(--color-link);
 }
 
-.btn-primary {
-    color: black;
-    background-color: #ffde59;
-    border-color: #ffde59;
-
+.page-title {
+    font-weight: bold;
+    color: var(--color-text-alt);
+    text-align: center;
+    text-shadow: 0.1em 0.1em var(--color-text-alt-shadow);
+    -webkit-text-stroke: .01em var(--color-text-alt-shadow);
 }
 
-.btn-primary:hover {
-    color: black;
-    background-color: #ff9f10;
-    border-color: #ff9f10;
-}
+/****** || Specific Font Selections ******/
 
-.nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.nav-link {
+.poketitle {
     font-family: 'Press Start 2P', sans-serif;
-    font-size: 13px;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    font-size: 14px;
+.fancyscript {
+    font-family: 'Happy Monkey', cursive;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-
-.border-top {
-    border-top: 1px solid #e5e5e5;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
-}
+/****** || Body Background Style ******/
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
     background-image: url('/images/SkyBackground.jpg');
+    margin-bottom: 60px;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+
+    /*
+        @media (prefers-color-scheme: dark) {
+            background-image: url('something else');
+        }
+        */
+}
+
+.bg-blur {
+    backdrop-filter: blur(10px);
+}
+
+/****** || Button Style ******/
+
+.btn-primary {
+    color: var(--color-button-text);
+    background-color: var(--color-button-bg);
+    border-color: var(--color-button-bg);
+
+}
+
+.btn-primary:hover {
+    color: var(--color-button-text);
+    background-color: var(--color-button-bg-highlight);
+    border-color: var(--color-button-bg-highlight);
+}
+
+/****** || To orient sticky footer *******/
+
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 .footer {
@@ -155,9 +80,24 @@ body {
     white-space: nowrap;
     line-height: 60px;
     /* Vertically center the text there */
-    font-family: 'Nunito', sans-serif;
     z-index: 2;
 }
+
+/****** || Modifications to Bootstrap Classes *******/
+
+.card {
+    background: var(--color-card-bg);
+}
+
+.card-deck>div>* {
+    background: var(--color-card-bg);
+}
+
+.card-deck>div:hover {
+    transform: scale(1.05);
+}
+
+/****** || Decoration for Gradient *******/
 
 .bg-gradient {
     background: linear-gradient(to right, var(--color-pikachu), var(--color-charizard), var(--color-squirtle), var(--color-bulbasaur), var(--color-jigglypuff));
@@ -174,6 +114,107 @@ body {
         background-position: 100% 50%;
     }
 }
+
+/****** || Decoration for Star Ratings *******/
+
+.checked {
+    color: var(--color-pikachu);
+}
+
+.fa-star {
+    cursor: pointer;
+}
+
+/****** || Decoration for Pokémon Types *******/
+
+ul.type-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.type-list li {
+    display: inline;
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.5rem;
+    color: white;
+    background-color: gray;
+    text-transform: uppercase;
+}
+
+.poketype.bug {
+    background-color: var(--color-poketype-bug);
+}
+
+.poketype.dark {
+    background-color: var(--color-poketype-dark);
+}
+
+.poketype.dragon {
+    background-color: var(--color-poketype-dragon);
+}
+
+.poketype.electric {
+    background-color: var(--color-poketype-electric);
+}
+
+.poketype.fairy {
+    background-color: var(--color-poketype-fairy);
+}
+
+.poketype.fighting {
+    background-color: var(--color-poketype-fighting);
+}
+
+.poketype.fire {
+    background-color: var(--color-poketype-fire);
+}
+
+.poketype.flying {
+    background-color: var(--color-poketype-flying);
+}
+
+.poketype.ghost {
+    background-color: var(--color-poketype-ghost);
+}
+
+.poketype.grass {
+    background-color: var(--color-poketype-grass);
+}
+
+.poketype.ground {
+    background-color: var(--color-poketype-ground);
+}
+
+.poketype.ice {
+    background-color: var(--color-poketype-ice);
+}
+
+.poketype.normal {
+    background-color: var(--color-poketype-normal);
+}
+
+.poketype.poison {
+    background-color: var(--color-poketype-poison);
+}
+
+.poketype.psychic {
+    background-color: var(--color-poketype-psychic);
+}
+
+.poketype.rock {
+    background-color: var(--color-poketype-rock);
+}
+
+.poketype.steel {
+    background-color: var(--color-poketype-steel);
+}
+
+.poketype.water {
+    background-color: var(--color-poketype-water);
+}
+
+
+/****** Animation for Footer ******/
 
 .grass-background {
     position: absolute;
@@ -207,138 +248,26 @@ body {
     }
 }
 
-.clickable {
-    cursor: pointer;
-}
+/**** redo create button and move to button section above ***/
 
-.poketitle {
-    font-family: 'Press Start 2P', sans-serif;
-}
-
-ul.type-list {
-    list-type: none;
-    padding-left: 0;
-}
-
-ul.type-list li {
-    display: inline;
-    padding: 0.5rem 0.75rem;
-    margin: 0 0.5rem;
-    font-family: sans-serif;
-    color: white;
-    background-color: gray;
-    text-transform: uppercase;
-}
-
-.poketype.bug {
-    background-color: #a8b820;
-}
-
-.poketype.dark {
-    background-color: #705848;
-}
-
-.poketype.dragon {
-    background-color: #7038f8;
-}
-
-.poketype.electric {
-    background-color: #f8d030;
-}
-
-.poketype.fairy {
-    background-color: #ee99ac;
-}
-
-.poketype.fighting {
-    background-color: #c03028;
-}
-
-.poketype.fire {
-    background-color: #f08030;
-}
-
-.poketype.flying {
-    background-color: #a890f0;
-}
-
-.poketype.ghost {
-    background-color: #705898;
-}
-
-.poketype.grass {
-    background-color: #78c850;
-}
-
-.poketype.ground {
-    background-color: #e0c068;
-}
-
-.poketype.ice {
-    background-color: #98d8d8;
-}
-
-.poketype.normal {
-    background-color: #a8a878;
-}
-
-.poketype.poison {
-    background-color: #a040a0;
-}
-
-.poketype.psychic {
-    background-color: #f85888;
-}
-
-.poketype.rock {
-    background-color: #b8a038;
-}
-
-.poketype.steel {
-    background-color: #b8b8d0;
-}
-
-.poketype.water {
-    background-color: #6890f0;
-}
-
-.products-container {
-    font-family: 'Happy Monkey', cursive;
-    font-weight: bold;
-}
-
-.card-modal {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-}
-
-.card-text {
-    font-family: 'Happy Monkey', cursive;
-    font-weight: bold;
-}
-
-.aboutpage {
-    backdrop-filter: blur(10px);
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.about-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 48px;
-    font-weight: bold;
-    color: white;
+.create-button {
+    display: block;
+    margin: 0 auto;
     text-align: center;
-    text-shadow: 0px 0px 10px white;
-    -webkit-text-stroke: 1px white;
-    padding: 8px 0;
+    padding: 20px;
+}
+
+.create-button {
+    background-color: #ffde59 !important;
+    color: black !important;
+    border: 10px !important;
+    padding: 25px 40px !important;
+    font-size: 20px !important;
+    border-radius: 10px !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+    background-image: url('https://www.photofunky.net/output/image/b/f/2/f/bf2f44/photofunky.gif');
+    background-size: 150px;
 }
