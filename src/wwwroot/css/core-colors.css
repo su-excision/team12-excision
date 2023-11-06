@@ -1,15 +1,32 @@
+/*** Main coloring schemes ***/
 :root {
     /* Light Mode Color Scheme */
-    --color-text-light: #000000;
-    --color-link-light: #0033FF;
-    --color-bg-light: #ffffff;
-    --color-card-bg-light: rgba(255, 255, 255, 0.5);
-    
-    /* Dark Mode Color Scheme */
-    --color-text-dark: #ffffff;
-    --color-bg-dark: #000000;
-    --color-card-bg-dark: rgba(255, 255, 255, 0.10);
+    --color-text: black;
+    --color-link: #0033FF;
+    --color-bg: white;
+    --color-card-bg: rgba(255, 255, 255, 0.5);
+    --color-button-text: black;
+    --color-button-bg: #ffde59;
+    --color-button-bg-highlight: #ff9f10;
 
+    /* Dark Mode Color Scheme */
+
+    /* commented out until I finish everything else
+    @media (prefers-color-scheme: dark) {
+        --color-text: white;
+        --color-link: #00AAFF;
+        --color-bg: black;
+        --color-card-bg: rgba(255, 255, 255, 0.15);
+
+    }
+    */
+}
+
+
+
+/*** General Pokémon and Color Stylings ***/
+
+:root {
     /* Pokémon type colors */
     --color-poketype-bug: #a8b820;
     --color-poketype-dark: #705848;
@@ -36,5 +53,5 @@
     --color-squirtle: #0099E1;
     --color-bulbasaur: #77B85B;
     --color-jigglypuff: #FFA6C9;
-    
+
 }
