@@ -13,15 +13,20 @@
 
     /* Dark Mode Color Scheme */
 
-    /* commented out until I finish everything else
+    
     @media (prefers-color-scheme: dark) {
         --color-text: white;
-        --color-link: #00AAFF;
-        --color-bg: black;
-        --color-card-bg: rgba(255, 255, 255, 0.15);
+        --color-text-alt: white;
+        --color-text-alt-shadow: darkgray;
+        --color-link: #00DDFF;
+        --color-bg: rgba(0, 35, 90, 0.85);
+        --color-card-bg: rgba(255, 255, 255, 0.2);
+        --color-button-text: black;
+        --color-button-bg: #ffde59;
+        --color-button-bg-highlight: #ff9f10;
 
     }
-    */
+    
 }
 
 
