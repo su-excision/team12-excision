@@ -223,7 +223,7 @@ ul.type-list li {
 }
 
 
-/****** Animation for Footer ******/
+/****** || Animation for Footer ******/
 
 .grass-background {
     position: absolute;
@@ -255,28 +255,4 @@ ul.type-list li {
     100% {
         transform: translateX(2760%);
     }
-}
-
-/**** redo create button and move to button section above ***/
-
-.create-button {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-}
-
-.create-button {
-    background-color: #ffde59 !important;
-    color: black !important;
-    border: 10px !important;
-    padding: 25px 40px !important;
-    font-size: 20px !important;
-    border-radius: 10px !important;
-    text-transform: uppercase !important;
-    font-weight: bold !important;
-    cursor: pointer !important;
-    transition: background-color 0.3s !important;
-    background-image: url('https://www.photofunky.net/output/image/b/f/2/f/bf2f44/photofunky.gif');
-    background-size: 150px;
 }
