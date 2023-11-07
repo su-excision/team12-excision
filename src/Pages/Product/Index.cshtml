@@ -24,9 +24,9 @@
                 <tr>
                     <td>@product.Name</td>
                     <td>@product.Description</td>
-                    <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
-                    <td><a asp-page="Update" asp-route-id="@product.Id">Update</a></td>
-                    <td><a asp-page="Delete" asp-route-id="@product.Id">Delete</a></td>
+                    <td><a class="btn btn-primary" asp-page="Read" asp-route-id="@product.Id">Read</a></td>
+                    <td><a class="btn btn-primary" asp-page="Update" asp-route-id="@product.Id">Update</a></td>
+                    <td><a class="btn btn-primary" asp-page="Delete" asp-route-id="@product.Id">Delete</a></td>
                 </tr>
             }
         </tbody>
