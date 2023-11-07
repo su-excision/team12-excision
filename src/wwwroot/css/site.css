@@ -11,6 +11,10 @@ a {
     color: var(--color-link);
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 .page-title {
     font-weight: bold;
     color: var(--color-text-alt);
@@ -33,18 +37,15 @@ a {
 
 body {
     /* Margin bottom by footer height */
-    background-image: url('/images/SkyBackground.jpg');
+    background-image: url('/images/background-sky-light.webp');
+    @media (prefers-color-scheme: dark) {
+        background-image: url('/images/background-sky-dark.webp');
+    }
     margin-bottom: 60px;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-
-    /*
-        @media (prefers-color-scheme: dark) {
-            background-image: url('something else');
-        }
-        */
 }
 
 .bg-blur {
@@ -95,6 +96,14 @@ html {
 
 .card-deck>div:hover {
     transform: scale(1.05);
+}
+
+.modal-content {
+    background: var(--color-bg);
+}
+
+.table {
+    color: var(--color-text);
 }
 
 /****** || Decoration for Gradient *******/
