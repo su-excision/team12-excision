@@ -37,26 +37,31 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <div class="card d-flex flex-row">
-          <img class="custom-image" src="@selectedProduct.Image">
-          <div class="card-body">
-            <p class="card-text">Name: @selectedProduct.Name</p>
-            <p class="card-text">Description: @selectedProduct.Description</p>
-            <p class="card-text">Availability: @selectedProduct.Availability</p>
-            <p class="card-text">Rarity: @selectedProduct.Rarity</p>
-            <p class="card-text">Expansion: @selectedProduct.Expansion</p>
-            <p class="card-text">Type:</p>
-            <ul class="card-text">
-              @foreach (var typeName in @selectedProduct.Type)
-              {
-                <li class="card-text @typeName">@typeName</li>
-              }
-            </ul>
-            <p class="card-text">Price: @selectedProduct.Value.ToString("C")</p>
-          </div>
-        </div>
-      </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img class="img-fluid image" src="@selectedProduct.Image">
+                        </div>
+                        <div class="col-md-6">
+                            <p>Name: @selectedProduct.Name</p>
+                            <p>Description: @selectedProduct.Description</p>
+                            <p>Availability: @selectedProduct.Availability</p>
+                            <p>Rarity: @selectedProduct.Rarity</p>
+                            <p>Expansion: @selectedProduct.Expansion</p>
+                            <p>Type:</p>
+                            <ul>
+                                @foreach (var typeName in @selectedProduct.Type)
+                                {
+                                    <li>@typeName</li>
+                                }
+                            </ul>
+                            <p>Price: @selectedProduct.Value.ToString("C")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
       <div class="modal-footer">
         @if (voteCount == 0)
         {
