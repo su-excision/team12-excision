@@ -84,18 +84,22 @@ public class DeleteTests
 
         var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
-        var existingProductId = "SSH-022";
         var deleteModel = new DeleteModel(productService);
 
+        var lastProductId = productService.GetLastProduct().Id;
+
         // Act
-        deleteModel.OnGet(existingProductId);
+        deleteModel.OnGet(lastProductId);
+
+        // 
 
         // Assert
         Assert.AreEqual(true, deleteModel.ModelState.IsValid);
         Assert.IsNotNull(deleteModel.Product);
-        Assert.AreEqual("SSH-022", deleteModel.Product.Id);
+        Assert.AreEqual(lastProductId, deleteModel.Product.Id);
     }
     #endregion OnGet
+
 
     [Test]
     #region OnPost
@@ -109,15 +113,21 @@ public class DeleteTests
 
         var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
-        var existingProductId = "SSH-048";
+        var lastProduct = productService.GetLastProduct();
         var deleteModel = new DeleteModel(productService);
 
         // Act
-        var result = deleteModel.OnPost(existingProductId);
+        var firstCount = productService.GetProducts().Count();
+        var result = deleteModel.OnPost(lastProduct.Id);
+        var isProductInList = productService.GetProduct(lastProduct.Id) != null;
+        var lastCount = productService.GetProducts().Count();
+
+        // Reset
+        productService.AddProduct(lastProduct);
 
         // Assert
-        var deletedProduct = productService.GetProducts().FirstOrDefault(p => p.Id.Equals(existingProductId));
-        Assert.IsNull(deletedProduct, "The product should be deleted.");
+        Assert.AreEqual(firstCount - 1, lastCount);
+        Assert.AreEqual(false, isProductInList);
 
         Assert.IsInstanceOf<RedirectToPageResult>(result);
         var redirectToPageResult = result as RedirectToPageResult;
