@@ -188,6 +188,52 @@ namespace UnitTests.Services.JsonFileProductService
 
         #endregion GetProduct
 
+        #region GetFirstProduct
+
+        /// <summary>
+        /// Tests to verify that GetFirstProduct returns the first product in
+        /// the datastore.
+        /// </summary>
+        [Test]
+        public void GetFirstProduct_Valid_ContainsProducts_Should_ReturnFirst()
+        {
+            // Arrange
+            const string FirstId = "SVI-001";
+
+            // Act
+            var firstProduct = TestHelper.ProductService.GetFirstProduct();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(FirstId, firstProduct.Id);
+        }
+
+        #endregion GetFirstProduct
+
+        #region GetLastProduct
+
+        /// <summary>
+        /// Tests to verify that GetFirstProduct returns the first product in
+        /// the datastore.
+        /// </summary>
+        [Test]
+        public void GetLastProduct_Valid_ContainsProducts_Should_ReturnLast()
+        {
+            // Arrange
+            const string LastId = "SUM-077";
+
+            // Act
+            var lastProduct = TestHelper.ProductService.GetLastProduct();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(LastId, lastProduct.Id);
+        }
+
+        #endregion GetLastProduct
+
         #region UpdateData
 
         /// <summary>
@@ -325,13 +371,16 @@ namespace UnitTests.Services.JsonFileProductService
         public void DeleteProduct_Valid_ContainsProduct_Should_RemoveItem()
         {
             // Arrange
-            string idToDelete = TestHelper.ProductService.GetFirstProduct().Id;
+            var prodToDelete = TestHelper.ProductService.GetLastProduct();
             int startingCount = TestHelper.ProductService.GetProducts().Count();
 
             // Act
-            var result = TestHelper.ProductService.DeleteProduct(idToDelete);
-            var isProductInList = TestHelper.ProductService.GetProduct(idToDelete) != null;
+            var result = TestHelper.ProductService.DeleteProduct(prodToDelete.Id);
+            var isProductInList = TestHelper.ProductService.GetProduct(prodToDelete.Id) != null;
             var finalCount = TestHelper.ProductService.GetProducts().Count();
+
+            // Reset
+            TestHelper.ProductService.AddProduct(prodToDelete);
 
             // Assert
             Assert.AreEqual(true, result);
