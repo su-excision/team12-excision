@@ -18,6 +18,8 @@ using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Pages.Product.Create;
 using ContosoCrafts.WebSite.Models;
 using System.Collections.Generic;
+using Namespace;
+using System.Linq;
 
 
 namespace UnitTests.Pages.Product.Create
@@ -164,27 +166,26 @@ namespace UnitTests.Pages.Product.Create
             var testWebHostEnvironment = mockWebHostEnvironment.Object;
             var productService = new JsonFileProductService(testWebHostEnvironment);
             var createModel = new CreateModel(productService);
-            var validProduct = new ProductModel
-            {
-                Id = "SXA12",
-                Name = "CATERPIE",
-                Description = "Caterpie is a worm-like Pokémon that is mainly green in color with a tan underside. Just below its head are four, tiny legs that are used only for movement.",
-                Value = 9.99f,
-                Rarity = "Uncommon",
-                Availability = 19,
-                Type = new List<string> { "Bug"}
-            };
+            var validProduct = new TestProductBuilder().WithId("Test Id").Build();
 
             createModel.ModelState.Clear();
             createModel.Product = validProduct;
 
             // Act
+            var startCount = productService.GetProducts().Count();
             var result = createModel.OnPost();
+            var newProduct = productService.GetProduct(validProduct.Id);
+            var finalCount = productService.GetProducts().Count();
+
+            // Reset
+            productService.DeleteProduct(validProduct.Id);
 
             // Assert
             Assert.IsInstanceOf<RedirectToPageResult>(result);
             var redirectToPageResult = (RedirectToPageResult)result;
             Assert.AreEqual("./Index", redirectToPageResult.PageName);
+            Assert.AreEqual(startCount + 1, finalCount);
+            Assert.AreEqual(validProduct.Id, newProduct.Id);
         }
         #endregion OnPost
     }
