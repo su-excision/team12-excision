@@ -73,22 +73,28 @@ namespace ContosoCrafts.WebSite.Services
 
         /// <summary>
         /// GetFirstProduct returns the first product in the datastore.
-        /// If there the datastore is empty, it returns null.
         /// </summary>
-        /// <returns>the first Product in the datastore or, if no products
-        /// exist in the datastore, null</returns>
+        /// <returns>the first Product in the datastore</returns>
         public ProductModel GetFirstProduct()
         {
             // get products
             var products = GetProducts();
 
-            if (products == null)
-            {
-                return null;
-            }
-
             // return the first product
             return products.First<ProductModel>();
+        }
+
+        /// <summary>
+        /// GetLastProduct returns the last product in the datastore.
+        /// </summary>
+        /// <returns>the last Product in the datastore</returns>
+        public ProductModel GetLastProduct()
+        {
+            // get products
+            var products = GetProducts();
+
+            // return the first product
+            return products.Last<ProductModel>();
         }
 
         /// <summary>
