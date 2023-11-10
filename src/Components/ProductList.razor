@@ -62,30 +62,77 @@
                 </div>
             </div>
 
-      <div class="modal-footer">
-        @if (voteCount == 0)
-        {
-          <span>Be the first to vote!</span>
-        }
-        else
-        {
-          <span>@voteCount @voteLabel</span>
-        }
-        @for (int i = 1; i < 6; i++)
-        {
-          var currentStar = i;
-          if (i <= currentRating)
-          {
-            <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
-          }
-          else
-          {
-            <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
-          }
-        }
+        <div class="modal-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        @{
+                            var voteString = @voteCount + " " + @voteLabel;
+
+                            if (voteCount == 0)
+                            {
+                                voteString = "Be the first to vote!";
+                            }
+
+                            <span>@voteString</span>
+
+                            for (int i = 1; i < 6; i++)
+                            {
+                                var currentStar = i;
+                                var checkedText = "";
+
+                                if (i <= currentRating)
+                                {
+                                    checkedText = "checked";
+                                }
+
+                                <span class="fa fa-star @checkedText" @onclick="(e => SubmitRating(currentStar))"></span>
+                            }
+                        }
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        @{
+                            // First show all the existing comments
+                            foreach (var comment in selectedProduct.CommentList)
+                            {
+                                <div class="row">
+                                    <div class="col">
+                                        @comment.Comment
+                                    </div>
+                                </div>
+                            }
+
+                            // If this is a new comment, then add the Input boxes for it, else show the Add Comment Button
+                            if (NewComment)
+                            {
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" @onchange="(e) => UpdateCommentText(e.Value.ToString())" value="@NewCommentText" />
+                                        <button @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Comment</button>
+                                    </div>
+                                </div>
+                            }
+
+                            // If this is not a new comment, then show the buttons for Adding comment and Close
+                            if (NewComment == false)
+                            {
+                                <div class="row">
+                                    <div class="col">
+                                        <button @onclick="(e => ShowNewCommentInput())" id="AddComment" class="btn btn-primary">Add Comment</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
     </div>
-  </div>
 </div>
 
 
@@ -95,6 +142,8 @@
 {
   ProductModel selectedProduct;
   string selectedProductId;
+  string FilterDataString = "";
+  bool FilterData = false;
 
   void SelectProduct(string productId)
   {
@@ -129,6 +178,40 @@
     }
 
     System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
+  }
+
+  bool NewComment = false;
+  string NewCommentText = "";
+
+  void ShowNewCommentInput()
+  {
+    NewComment = true;
+  }
+
+  void UpdateCommentText(string newCommentText)
+  {
+    NewCommentText = newCommentText;
+  }
+
+  void AddComment()
+  {
+    selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
+    ProductService.SaveComment(selectedProduct);
+    NewComment = false;
+  }
+  void UpdateFilterText(string text)
+  {
+    FilterDataString = text;
+  }
+
+  void EnableFilterData()
+  {
+    FilterData = true;
+  }
+
+  void ClearFilterData()
+  {
+    FilterData = false;
   }
 
   void SubmitRating(int rating)
