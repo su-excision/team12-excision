@@ -83,6 +83,9 @@ namespace ContosoCrafts.WebSite.Models
         /// </summary>
         public int[] Ratings { get; set; }
 
+        // Store the Comments entered by the users on this product
+        public List<CommentModel> CommentList { get; set; } = new List<CommentModel>();
+
         /// <summary>
         /// ToString returns a string of the Product data, serialized in JSON format.
         /// </summary>
