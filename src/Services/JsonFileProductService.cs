@@ -271,6 +271,29 @@ namespace ContosoCrafts.WebSite.Services
 
         }
 
+        /// <summary>
+        /// Find the data record
+        /// Update the fields
+        /// Save to the data store
+        /// </summary>
+        /// <param name="data"></param>
+        public bool SaveComment(ProductModel data)
+        {
+            // product list
+            var products = GetProducts();
+            var existingProduct = products.FirstOrDefault(p => p.Id == data.Id);
 
+            // if product not in list
+            if (existingProduct == null)
+            {
+                return false;
+            }
+
+            existingProduct.CommentList = data.CommentList;
+
+            // write the product list to the file
+            WriteJsonFile(products);
+            return true;
+        }
     }
 }
