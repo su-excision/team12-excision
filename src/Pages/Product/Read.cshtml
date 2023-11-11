@@ -10,7 +10,7 @@
 @{
     double averageRating = 0;
     string rating;
-    @if (Model.Product.Ratings != null)
+    @if (Model.Product.Ratings.Count() > 0)
     {
         averageRating = Model.Product.Ratings.Length > 0 ? Model.Product.Ratings.Average() : 0;
         rating = averageRating.ToString("F2") + "/5.00";
