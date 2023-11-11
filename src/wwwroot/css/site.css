@@ -99,7 +99,8 @@ html {
 }
 
 .modal-content {
-    background: var(--color-bg);
+    background-image: url('/images/background-sky-light.webp');
+    background-size: cover;
 }
 
 .table {
