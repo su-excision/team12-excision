@@ -101,6 +101,9 @@ html {
 .modal-content {
     background-image: url('/images/background-sky-light.webp');
     background-size: cover;
+    @media (prefers-color-scheme: dark) {
+        background-image: url('/images/background-sky-dark.webp');
+    }
 }
 
 .table {
