@@ -20,6 +20,7 @@ using ContosoCrafts.WebSite.Models;
 using System.Collections.Generic;
 using Namespace;
 using System.Linq;
+using System;
 
 
 namespace UnitTests.Pages.Product.Create
@@ -116,7 +117,7 @@ namespace UnitTests.Pages.Product.Create
             Assert.AreEqual(0, createModel.Product.Availability);
             Assert.AreEqual(null, createModel.Product.Image);
             Assert.AreEqual(null, createModel.Product.Description);
-            Assert.AreEqual(null, createModel.Product.Ratings);
+            Assert.IsEmpty(createModel.Product.Ratings);
             CollectionAssert.AreEqual(
                 new List<string> { "grass", "lightning", "darkness", "fairy", "fire", "psychic", "metal", "dragon", "water", "fighting", "colorless" },
                 createModel.AvailableTypes);
