@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using Namespace;
+using ContosoCrafts.WebSite.Models;
 
 namespace UnitTests.Models
 {
@@ -40,6 +41,30 @@ namespace UnitTests.Models
         #endregion ToString
 
 
+        #region CopyTo
+
+        /// <summary>
+        /// Tests that CopyTo makes a copy of the content of the ProductModel 
+        /// but not the same memory reference.
+        /// </summary>
+        [Test]
+        public void CopyTo_Valid_Default_Should_CreateCopy()
+        {
+            // Arrange
+            var testProduct = new TestProductBuilder().Build();
+            var copyProduct = new ProductModel();
+
+            // Act
+            testProduct.CopyTo(copyProduct);
+
+            // Reset
+
+            // Assert
+            Assert.AreNotSame(testProduct, copyProduct);
+            Assert.AreEqual(testProduct.ToString(), copyProduct.ToString());
+        }
+
+        #endregion CopyTo
     }
 
 }
