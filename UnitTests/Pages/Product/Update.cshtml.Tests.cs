@@ -22,8 +22,14 @@ using System.Collections.Generic;
 
 namespace UnitTests.Pages.Product.Update
 {
+    /// <summary>
+    /// Unit tests for the Update functionality of the Product Page
+    /// </summary>
     public class UpdateTests
     {
+        ///<summary>
+        ///Attributes and objects used for setting up the test environment
+        ///</summary>
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
@@ -40,6 +46,9 @@ namespace UnitTests.Pages.Product.Update
         [SetUp]
         public void TestInitialize()
         {
+            ///<summary>
+            ///Initialize objects for test environment
+            ///</summary>
             httpContextDefault = new DefaultHttpContext()
             {
                 //RequestServices = serviceProviderMock.Object,
@@ -76,6 +85,9 @@ namespace UnitTests.Pages.Product.Update
         #endregion TestSetup
 
         #region OnGet
+        ///<summary>
+        ///This test checks if OnGet method, when called with valid parameters, returns the expected products.
+        ///</summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
@@ -88,7 +100,9 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(10, pageModel.Products.ToList().Count);
         }
-
+        ///<summary>
+        ///This test checks if the OnGet method populates the Product and AvailableTypes properties correctly.
+        ///</summary>
         [Test]
         public void OnGet_Should_Populate_Product_And_AvailableTypes()
         {
@@ -119,9 +133,12 @@ namespace UnitTests.Pages.Product.Update
         }
         #endregion OnGet
 
-
+        
         #region ProductService
         [Test]
+        ///<summary>
+        ///This test checks if the ProductService property returns the expected value.
+        ///</summary>
         public void ProductService_Property_Should_Return_Expected_Value()
         {
             // Arrange
@@ -143,6 +160,9 @@ namespace UnitTests.Pages.Product.Update
 
         #region ProductProperty
         [Test]
+        ///<summary>
+        ///This test checks if the Product property, when accessed, returns the expected value.
+        ///</summary>
         public void ProductProperty_Get_Should_Return_Expected_Value()
         {
             // Arrange
@@ -181,6 +201,9 @@ namespace UnitTests.Pages.Product.Update
         #endregion ProductProperty getter
 
         #region ProductProperty setter
+        ///<summary>
+        ///This test checks if setting the Product property updates it with the expected value.
+        ///</summary>
         [Test]
         public void ProductProperty_Set_Should_Set_Expected_Value()
         {
@@ -219,6 +242,9 @@ namespace UnitTests.Pages.Product.Update
         #endregion ProductProperty setter
 
         #region AvailableTypesProperty Getter
+        ///<summary>
+        ///This test checks if the AvailableTypes property, when accessed, returns the expected value.
+        ///</summary>
         [Test]
         public void AvailableTypesProperty_Get_Should_Return_Expected_Value()
         {
@@ -250,6 +276,9 @@ namespace UnitTests.Pages.Product.Update
         #endregion AvailableTypesProperty Getter
 
         #region AvailableTypesProperty Setter
+        ///<summary>
+        ///This test checks if setting the AvailableTypes property updates it with the expected value.
+        ///</summary>
         [Test]
         public void AvailableTypesProperty_Set_Should_Set_Expected_Value()
         {
@@ -276,6 +305,9 @@ namespace UnitTests.Pages.Product.Update
         #endregion AvailableTypesProperty Setter
 
         #region OnPost
+        ///<summary>
+        ///This test checks if the OnPost method, when called with valid model state, returns a Redirect To Page Result.
+        ///</summary>
         [Test]
         public void OnPost_Valid_Model_Should_Return_Redirect_To_PageResult()
         {
@@ -299,6 +331,9 @@ namespace UnitTests.Pages.Product.Update
         }
 
         [Test]
+        ///<summary>
+        ///This test checks if the OnPost method, when called with a valid model, updates the product and returns a Redirect To Page Result.
+        ///</summary>
         public void OnPost_Valid_Model_Should_Update_Product_And_Redirect()
         {
             // Arrange
@@ -336,6 +371,9 @@ namespace UnitTests.Pages.Product.Update
 
         #region Update
         [Test]
+        ///<summary>
+        ///This test checks if the OnPost method, when updating a product, reflects the changes in the data store.
+        ///</summary>
         public void OnPost_Update_Product_Should_Reflect_Changes()
         {
             // Arrange
