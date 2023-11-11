@@ -131,12 +131,12 @@ namespace UnitTests.Pages.Product.Update
         }
         #endregion OnGet
 
-        
+
         #region ProductService
-        [Test]
         ///<summary>
         ///This test checks if the ProductService property returns the expected value.
         ///</summary>
+        [Test]
         public void ProductService_Property_Should_Return_Expected_Value()
         {
             // Arrange
@@ -157,10 +157,10 @@ namespace UnitTests.Pages.Product.Update
         #endregion ProductService
 
         #region ProductProperty
-        [Test]
         ///<summary>
         ///This test checks if the Product property, when accessed, returns the expected value.
         ///</summary>
+        [Test]
         public void ProductProperty_Get_Should_Return_Expected_Value()
         {
             // Arrange
@@ -327,11 +327,10 @@ namespace UnitTests.Pages.Product.Update
             // Assert
             Assert.IsInstanceOf<PageResult>(result);
         }
-
-        [Test]
         ///<summary>
         ///This test checks if the OnPost method, when called with a valid model, updates the product and returns a Redirect To Page Result.
         ///</summary>
+        [Test]
         public void OnPost_Valid_Model_Should_Update_Product_And_Redirect()
         {
             // Arrange
@@ -368,10 +367,10 @@ namespace UnitTests.Pages.Product.Update
         #endregion OnPost
 
         #region Update
-        [Test]
         ///<summary>
         ///This test checks if the OnPost method, when updating a product, reflects the changes in the data store.
         ///</summary>
+        [Test]
         public void OnPost_Update_Product_Should_Reflect_Changes()
         {
             // Arrange
