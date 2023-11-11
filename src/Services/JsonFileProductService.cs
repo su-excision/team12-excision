@@ -79,6 +79,12 @@ namespace ContosoCrafts.WebSite.Services
             // get products
             var products = GetProducts();
 
+            // if empty list
+            if (products.Any() == false)
+            {
+                return null;
+            }
+
             // return the first product
             return products.First<ProductModel>();
         }
