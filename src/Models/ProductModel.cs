@@ -96,6 +96,28 @@ namespace ContosoCrafts.WebSite.Models
         /// <returns>The Product data serialized in JSON format</returns>
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
 
+        /// <summary>
+        /// CopyTo creates a copy of the Product at the specified
+        /// location.
+        /// </summary>
+        /// <param name="destinationProduct">the ProductModel location to be copied to</param>
+        public void CopyTo(ProductModel destinationProduct)
+        {
+            // not sure if there is a better way to do this
+            destinationProduct.Id = this.Id;
+            destinationProduct.Name = this.Name;
+            destinationProduct.Description = this.Description;
+            destinationProduct.Expansion = this.Expansion;
+            destinationProduct.Image = this.Image;
+            destinationProduct.Rarity = this.Rarity;
+            destinationProduct.Availability = this.Availability;
+            destinationProduct.Value = this.Value;
 
+
+            destinationProduct.Ratings = (int[])this.Ratings.Clone();
+            destinationProduct.Type = this.Type.ToList();
+            destinationProduct.CommentList = this.CommentList.ToList();
+
+        }
     }
 }
