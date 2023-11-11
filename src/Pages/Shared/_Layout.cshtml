@@ -47,7 +47,12 @@
     <footer class="footer text-muted bg-footer">
         <div class="grass-background">
             <div class="walking-pokemon">
-                <div class="pikachu-running"></div>
+                @{
+                    string[] runnerClass = { "red-trainer-running", "pikachu-running" };
+                    Random rnd = new Random();
+                    int index = (rnd.Next() % runnerClass.Length);
+                }
+                <div class="@runnerClass[index]"></div>
             </div>
             <div class="container">
                 &copy; 2023 - Excision - <a asp-area="" asp-page="/Privacy">Privacy Policy</a>
