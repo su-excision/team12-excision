@@ -9,7 +9,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http.HttpResults;
 
-namespace ContosoCrafts.WebSite.Controllers
+namespace UnitTests.Controllers
 {
     [TestFixture]
     public class ProductsControllerTests

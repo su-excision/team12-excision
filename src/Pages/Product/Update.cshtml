@@ -25,16 +25,17 @@
         </div>
 
         <div class="form-group">
+            <label asp-for="Product.Expansion" class="control-label"></label>
+            <input asp-for="Product.Expansion" class="form-control" />
+            <span asp-validation-for="Product.Expansion" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
             <label asp-for="Product.Rarity" class="control-label"></label>
             <input asp-for="Product.Rarity" class="form-control" />
             <span asp-validation-for="Product.Rarity" class="text-danger"></span>
         </div>
 
-        <div class="form-group">
-            <label asp-for="Product.Availability" class="control-label"></label>
-            <input asp-for="Product.Availability" class="form-control" />
-            <span asp-validation-for="Product.Availability" class="text-danger"></span>
-        </div>
 
         <div class="form-group">
             <div class="type-dropdown">
@@ -48,10 +49,24 @@
         </div>
 
         <div class="form-group">
+            <label asp-for="Product.Image" class="control-label"></label>
+            <input asp-for="Product.Image" class="form-control" />
+            <span asp-validation-for="Product.Image" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Availability" class="control-label"></label>
+            <input asp-for="Product.Availability" class="form-control" />
+            <span asp-validation-for="Product.Availability" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
             <label asp-for="Product.Value" class="control-label"></label>
             <input asp-for="Product.Value" class="form-control" />
             <span asp-validation-for="Product.Value" class="text-danger"></span>
         </div>
+
+        @Html.HiddenFor(x => x.Product.CommentList)
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Save</button>
@@ -60,7 +75,8 @@
 </div>
 
 @section Scripts
-    {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
