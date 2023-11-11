@@ -83,7 +83,9 @@ namespace ContosoCrafts.WebSite.Models
         /// </summary>
         public int[] Ratings { get; set; }
 
-        // Store the Comments entered by the users on this product
+        /// <summary>
+        /// List of Comments made by users
+        /// </summary>
         public List<CommentModel> CommentList { get; set; } = new List<CommentModel>();
 
         /// <summary>
