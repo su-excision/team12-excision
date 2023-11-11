@@ -27,9 +27,7 @@ namespace UnitTests.Pages.Product.Update
     /// </summary>
     public class UpdateTests
     {
-        ///<summary>
-        ///Attributes and objects used for setting up the test environment
-        ///</summary>
+        //Attributes and objects used for setting up the test environment
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
