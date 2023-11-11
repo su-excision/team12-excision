@@ -1,0 +1,55 @@
+:root {
+    --walking-speed: 6s;
+
+    @media (min-width: 960px) {
+        --walking-speed: 9s;
+    }
+
+    @media (min-width: 1200px) {
+        --walking-speed: 12s;
+    }
+}
+
+/****** || Animation for Pikachu Running ******/
+
+@keyframes pikachu-run {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: -500px;
+    }
+}
+
+.pikachu-running {
+    background: url("/images/pikachu-sheet.webp");
+    width: 125px;
+    height: 100px;
+    animation-name: pikachu-run;
+    animation-duration: 500ms;
+    animation-timing-function: steps(4);
+    animation-iteration-count: infinite;
+}
+
+/****** || Animation for Walking Pokémon ******/
+
+@keyframes walk {
+    0% {
+        left: -125px;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.walking-pokemon {
+    position: absolute;
+    bottom: 0px;
+    left: -100px;
+
+
+    background-size: 100%;
+    animation: walk var(--walking-speed) linear infinite;
+}
