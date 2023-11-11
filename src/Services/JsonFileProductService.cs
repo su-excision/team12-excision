@@ -70,6 +70,17 @@ namespace ContosoCrafts.WebSite.Services
             return products.FirstOrDefault(x => x.Id.Equals(productId));
         }
 
+        public ProductModel GetSearchedProduct(string productName)
+        {
+            // get products
+            var products = GetProducts();
+
+            // return the desired product or sadness
+            return products.FirstOrDefault(x => x.Name.Contains(productName));
+        }
+
+
+
         /// <summary>
         /// GetFirstProduct returns the first product in the datastore.
         /// </summary>
