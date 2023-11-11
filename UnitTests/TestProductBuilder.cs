@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ContosoCrafts.WebSite.Models;
@@ -41,7 +42,7 @@ public class TestProductBuilder
     /// <summary>
     /// List of Types for the test product to be built. 
     /// </summary>
-    private List<string> _type;
+    private List<string> _type = new List<string>();
 
     /// <summary>
     /// URL to the Image for the test product to be built.
@@ -56,7 +57,13 @@ public class TestProductBuilder
     /// <summary>
     /// Array of Ratings for the test product to be built
     /// </summary>
-    private int[] _ratings = new int[] { };
+    private int[] _ratings = Array.Empty<int>();
+
+    /// <summary>
+    /// List of Comments for the test product to be buit
+    /// </summary>
+    private List<CommentModel> _commentList = new List<CommentModel>();
+
     /// <summary>
     /// Sets the Id for the Test Product to be built.
     /// </summary>
@@ -209,7 +216,8 @@ public class TestProductBuilder
             Type = _type,
             Image = _image,
             Description = _description,
-            Ratings = _ratings
+            Ratings = _ratings,
+            CommentList = _commentList
         };
     }
 
