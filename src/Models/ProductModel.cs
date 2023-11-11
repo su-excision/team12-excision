@@ -2,6 +2,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System;
+using System.Linq;
 
 namespace ContosoCrafts.WebSite.Models
 {
@@ -60,7 +62,7 @@ namespace ContosoCrafts.WebSite.Models
         /// metal, dragon, water, fighting and colorless.
         /// Card may have more multiple types.
         /// </summary>
-        public List<string> Type { get; set; }
+        public List<string> Type { get; set; } = new List<string>();
 
         /// <summary>
         /// Link to an image of the associated card.
@@ -81,7 +83,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Array of ratings of the specific product. Ratings are from 1 to 5.
         /// </summary>
-        public int[] Ratings { get; set; }
+        public int[] Ratings { get; set; } = Array.Empty<int>();
 
         /// <summary>
         /// List of Comments made by users
