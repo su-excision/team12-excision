@@ -79,7 +79,7 @@
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/XY1/XY1_EN_88.png",
     "Description": "When its huge eyes waver, it sings a mysteriously soothing melody that lulls its enemies to sleep.",
-    "Ratings": null
+    "Ratings": []
   },
   {
     "Id": "SVI-003",
@@ -110,7 +110,7 @@
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_22.png",
     "Description": "While young, it has six gorgeous tails. When it grows, several new tails are sprouted.",
-    "Ratings": null
+    "Ratings": []
   },
   {
     "Id": "SSH-048",
@@ -124,7 +124,7 @@
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_48.png",
     "Description": "It loves crossing the sea with people and Pok\u00E9mon on its back. It understands human speech.",
-    "Ratings": null
+    "Ratings": []
   },
   {
     "Id": "BLW-032",
@@ -138,7 +138,7 @@
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/BW1/BW1_EN_32.png",
     "Description": "One swing of the sword incorporated in its armor can fell an opponent. A simple glare from one of them quiets everybody.",
-    "Ratings": null
+    "Ratings": []
   },
   {
     "Id": "BLW-051",
@@ -153,7 +153,7 @@
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/BW1/BW1_EN_51.png",
     "Description": "It emits sound waves of various frequencies from its nose, including some powerful enough to destroy rocks.",
-    "Ratings": null
+    "Ratings": []
   },
   {
     "Id": "SUM-077",
@@ -168,6 +168,6 @@
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SM1/SM1_EN_77.png",
     "Description": "Its disposition is far more violent than its looks would suggest. Don\u2019t let your hand get too close to its face, as it could bite your hand clean off.",
-    "Ratings": null
+    "Ratings": []
   }
 ]
