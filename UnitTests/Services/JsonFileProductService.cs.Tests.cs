@@ -245,6 +245,37 @@ namespace UnitTests.Services.JsonFileProductService
         #region GetLastProduct
 
         /// <summary>
+        /// Tests to verify that if the products list is empty, GetLastProduct
+        /// returns a null reference.
+        /// </summary>
+        [Test]
+        public void GetLastProduct_Valid_EmptyProducts_Should_ReturnNull()
+        {
+            // Arrange
+            var products = TestHelper.ProductService.GetProducts();
+            // purge all of the products in the list
+            foreach (var product in products)
+            {
+                TestHelper.ProductService.DeleteProduct(product.Id);
+            }
+
+            // Act
+            var result = TestHelper.ProductService.GetLastProduct();
+
+            // Reset
+            foreach (var product in products)
+            {
+                // add each product back
+                TestHelper.ProductService.AddProduct(product);
+            }
+
+            // Assert
+            Assert.AreEqual(null, result);
+
+        }
+
+
+        /// <summary>
         /// Tests to verify that GetFirstProduct returns the first product in
         /// the datastore.
         /// </summary>
