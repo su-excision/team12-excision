@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 
 using ContosoCrafts.WebSite.Models;
@@ -197,12 +196,14 @@ namespace ContosoCrafts.WebSite.Services
             }
 
             // update the properties affected by the Update page
-            existingProduct.Name = updatedProduct.Name;
-            existingProduct.Description = updatedProduct.Description;
-            existingProduct.Rarity = updatedProduct.Rarity;
-            existingProduct.Availability = updatedProduct.Availability;
-            existingProduct.Type = updatedProduct.Type;
-            existingProduct.Value = updatedProduct.Value;
+            // existingProduct.Name = updatedProduct.Name;
+            // existingProduct.Description = updatedProduct.Description;
+            // existingProduct.Rarity = updatedProduct.Rarity;
+            // existingProduct.Availability = updatedProduct.Availability;
+            // existingProduct.Type = updatedProduct.Type;
+            // existingProduct.Value = updatedProduct.Value;
+
+            updatedProduct.CopyTo(existingProduct);
 
             // write the product list to the file
             WriteJsonFile(products);
