@@ -32,6 +32,29 @@
     animation-iteration-count: infinite;
 }
 
+/****** || Animation for Red Running ******/
+
+@keyframes red-trainer-run {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: -600px;
+    }
+}
+
+.red-trainer-running {
+    background: url("/images/red-trainer-sheet.webp");
+    width: 100px;
+    height: 120px;
+    animation-name: red-trainer-run;
+    animation-duration: 1000ms;
+    animation-timing-function: steps(6);
+    animation-iteration-count: infinite;
+}
+
+
 /****** || Animation for Walking Pokémon ******/
 
 @keyframes walk {
