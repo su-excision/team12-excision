@@ -18,9 +18,13 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.Product.Read
 {
+    ///<summary> 
+    /// Unit tests for the ReadModel class in the Product page, focusing on the OnGet method.
+    ///</summary>
     public class ReadTests
     {
         #region TestSetup
+        //Common setup for the unit tests.
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
         public static IWebHostEnvironment webHostEnvironment;
@@ -72,6 +76,9 @@ namespace UnitTests.Pages.Product.Read
         #endregion TestSetup
 
         #region OnGet
+        ///<summary>
+        /// Test case for the OnGet method when providing a valid product ID. 
+        ///</summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
