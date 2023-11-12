@@ -19,9 +19,13 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.Privacy
 {
+    /// <summary>
+    /// Unit tests for the privacy page.
+    /// </summary>
     public class PrivacyTests
     {
         #region TestSetup
+        // Shared test setup variables for reuse in test methods.
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
         public static IWebHostEnvironment webHostEnvironment;
@@ -67,7 +71,7 @@ namespace UnitTests.Pages.Privacy
             JsonFileProductService productService;
 
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
-
+            // Create an instance of the PrivacyModel for testing.
             pageModel = new PrivacyModel(MockLoggerDirect)
             {
                 PageContext = pageContext,
@@ -78,6 +82,9 @@ namespace UnitTests.Pages.Privacy
         #endregion TestSetup
 
         #region OnGet
+        /// <summary>
+        /// Test method to verify that the OnGet method returns a valid ModelState when called with default parameters.
+        /// </summary>
         [Test]
         public void OnGet_Valid_Default_Should_ReturnValid()
         {
