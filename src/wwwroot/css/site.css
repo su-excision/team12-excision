@@ -235,12 +235,12 @@ ul.type-list li {
 /****** || Animation for Footer ******/
 
 .grass-background {
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    bottom: -150px;
     left: 0;
     width: 100%;
-    height: 100px;
-    background-image: url('/images/Grass.png');
+    height: 200px;
+    background-image: url('/images/GrassPixelBackground.jpeg');
     background-size: contain;
     background-repeat: repeat-x;
 }
