@@ -4,6 +4,14 @@
     ViewData["Title"] = "Index page";
 }
 
+<!-- plays HealingSound audio clip when Product page loads -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var audio = new Audio('/audio/HealingSound.mp3');
+        audio.play();
+    });
+</script>
+
 <div>
     <a class="btn btn-primary btn-lg btn-block mb-3" asp-page="Create" asp-route-id="">Create a New Card</a>
     <table class="table table-bordered table-striped fancyscript">
