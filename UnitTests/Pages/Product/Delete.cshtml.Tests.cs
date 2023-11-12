@@ -20,8 +20,14 @@ using ContosoCrafts.WebSite.Pages.Product.Delete;
 
 namespace UnitTests.Pages.Product.Delete;
 
+/// <summary>
+/// Unit tests for Delete page functionality
+/// </summary>
 public class DeleteTests
 {
+    /// <summary>
+    /// Initializes objects for test enviornment 
+    /// </summary>
     #region TestSetup
     public static IUrlHelperFactory urlHelperFactory;
     public static DefaultHttpContext httpContextDefault;
@@ -73,6 +79,9 @@ public class DeleteTests
     #endregion TestSetup
 
     #region OnGet
+    /// <summary>
+    /// Test that a GET request returns a valid product from datastore
+    /// </summary>
     [Test]
     public void OnGet_Valid_Should_Return_Product()
     {
@@ -100,9 +109,11 @@ public class DeleteTests
     }
     #endregion OnGet
 
-
-    [Test]
     #region OnPost
+    /// <summary>
+    /// Test to verify that ON POST request, product is removed from data store and from Index page
+    /// </summary>
+    [Test]
     public void OnPost_Valid_Should_Delete_Product()
     {
         // Arrange
