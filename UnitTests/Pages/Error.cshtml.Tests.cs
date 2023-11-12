@@ -19,9 +19,13 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.Error
 {
+    /// <summary>
+    /// Test class for the ErrorModel, representing the Razor Page model for the "Error" page.
+    /// </summary>
     public class ErrorTests
     {
         #region TestSetup
+        // Shared test setup variables for reuse in test methods.
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
         public static IWebHostEnvironment webHostEnvironment;
@@ -78,6 +82,9 @@ namespace UnitTests.Pages.Error
         #endregion TestSetup
 
         #region OnGet
+        /// <summary>
+        /// Test method to verify that the OnGet method returns a valid ModelState when called with default parameters.
+        /// </summary>
         [Test]
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
@@ -97,6 +104,9 @@ namespace UnitTests.Pages.Error
             Assert.AreEqual(activity.Id, pageModel.RequestId);
         }
 
+        /// <summary>
+        /// Test method to verify that the OnGet method returns the TraceIdentifier as RequestId when the Activity is null.
+        /// </summary>
         [Test]
         public void OnGet_InValid_Activity_Null_Should_Return_TraceIdentifier()
         {
