@@ -19,9 +19,13 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.AboutUs
 {
+    /// <summary>
+    /// Test class for the AboutUsModel, which represents the Razor Page model for the "About Us" page.
+    /// </summary>
     public class AboutUsTests
     {
         #region TestSetup
+        // Shared test setup variables for reuse in test methods.
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
         public static IWebHostEnvironment webHostEnvironment;
@@ -67,7 +71,7 @@ namespace UnitTests.Pages.AboutUs
             JsonFileProductService productService;
 
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
-
+            // Create an instance of the AboutUsModel for testing.
             pageModel = new AboutUsModel(MockLoggerDirect)
             {
                 PageContext = pageContext,
@@ -78,6 +82,9 @@ namespace UnitTests.Pages.AboutUs
         #endregion TestSetup
 
         #region OnGet
+        /// <summary>
+        /// Test method to verify that the OnGet method returns a valid ModelState when called with default parameters.
+        /// </summary>
         [Test]
         public void OnGet_Valid_Default_Should_ReturnValid()
         {
