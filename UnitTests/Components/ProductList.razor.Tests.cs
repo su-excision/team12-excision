@@ -11,6 +11,7 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Components;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using AngleSharp.Dom;
 
 namespace UnitTests.Components
 {
@@ -20,7 +21,6 @@ namespace UnitTests.Components
     public class ProductListTests : BunitTestContext
     {
         #region ProductList
-
 
         /// <summary>
         /// Tests that the ProductList builds correctly and contains the
@@ -42,6 +42,7 @@ namespace UnitTests.Components
 
             // Assert
             Assert.AreEqual(true, result.Contains(TestString));
+
         }
 
         #endregion ProductList
@@ -75,6 +76,126 @@ namespace UnitTests.Components
         }
 
         #endregion SelectProduct
+
+        #region TextFilter
+
+        [Test]
+        public void TextFilter_Valid_OnSearch_Should_ContainValidResult()
+        {
+            const string TextFilterId = "text_filter";
+            const string FilterButtonId = "filter_button";
+
+            const string ValidSearchText = "jiggly";
+
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+
+            // Arrange: render the component
+            var cut = RenderComponent<ProductList>();
+
+            // Act
+
+            // Act: Enter the text to search for
+            var inputFilter = cut.FindAll("Input").First(element => element.OuterHtml.Contains(TextFilterId));
+            inputFilter.Change(ValidSearchText);
+
+            // Act: Click the search button
+            var filterButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(FilterButtonId));
+            filterButton.Click();
+
+            // Act: Count how many items appear on the list
+            var resultCount = cut.FindAll("Div").First(element => element.ClassName == "card-deck").ChildElementCount;
+
+            // Act: get markup for page
+            var markup = cut.Markup;
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, resultCount);
+            Assert.AreEqual(true, markup.Contains("Jigglypuff"));
+
+        }
+
+        [Test]
+        public void TextFilter_Invalid_NoMatch_Should_ReturnEmpty()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            const string TextFilterId = "text_filter";
+            const string FilterButtonId = "filter_button";
+
+            const string InvalidSearchText = "invalid search";
+
+            var cut = RenderComponent<ProductList>();
+
+            // Act
+            var inputFilter = cut.FindAll("Input").First(element => element.OuterHtml.Contains(TextFilterId));
+            inputFilter.Change(InvalidSearchText);
+
+            var filterButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(FilterButtonId));
+            filterButton.Click();
+
+            var resultsDiv = cut.FindAll("Div").First(element => element.ClassName == "card-deck");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, resultsDiv.ChildElementCount);
+
+        }
+
+        [Test]
+        public void TextFilter_Valid_OnClear_Should_ReturnOriginalList()
+        {
+            const string TextFilterId = "text_filter";
+            const string FilterButtonId = "filter_button";
+            const string ClearButtonId = "clear_button";
+
+            const string ValidSearchText = "Jigglypuff";
+
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+
+
+            // Arrange: render the component
+            var cut = RenderComponent<ProductList>();
+
+            // Arrange: count how many items appear on the list
+            var initialCount = cut.FindAll("Div").First(element => element.ClassName == "card-deck").ChildElementCount;
+
+            // Act
+
+            // Act: Enter the text to search for
+            var inputFilter = cut.FindAll("Input").First(element => element.OuterHtml.Contains(TextFilterId));
+            inputFilter.Change(ValidSearchText);
+
+            // Act: Click the search button
+            var filterButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(FilterButtonId));
+            filterButton.Click();
+
+            // Act: Count how many items appear on the list
+            var midCount = cut.FindAll("Div").First(element => element.ClassName == "card-deck").ChildElementCount;
+
+            // Act: Clear the search
+            var clearButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(ClearButtonId));
+            clearButton.Click();
+
+            // Act: Count how many items appear after clearing
+            var finalCount = cut.FindAll("Div").First(element => element.ClassName == "card-deck").ChildElementCount;
+
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(initialCount, finalCount);
+            Assert.AreNotEqual(midCount, finalCount);
+
+        }
+
+
+
+        #endregion TextFilter
 
     }
 }
