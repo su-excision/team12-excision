@@ -62,7 +62,7 @@ namespace UnitTests.Services.JsonFileProductService
         /// Product ID is not successful.
         /// </summary>
         [Test]
-        public void AddRating_InValid_ProductEmpty_Should_ReturnFalse()
+        public void AddRating_Invalid_ProductEmpty_Should_ReturnFalse()
         {
             // Arrange
 
