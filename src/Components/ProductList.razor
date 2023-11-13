@@ -7,7 +7,7 @@
 <div>
     <div class="row">
         <div class="col">
-            <input type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
+            <input type="text" @bind="FilterString" />
             <button @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
             <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
         </div>
@@ -16,46 +16,35 @@
 
 <div class="card-deck">
     @{
+        // get the products from the ProductService
+        var productList = ProductService.GetProducts();
+
+        // if filtering is activated
         if (FilterData)
         {
-            FilterDataString = FirstCharToUpper(FilterDataString);
-            var selectedproduct = ProductService.GetSearchedProduct(FilterDataString);
-            if (selectedproduct != null)
-            {
-                <div class="col-md-4 my-4">
-                    <div class="card-header">
-                        <h2 class="h5 card-title poketitle">@selectedproduct.Name</h2>
-                    </div>
-                    <img class="card-img-top img-fluid" src="@selectedproduct.Image" alt="@selectedproduct.Description">
-                    <div class="card-footer d-flex justify-content-between align-items-center">
-                        <p class="card-text my-0 fancyscript">Availabity: @selectedproduct.Availability</p>
-                        <p class="card-text my-0 fancyscript">Value: @selectedproduct.Value.ToString("C")</p>
-                        <small class="text-muted">
-                            <button @onclick="(e => SelectProduct(selectedproduct.Id))" data-toggle="modal" data-target="#productModal" class="btn btn-primary happy">More Info</button>
-                        </small>
-                    </div>
-                </div>
-            }
+            // filter the product list
+            productList = productList.Where(product => product.Name.ToUpper().Contains(FilterString.ToUpper()));
+
         }
-        else
+
+        // build the card layout for the cards
+        foreach (var product in productList)
         {
-            foreach (var product in ProductService.GetProducts())
-            {
-                <div class="col-md-4 my-4">
-                    <div class="card-header">
-                        <h2 class="h5 card-title poketitle">@product.Name</h2>
-                    </div>
-                    <img class="card-img-top img-fluid" src="@product.Image" alt="@product.Description">
-                    <div class="card-footer d-flex justify-content-between align-items-center">
-                        <p class="card-text my-0 fancyscript">Availabity: @product.Availability</p>
-                        <p class="card-text my-0 fancyscript">Value: @product.Value.ToString("C")</p>
-                        <small class="text-muted">
-                            <button @onclick="(e => SelectProduct(product.Id))" data-toggle="modal" data-target="#productModal" class="btn btn-primary happy">More Info</button>
-                        </small>
-                    </div>
+            <div class="col-md-4 my-4">
+                <div class="card-header">
+                    <h2 class="h5 card-title poketitle">@product.Name</h2>
                 </div>
-            }
+                <img class="card-img-top img-fluid" src="@product.Image" alt="@product.Description">
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <p class="card-text my-0 fancyscript">Availabity: @product.Availability</p>
+                    <p class="card-text my-0 fancyscript">Value: @product.Value.ToString("C")</p>
+                    <small class="text-muted">
+                        <button @onclick="(e => SelectProduct(product.Id))" data-toggle="modal" data-target="#productModal" class="btn btn-primary happy">More Info</button>
+                    </small>
+                </div>
+            </div>
         }
+
     }
 </div>
 
@@ -178,7 +167,7 @@
 {
     ProductModel selectedProduct;
     string selectedProductId;
-    string FilterDataString = "";
+    string FilterString = "";
     bool FilterData = false;
 
     public string FirstCharToUpper(string input)
@@ -277,6 +266,7 @@
     void ClearFilterData()
     {
         FilterData = false;
+        FilterString = "";
     }
 
     void SubmitRating(int rating)
