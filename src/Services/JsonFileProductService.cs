@@ -70,17 +70,6 @@ namespace ContosoCrafts.WebSite.Services
             return products.FirstOrDefault(x => x.Id.Equals(productId));
         }
 
-        public ProductModel GetSearchedProduct(string productName)
-        {
-            // get products
-            var products = GetProducts();
-
-            // return the desired product or sadness
-            return products.FirstOrDefault(x => x.Name.Contains(productName));
-        }
-
-
-
         /// <summary>
         /// GetFirstProduct returns the first product in the datastore.
         /// </summary>
@@ -295,29 +284,5 @@ namespace ContosoCrafts.WebSite.Services
 
         }
 
-        /// <summary>
-        /// Find the data record
-        /// Update the fields
-        /// Save to the data store
-        /// </summary>
-        /// <param name="data"></param>
-        public bool SaveComment(ProductModel data)
-        {
-            // product list
-            var products = GetProducts();
-            var existingProduct = products.FirstOrDefault(p => p.Id == data.Id);
-
-            // if product not in list
-            if (existingProduct == null)
-            {
-                return false;
-            }
-
-            existingProduct.CommentList = data.CommentList;
-
-            // write the product list to the file
-            WriteJsonFile(products);
-            return true;
-        }
     }
 }
