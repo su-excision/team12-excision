@@ -13,10 +13,18 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Components
 {
+    /// <summary>
+    /// Unit Tests for the ProductList Blazor component.
+    /// </summary>
     public class ProductListTests : BunitTestContext
     {
         #region ProductList
 
+
+        /// <summary>
+        /// Tests that the ProductList builds correctly and contains the
+        /// appropriate HTML content.
+        /// </summary>
         [Test]
         public void ProductList_Default_Rendered_Should_ReturnContent()
         {
