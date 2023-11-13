@@ -35,11 +35,9 @@ namespace UnitTests.Components
 
             // Act
             var cut = RenderComponent<ProductList>();
-
-
-            // Reset
             var result = cut.Markup;
 
+            // Reset
 
             // Assert
             Assert.AreEqual(true, result.Contains(TestString));
