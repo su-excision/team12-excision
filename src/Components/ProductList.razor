@@ -7,7 +7,7 @@
 <div>
     <div class="row">
         <div class="col">
-            <input type="text" @bind="FilterString" />
+            <input type="text" @bind="filterString" />
             <button @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
             <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
         </div>
@@ -20,10 +20,10 @@
         var productList = ProductService.GetProducts();
 
         // if filtering is activated
-        if (FilterData)
+        if (isListFiltered)
         {
             // filter the product list
-            productList = productList.Where(product => product.Name.ToUpper().Contains(FilterString.ToUpper()));
+            productList = productList.Where(product => product.Name.ToUpper().Contains(filterString.ToUpper()));
 
         }
 
@@ -131,18 +131,18 @@
                                 }
 
                                 // If this is a new comment, then add the Input boxes for it, else show the Add Comment Button
-                                if (NewComment)
+                                if (isNewCommentVisible)
                                 {
                                     <div class="row">
                                         <div class="col">
-                                            <input type="text" @bind="NewCommentText" />
+                                            <input type="text" @bind="newCommentText" />
                                             <button @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Comment</button>
                                         </div>
                                     </div>
                                 }
 
                                 // If this is not a new comment, then show the buttons for Adding comment and Close
-                                if (NewComment == false)
+                                if (isNewCommentVisible == false)
                                 {
                                     <div class="row">
                                         <div class="col">
@@ -167,8 +167,8 @@
 {
     ProductModel selectedProduct;
     string selectedProductId;
-    string FilterString = "";
-    bool FilterData = false;
+    string filterString = "";
+    bool isListFiltered = false;
 
     void SelectProduct(string productId)
     {
@@ -198,23 +198,29 @@
         System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
     }
 
-    bool NewComment = false;
-    string NewCommentText = "";
+    bool isNewCommentVisible = false;
+    string newCommentText = "";
 
+    /// <summary>
+    /// Shows the New Comment interface
+    /// </summary>
     void ShowNewCommentInput()
     {
-        NewComment = true;
+        isNewCommentVisible = true;
     }
 
+    /// <summary>
+    /// Adds the new comment to the product and saves the product to the datastore
+    /// </summary>
     void AddComment()
     {
         // add comment to comment list and save
-        selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
+        selectedProduct.CommentList.Add(new CommentModel() { Comment = newCommentText });
         ProductService.UpdateData(selectedProduct);
 
         // clear comment text and hide input
-        NewCommentText = "";
-        NewComment = false;
+        newCommentText = "";
+        isNewCommentVisible = false;
     }
 
 
@@ -223,7 +229,7 @@
     /// </summary>
     void EnableFilterData()
     {
-        FilterData = true;
+        isListFiltered = true;
     }
 
     /// <summary>
@@ -232,8 +238,8 @@
     /// </summary>
     void ClearFilterData()
     {
-        FilterData = false;
-        FilterString = "";
+        isListFiltered = false;
+        filterString = "";
     }
 
     /// <summary>
