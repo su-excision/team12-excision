@@ -39,7 +39,7 @@
                     <p class="card-text my-0 fancyscript">Availabity: @product.Availability</p>
                     <p class="card-text my-0 fancyscript">Value: @product.Value.ToString("C")</p>
                     <small class="text-muted">
-                        <button @onclick="(e => SelectProduct(product.Id))" data-toggle="modal" data-target="#productModal" class="btn btn-primary happy">More Info</button>
+                        <button @onclick="(e => SelectProduct(product.Id))" id="MoreInfo_@product.Id" data-toggle="modal" data-target="#productModal" class="btn btn-primary happy">More Info</button>
                     </small>
                 </div>
             </div>
