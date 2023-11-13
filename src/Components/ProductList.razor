@@ -261,11 +261,19 @@
         FilterDataString = text;
     }
 
+
+    /// <summary>
+    /// Activates the filtering feature of the Component.
+    /// </summary>
     void EnableFilterData()
     {
         FilterData = true;
     }
 
+    /// <summary>
+    /// Deactivates the filtering feature of the Component. In addition, clears
+    /// all search and filters.
+    /// </summary>
     void ClearFilterData()
     {
         FilterData = false;
