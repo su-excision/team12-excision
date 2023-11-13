@@ -135,7 +135,7 @@
                                 {
                                     <div class="row">
                                         <div class="col">
-                                            <input type="text" @onchange="(e) => UpdateCommentText(e.Value.ToString())" value="@NewCommentText" />
+                                            <input type="text" @bind="NewCommentText" />
                                             <button @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Comment</button>
                                         </div>
                                     </div>
