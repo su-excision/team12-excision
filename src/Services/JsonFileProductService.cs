@@ -146,15 +146,6 @@ namespace ContosoCrafts.WebSite.Services
                 return false;
             }
 
-
-
-            // if the product has no ratings, create the new array
-            if (product.Ratings == null)
-            {
-                products.First(x => x.Id == productId).Ratings = Array.Empty<int>();
-            }
-
-
             // list of ratings for the product
             var ratings = product.Ratings.ToList();
             ratings.Add(rating);
