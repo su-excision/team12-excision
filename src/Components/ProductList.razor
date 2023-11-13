@@ -111,7 +111,8 @@
                                         checkedText = "checked";
                                     }
 
-                                    <span class="fa fa-star @checkedText" @onclick="(e => SubmitRating(currentStar))"></span>
+                                    <img src="@(checkedText == "checked" ? "/images/pokeball-filled.png" : "/images/pokeball-unfilled.png")"
+                                         alt="Pokeball" @onclick="(e => SubmitRating(currentStar))" class="pokeball-icon" style="width: 8%; height: 80%;" />
                                 }
                             }
                         </div>
