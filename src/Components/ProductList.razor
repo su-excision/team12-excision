@@ -206,11 +206,6 @@
         NewComment = true;
     }
 
-    void UpdateCommentText(string newCommentText)
-    {
-        NewCommentText = newCommentText;
-    }
-
     void AddComment()
     {
         selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
