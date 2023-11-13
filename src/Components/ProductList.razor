@@ -7,9 +7,9 @@
 <div>
     <div class="row">
         <div class="col">
-            <input type="text" @bind="filterString" />
-            <button @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
-            <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
+            <input type="text" test-id="text_filter" @bind="filterString" />
+            <button test-id="filter_button" @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
+            <button test-id="clear_button" @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
         </div>
     </div>
 </div>
@@ -39,7 +39,7 @@
                     <p class="card-text my-0 fancyscript">Availabity: @product.Availability</p>
                     <p class="card-text my-0 fancyscript">Value: @product.Value.ToString("C")</p>
                     <small class="text-muted">
-                        <button @onclick="(e => SelectProduct(product.Id))" id="MoreInfo_@product.Id" data-toggle="modal" data-target="#productModal" class="btn btn-primary happy">More Info</button>
+                        <button @onclick="(e => SelectProduct(product.Id))" test-id="MoreInfo_@product.Id" data-toggle="modal" data-target="#productModal" class="btn btn-primary happy">More Info</button>
                     </small>
                 </div>
             </div>
@@ -111,8 +111,7 @@
                                         checkedText = "checked";
                                     }
 
-                                    <img src="@(checkedText == "checked" ? "/images/pokeball-filled.png" : "/images/pokeball-unfilled.png")"
-                                         alt="Pokeball" @onclick="(e => SubmitRating(currentStar))" class="pokeball-icon" style="width: 8%; height: 80%;" />
+                                    <img src="@(checkedText == "checked" ? "/images/pokeball-filled.png" : "/images/pokeball-unfilled.png")" alt="Pokeball" @onclick="(e => SubmitRating(currentStar))" class="pokeball-icon" style="width: 8%; height: 80%;" />
                                 }
                             }
                         </div>
