@@ -208,8 +208,12 @@
 
     void AddComment()
     {
+        // add comment to comment list and save
         selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
-        ProductService.SaveComment(selectedProduct);
+        ProductService.UpdateData(selectedProduct);
+
+        // clear comment text and hide input
+        NewCommentText = "";
         NewComment = false;
     }
 
