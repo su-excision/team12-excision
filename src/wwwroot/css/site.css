@@ -151,7 +151,17 @@ html {
     width: 80%; 
     height: auto;
 }
-
+.form-control {
+    background: #ecf0f3;
+    padding: 10px;
+    padding-left: 20px;
+    height: 50px;
+    font-size: 14px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+    width: 600px;
+    left: 20%;
+}
 
 /****** || Decoration for Star Ratings *******/
 
