@@ -80,7 +80,8 @@ namespace UnitTests.Components
         #region TextFilter
 
         /// <summary>
-        /// Tests that the search filter works properly for valid input.
+        /// Tests that the search filter works properly for valid search field.
+        /// Should return matching results.
         /// </summary>
         [Test]
         public void TextFilter_Valid_OnSearch_Should_ContainValidResult()
@@ -120,6 +121,10 @@ namespace UnitTests.Components
 
         }
 
+        /// <summary>
+        /// Tests that the search filter works properly for invalid search field.
+        /// Should return no matching results.
+        /// </summary>
         [Test]
         public void TextFilter_Invalid_NoMatch_Should_ReturnEmpty()
         {
@@ -148,6 +153,10 @@ namespace UnitTests.Components
 
         }
 
+        /// <summary>
+        /// Test for Text Filter Clear button. Will conduct a search and then
+        /// clear the search field, returning the original results.
+        /// </summary>
         [Test]
         public void TextFilter_Valid_OnClear_Should_ReturnOriginalList()
         {
