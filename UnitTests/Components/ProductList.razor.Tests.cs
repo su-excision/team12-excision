@@ -79,13 +79,16 @@ namespace UnitTests.Components
 
         #region TextFilter
 
+        /// <summary>
+        /// Tests that the search filter works properly for valid input.
+        /// </summary>
         [Test]
         public void TextFilter_Valid_OnSearch_Should_ContainValidResult()
         {
             const string TextFilterId = "text_filter";
             const string FilterButtonId = "filter_button";
 
-            const string ValidSearchText = "jiggly";
+            const string ValidSearchText = "rat";
 
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
@@ -112,8 +115,8 @@ namespace UnitTests.Components
             // Reset
 
             // Assert
-            Assert.AreEqual(1, resultCount);
-            Assert.AreEqual(true, markup.Contains("Jigglypuff"));
+            Assert.AreEqual(2, resultCount);
+            Assert.AreEqual(true, markup.Contains("Raticate"));
 
         }
 
