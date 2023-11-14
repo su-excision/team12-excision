@@ -95,7 +95,7 @@ namespace UnitTests.Pages.Product.Index
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(10, pageModel.Products.ToList().Count);
+            Assert.AreEqual(11, pageModel.Products.ToList().Count);
         }
         #endregion OnGet
     }
