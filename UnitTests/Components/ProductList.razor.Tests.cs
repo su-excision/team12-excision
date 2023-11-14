@@ -251,11 +251,56 @@ namespace UnitTests.Components
 
         }
 
+        #endregion AddRating
+
+        #region AddComments
+        [Test]
+        public void AddComment_Valid_NewComment_Should_AddComment()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+
+            const string TestButtonId = "MoreInfo_AR-029";
+            const string NewCommentButtonId = "new_comment_button";
+            const string NewCommentInputId = "new_comment_input";
+            const string AddCommentButtonId = "add_comment_button";
+
+            const string TestComment = "This is a test comment.";
+
+            // Arrange: Built and find the More Info button
+            var cut = RenderComponent<ProductList>();
             var moreInfoButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(TestButtonId));
+
+            // Arrange: Click button and save markup
+            moreInfoButton.Click();
+            var preCommentMarkup = cut.Markup;
+
+            // Arrange: Find comment button and click
+            var newCommentButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(NewCommentButtonId));
+            newCommentButton.Click();
+
+
+            // Act
+
+            // Act: Find input box, add text
+            var newCommentInput = cut.FindAll("Input").First(element => element.OuterHtml.Contains(NewCommentInputId));
+            newCommentInput.Change(TestComment);
+
+            // Act: Find add button and save comment
+            var addCommentButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(AddCommentButtonId));
+            addCommentButton.Click();
+
+            var postCommentMarkup = cut.Markup;
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, preCommentMarkup.Contains(TestComment));
+            Assert.AreEqual(true, postCommentMarkup.Contains(TestComment));
 
         }
 
-        #endregion AddRating
+        #endregion AddComments
 
     }
 }
