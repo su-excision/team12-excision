@@ -140,6 +140,18 @@ html {
     flex: 1; 
     padding: 20px; 
 }
+.image-update {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-update img {
+    width: 80%; 
+    height: auto;
+}
+
 
 /****** || Decoration for Star Ratings *******/
 
