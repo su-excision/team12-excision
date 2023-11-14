@@ -249,7 +249,9 @@ namespace UnitTests.Components
             Assert.AreEqual(true, postVoteMarkup.Contains(PostVoteString));
             Assert.AreNotEqual(preVoteMarkup, postVoteMarkup);
 
+        }
 
+            var moreInfoButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(TestButtonId));
 
         }
 

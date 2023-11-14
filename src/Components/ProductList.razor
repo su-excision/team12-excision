@@ -135,8 +135,8 @@
                                 {
                                     <div class="row">
                                         <div class="col">
-                                            <input type="text" @bind="newCommentText" />
-                                            <button @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Comment</button>
+                                            <input type="text" test-id="new_comment_input" @bind="newCommentText" />
+                                            <button @onclick="(e => AddComment())" class="btn btn-success" test-id="add_comment_button" data-toggle="modal">Save Comment</button>
                                         </div>
                                     </div>
                                 }
@@ -146,7 +146,7 @@
                                 {
                                     <div class="row">
                                         <div class="col">
-                                            <button @onclick="(e => ShowNewCommentInput())" id="AddComment" class="btn btn-primary">Add Comment</button>
+                                            <button @onclick="(e => ShowNewCommentInput())" id="AddComment" test-id="new_comment_button" class="btn btn-primary">Add Comment</button>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
