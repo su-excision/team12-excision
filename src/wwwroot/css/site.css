@@ -143,6 +143,11 @@ html {
     cursor: pointer;
 }
 
+.pokeball-icon {
+    width: 8%;
+    height: 80%;
+}
+
 /****** || Decoration for Pokémon Types *******/
 
 ul.type-list {
