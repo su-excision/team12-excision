@@ -57,8 +57,8 @@ namespace UnitTests.Components
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            const string TestButtonId = "MoreInfo_XY-088";
-            const string TestDescription = "When its huge eyes waver, it sings a mysteriously soothing melody that lulls its enemies to sleep.";
+            const string TestButtonId = "MoreInfo_SVI-003";
+            const string TestDescription = "A small egg-shaped Pokemon";
 
             var cut = RenderComponent<ProductList>();
             var testButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(TestButtonId));
