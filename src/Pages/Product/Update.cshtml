@@ -6,76 +6,78 @@
 @{
     ViewData["Title"] = "Update";
 }
+<div class="update-page">
+    <div class="container update-form">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(x => x.Product.Id)
 
-<div class="container update-form">
-    <form method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @Html.HiddenFor(x => x.Product.Id)
-
-        <div class="form-group">
-            <label asp-for="Product.Name" class="control-label"></label>
-            <input asp-for="Product.Name" class="form-control" />
-            <span asp-validation-for="Product.Name" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Product.Description" class="control-label"></label>
-            <input asp-for="Product.Description" class="form-control" />
-            <span asp-validation-for="Product.Description" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Product.Expansion" class="control-label"></label>
-            <input asp-for="Product.Expansion" class="form-control" />
-            <span asp-validation-for="Product.Expansion" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Product.Rarity" class="control-label"></label>
-            <input asp-for="Product.Rarity" class="form-control" />
-            <span asp-validation-for="Product.Rarity" class="text-danger"></span>
-        </div>
-
-
-        <div class="form-group">
-            <div class="type-dropdown">
-                <label asp-for="Product.Type" class="control-label"></label>
-                <select asp-for="Product.Type" asp-items="new SelectList(Model.AvailableTypes)">
-                    <option value=""></option>
-                </select>
+            <div class="form-group">
+                <label asp-for="Product.Name" class="control-label"></label>
+                <input asp-for="Product.Name" class="form-control" />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
             </div>
-            <span asp-validation-for="Product.Type" class="text-danger"></span>
-            <div class="clear"></div>
-        </div>
 
-        <div class="form-group">
-            <label asp-for="Product.Image" class="control-label"></label>
-            <input asp-for="Product.Image" class="form-control" />
-            <span asp-validation-for="Product.Image" class="text-danger"></span>
-        </div>
+            <div class="form-group">
+                <label asp-for="Product.Description" class="control-label"></label>
+                <input asp-for="Product.Description" class="form-control" />
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
 
-        <div class="form-group">
-            <label asp-for="Product.Availability" class="control-label"></label>
-            <input asp-for="Product.Availability" class="form-control" />
-            <span asp-validation-for="Product.Availability" class="text-danger"></span>
-        </div>
+            <div class="form-group">
+                <label asp-for="Product.Expansion" class="control-label"></label>
+                <input asp-for="Product.Expansion" class="form-control" />
+                <span asp-validation-for="Product.Expansion" class="text-danger"></span>
+            </div>
 
-        <div class="form-group">
-            <label asp-for="Product.Value" class="control-label"></label>
-            <input asp-for="Product.Value" class="form-control" />
-            <span asp-validation-for="Product.Value" class="text-danger"></span>
-        </div>
+            <div class="form-group">
+                <label asp-for="Product.Rarity" class="control-label"></label>
+                <input asp-for="Product.Rarity" class="form-control" />
+                <span asp-validation-for="Product.Rarity" class="text-danger"></span>
+            </div>
 
-        @Html.HiddenFor(x => x.Product.CommentList)
 
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-    </form>
+            <div class="form-group">
+                <div class="type-dropdown">
+                    <label asp-for="Product.Type" class="control-label"></label>
+                    <select asp-for="Product.Type" asp-items="new SelectList(Model.AvailableTypes)">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <span asp-validation-for="Product.Type" class="text-danger"></span>
+                <div class="clear"></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Product.Image" class="control-label"></label>
+                <input asp-for="Product.Image" class="form-control" />
+                <span asp-validation-for="Product.Image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Product.Availability" class="control-label"></label>
+                <input asp-for="Product.Availability" class="form-control" />
+                <span asp-validation-for="Product.Availability" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Product.Value" class="control-label"></label>
+                <input asp-for="Product.Value" class="form-control" />
+                <span asp-validation-for="Product.Value" class="text-danger"></span>
+            </div>
+
+            @Html.HiddenFor(x => x.Product.CommentList)
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
 </div>
 
+
 @section Scripts
-{
+    {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
