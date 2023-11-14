@@ -96,7 +96,7 @@ namespace UnitTests.Pages.Product.Update
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(10, pageModel.Products.ToList().Count);
+            Assert.AreEqual(11, pageModel.Products.ToList().Count);
         }
         ///<summary>
         ///This test checks if the OnGet method populates the Product and AvailableTypes properties correctly.
