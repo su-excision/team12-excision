@@ -99,6 +99,20 @@
     ]
   },
   {
+    "Id": "AR-029",
+    "Name": "Raticate",
+    "Value": 2.14,
+    "Expansion": "Arceus",
+    "Rarity": "Rare",
+    "Availability": 2,
+    "Type": [
+      "Normal"
+    ],
+    "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/PL4/PL4_EN_29.png",
+    "Description": "It whittles its constantly growing fangs by gnawing on hard things. It can chew apart cinder walls.",
+    "Ratings": []
+  },
+  {
     "Id": "SSH-022",
     "Name": "Vulpix",
     "Value": 0.15,
