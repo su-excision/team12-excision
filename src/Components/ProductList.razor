@@ -111,7 +111,7 @@
                                         checkedText = "checked";
                                     }
 
-                                    <img src="@(checkedText == "checked" ? "/images/pokeball-filled.png" : "/images/pokeball-unfilled.png")" alt="Pokeball" @onclick="(e => SubmitRating(currentStar))" class="pokeball-icon" style="width: 8%; height: 80%;" />
+                                    <img src="@(checkedText == "checked" ? "/images/pokeball-filled.png" : "/images/pokeball-unfilled.png")" alt="Pokeball" @onclick="(e => SubmitRating(currentStar))" class="pokeball-icon" test-id="vote_button" style="width: 8%; height: 80%;" />
                                 }
                             }
                         </div>
