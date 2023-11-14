@@ -16,9 +16,7 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Pages.Product.Create;
-using ContosoCrafts.WebSite.Models;
 using System.Collections.Generic;
-using Namespace;
 using System.Linq;
 using System;
 
