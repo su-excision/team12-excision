@@ -205,9 +205,55 @@ namespace UnitTests.Components
 
         }
 
-
-
         #endregion TextFilter
+
+        #region AddRating
+
+        /// <summary>
+        /// Test for testing the AddRating button.
+        /// </summary>
+        [Test]
+        public void AddRating_Valid_RatingClick_Should_ReturnNewRating()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+
+            const string TestButtonId = "MoreInfo_AR-029";
+            const string VoteButtonId = "vote_button";
+
+            const string PreVoteString = "Be the first to vote!";
+            const string PostVoteString = "1 Vote";
+
+            // Arrange: Built and find the More Info button
+            var cut = RenderComponent<ProductList>();
+            var moreInfoButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(TestButtonId));
+
+            // Arrange: Click button and save markup
+            moreInfoButton.Click();
+            var preVoteMarkup = cut.Markup;
+
+            // Act
+
+            // Act: Find voting button
+            var voteButton = cut.FindAll("Img").First(element => element.OuterHtml.Contains(VoteButtonId));
+
+            // Act: Click button and save markup
+            voteButton.Click();
+            var postVoteMarkup = cut.Markup;
+
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, preVoteMarkup.Contains(PreVoteString));
+            Assert.AreEqual(true, postVoteMarkup.Contains(PostVoteString));
+            Assert.AreNotEqual(preVoteMarkup, postVoteMarkup);
+
+
+
+        }
+
+        #endregion AddRating
 
     }
 }
