@@ -132,6 +132,14 @@ html {
         background-position: 100% 50%;
     }
 }
+/****** || Decoration for update form ******/
+.update-page {
+    display: flex;
+}
+.update-form {
+    flex: 1; 
+    padding: 20px; 
+}
 
 /****** || Decoration for Star Ratings *******/
 
