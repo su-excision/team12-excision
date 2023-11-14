@@ -1,6 +1,5 @@
 using System.Linq;
 using NUnit.Framework;
-using Namespace;
 
 namespace UnitTests.Services.JsonFileProductService
 {
