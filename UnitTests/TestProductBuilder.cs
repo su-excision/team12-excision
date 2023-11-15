@@ -202,6 +202,20 @@ namespace UnitTests
             return this;
         }
 
+        public TestProductBuilder WithComment(string Id, string comment)
+        {
+            List<CommentModel> comments = new()
+            {
+               new CommentModel
+               {
+                   Id = Id,
+                   Comment = comment
+               }
+            };
+            _commentList = comments;
+            return this;
+        }
+
         /// <summary>
         /// Build the desired Test Product.
         /// </summary>
