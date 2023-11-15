@@ -9,6 +9,9 @@ namespace UnitTests.Models
 {
     internal class CommentModel
     {
+        /// <summary>
+        /// Tests that the CommentModel Constructor method returns a properly serialized JSON file.
+        /// </summary>
         [Test]
         public void Constructor_Valid_NewInstance_Should_AddGuid()
         {
