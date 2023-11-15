@@ -202,6 +202,11 @@ namespace UnitTests
             return this;
         }
 
+        /// <summary>
+        /// Sets the Commet for the Test Product to be built.
+        /// </summary>
+        /// <param name="comment">The comment desired for testing.</param>
+        /// <returns>the TestProductBuilder being built</returns>
         public TestProductBuilder WithComment(string Id, string comment)
         {
             List<CommentModel> comments = new()
