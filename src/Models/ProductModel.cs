@@ -20,7 +20,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Name printed on the card. Not necessarily unique.
         /// </summary>
-        [Display(Name = "Pokémon Card Name", Prompt = "Enter the Name of the Pokémon Card.")]
+        [Display(Name = "Card Name", Prompt = "Enter the Name of the Pokémon Card.")]
         [StringLength(maximumLength: 24, MinimumLength = 3, ErrorMessage = "Card Name should be between {1} and {2} characters long.")]
         [Required]
         public string Name { get; set; }
@@ -28,6 +28,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Value of card in USD.
         /// </summary>
+        [Display(Name = "Value of Card (USD)")]
         [Range(0, 1000, ErrorMessage = "Card Price must be greater than ${1} and less than ${2}.")]
         [Required]
         public float Value { get; set; }
@@ -35,7 +36,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Name of the Expansion Set that the card comes from.
         /// </summary>
-        [Display(Name = "Pokémon Expansion", Prompt = "Enter the Expansion that the Pokémon Card comes from.")]
+        [Display(Name = "Expansion Set", Prompt = "Enter the Expansion that the Pokémon Card comes from.")]
         [Required]
         public string Expansion { get; set; }
 
@@ -43,14 +44,14 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Field that holds the rarity of the card
         /// </summary>
-        [Display(Name = "Pokémon Card Rarity", Prompt = "Enter the Rarity (Common, Uncommon, Rare, Ultra Rare) for the Pokémon Card.")]
+        [Display(Name = "Card Rarity", Prompt = "Enter the Rarity (Common, Uncommon, Rare, Ultra Rare) for the Pokémon Card.")]
         [Required]
         public string Rarity { get; set; }
 
         /// <summary>
         /// Field that holds the availability of the card
         /// </summary>
-        [Display(Name = "Number of Cards Available", Prompt = "Enter the number of Pokémon Cards currently availabled.")]
+        [Display(Name = "Cards Available", Prompt = "Enter the number of Pokémon Cards currently availabled.")]
         [Range(0, 1000, ErrorMessage = "Card Availability must be greater than or equal to {1} and less than {2}.")]
         [Required]
         public int Availability { get; set; }
@@ -73,7 +74,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Link to an image of the associated card.
         /// </summary>
-        [Display(Name = "Pokémon Card Image URL", Prompt = "Enter the URL for the Pokémon Card Image")]
+        [Display(Name = "Card Image URL", Prompt = "Enter the URL for the Pokémon Card Image")]
         [Required]
         [JsonPropertyName("img")]
         public string Image { get; set; }
@@ -81,7 +82,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Detailed description of the card.
         /// </summary>
-        [Display(Name = "Pokémon Card Description", Prompt = "Enter the description for the Pokémon Card.")]
+        [Display(Name = "Card Description", Prompt = "Enter the description for the Pokémon Card.")]
         [StringLength(maximumLength: 200, MinimumLength = 10, ErrorMessage = "Card Description should be between {1} and {2} characters long.")]
         [Required]
         public string Description { get; set; }
