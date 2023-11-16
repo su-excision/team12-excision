@@ -43,6 +43,11 @@ namespace UnitTests
         private int _availability = 999;
 
         /// <summary>
+        /// Card category for the test product to be built.
+        /// </summary>
+        private CardType _cardCategory = CardType.Undefined;
+
+        /// <summary>
         /// List of Types for the test product to be built. 
         /// </summary>
         private List<string> _type = new List<string>();
@@ -130,6 +135,17 @@ namespace UnitTests
         public TestProductBuilder WithAvailability(int availability)
         {
             _availability = availability;
+            return this;
+        }
+
+        /// <summary>
+        /// Adds the Card Category to the Test Product to be built.
+        /// </summary>
+        /// <param name="cardCategory">The Card Category desired for testing.</param>
+        /// <returns>the TestProductBuilder being built</returns>
+        public TestProductBuilder WithCategory(CardType cardCategory)
+        {
+            _cardCategory = cardCategory;
             return this;
         }
 
