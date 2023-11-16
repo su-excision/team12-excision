@@ -25,7 +25,7 @@ namespace UnitTests.Models
         {
             // Arrange
             var testProduct = new TestProductBuilder().Build();
-            const string SerializedOutput = "{\"Id\":\"TST-000\",\"Name\":\"Test Card\",\"Value\":99.99,\"Expansion\":\"Test Expansion\",\"Rarity\":\"Unique\",\"Availability\":999,\"Type\":[],\"img\":\"https://assets.pokemon.com/assets/cms2/img/cards/web/SMA/SMA_EN_SV46.png\",\"Description\":\"A Test Card used for Testing\",\"Ratings\":[],\"CommentList\":[]}";
+            const string SerializedOutput = "{\"Id\":\"TST-000\",\"Name\":\"Test Card\",\"Value\":99.99,\"Expansion\":\"Test Expansion\",\"Rarity\":\"Unique\",\"Availability\":999,\"CardCategory\":0,\"Type\":[],\"img\":\"https://assets.pokemon.com/assets/cms2/img/cards/web/SMA/SMA_EN_SV46.png\",\"Description\":\"A Test Card used for Testing\",\"Ratings\":[],\"CommentList\":[]}";
 
             // Act
             string result = testProduct.ToString();
