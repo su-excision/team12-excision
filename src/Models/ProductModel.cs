@@ -55,6 +55,12 @@ namespace ContosoCrafts.WebSite.Models
         [Required]
         public int Availability { get; set; }
 
+        /// <summary>
+        /// Field for storing the category (or type) of card.
+        /// </summary>
+        [Display(Name = "Type of Card")]
+        [Required]
+        public CardType CardCategory { get; set; }
 
         /// <summary>
         /// Energy types of the card which include:
