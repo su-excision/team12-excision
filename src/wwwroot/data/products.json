@@ -6,6 +6,7 @@
     "Expansion": "Scarlet \u0026 Violet",
     "Rarity": "Common",
     "Availability": 15,
+    "CardCategory": 100,
     "Type": [
       "grass"
     ],
@@ -22,7 +23,8 @@
       5,
       4,
       4
-    ]
+    ],
+    "CommentList": []
   },
   {
     "Id": "SVI-002",
@@ -31,6 +33,7 @@
     "Expansion": "Scarlet \u0026 Violet",
     "Rarity": "Uncommon",
     "Availability": 8,
+    "CardCategory": 100,
     "Type": [
       "Bug",
       "Fighting"
@@ -43,7 +46,8 @@
       4,
       5,
       1
-    ]
+    ],
+    "CommentList": []
   },
   {
     "Id": "FLI-122",
@@ -52,6 +56,7 @@
     "Expansion": "Forbidden Light",
     "Rarity": "Ultra Rare",
     "Availability": 2,
+    "CardCategory": 100,
     "Type": [
       "Fighting",
       "Steel"
@@ -64,7 +69,8 @@
       5,
       5,
       5
-    ]
+    ],
+    "CommentList": []
   },
   {
     "Id": "XY-088",
@@ -73,13 +79,15 @@
     "Expansion": "XY",
     "Rarity": "Common",
     "Availability": 15,
+    "CardCategory": 100,
     "Type": [
       "Normal",
       "Fairy"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/XY1/XY1_EN_88.png",
     "Description": "When its huge eyes waver, it sings a mysteriously soothing melody that lulls its enemies to sleep.",
-    "Ratings": []
+    "Ratings": [],
+    "CommentList": []
   },
   {
     "Id": "SVI-003",
@@ -88,6 +96,7 @@
     "Expansion": "Scarlet \u0026 Violet",
     "Rarity": "Rare",
     "Availability": 3,
+    "CardCategory": 100,
     "Type": [
       "Grass"
     ],
@@ -96,7 +105,8 @@
     "Ratings": [
       2,
       5
-    ]
+    ],
+    "CommentList": []
   },
   {
     "Id": "AR-029",
@@ -105,12 +115,14 @@
     "Expansion": "Arceus",
     "Rarity": "Rare",
     "Availability": 2,
+    "CardCategory": 100,
     "Type": [
       "Normal"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/PL4/PL4_EN_29.png",
     "Description": "It whittles its constantly growing fangs by gnawing on hard things. It can chew apart cinder walls.",
-    "Ratings": []
+    "Ratings": [],
+    "CommentList": []
   },
   {
     "Id": "SSH-022",
@@ -119,12 +131,14 @@
     "Expansion": "Sword \u0026 Shield",
     "Rarity": "Common",
     "Availability": 15,
+    "CardCategory": 100,
     "Type": [
       "Fire"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_22.png",
     "Description": "While young, it has six gorgeous tails. When it grows, several new tails are sprouted.",
-    "Ratings": []
+    "Ratings": [],
+    "CommentList": []
   },
   {
     "Id": "SSH-048",
@@ -133,12 +147,14 @@
     "Expansion": "Sword \u0026 Shield",
     "Rarity": "Rare",
     "Availability": 4,
+    "CardCategory": 100,
     "Type": [
       "Water"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_48.png",
     "Description": "It loves crossing the sea with people and Pok\u00E9mon on its back. It understands human speech.",
-    "Ratings": []
+    "Ratings": [],
+    "CommentList": []
   },
   {
     "Id": "BLW-032",
@@ -147,12 +163,14 @@
     "Expansion": "Black \u0026 White",
     "Rarity": "Rare",
     "Availability": 2,
+    "CardCategory": 100,
     "Type": [
       "Water"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/BW1/BW1_EN_32.png",
     "Description": "One swing of the sword incorporated in its armor can fell an opponent. A simple glare from one of them quiets everybody.",
-    "Ratings": []
+    "Ratings": [],
+    "CommentList": []
   },
   {
     "Id": "BLW-051",
@@ -161,13 +179,15 @@
     "Expansion": "Black \u0026 White",
     "Rarity": "Uncommon",
     "Availability": 8,
+    "CardCategory": 100,
     "Type": [
       "Psychic",
       "Flying"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/BW1/BW1_EN_51.png",
     "Description": "It emits sound waves of various frequencies from its nose, including some powerful enough to destroy rocks.",
-    "Ratings": []
+    "Ratings": [],
+    "CommentList": []
   },
   {
     "Id": "SUM-077",
@@ -176,12 +196,14 @@
     "Expansion": "Sun \u0026 Moon",
     "Rarity": "Uncommon",
     "Availability": 5,
+    "CardCategory": 100,
     "Type": [
       "Dark",
       "Normal"
     ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SM1/SM1_EN_77.png",
     "Description": "Its disposition is far more violent than its looks would suggest. Don\u2019t let your hand get too close to its face, as it could bite your hand clean off.",
-    "Ratings": []
+    "Ratings": [],
+    "CommentList": []
   }
 ]
