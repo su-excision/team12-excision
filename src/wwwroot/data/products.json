@@ -157,6 +157,20 @@
     "CommentList": []
   },
   {
+    "Id": "XY-131",
+    "Name": "Rainbow Energy",
+    "Value": 0.1,
+    "Expansion": "XY",
+    "Rarity": "Uncommon",
+    "Availability": 9,
+    "CardCategory": 302,
+    "Type": [],
+    "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/XY1/XY1_EN_131.png",
+    "Description": "This card provides Colorless Energy. While in play, this card provides every type of Energy but provides only 1 Energy at a time.",
+    "Ratings": [],
+    "CommentList": []
+  },
+  {
     "Id": "BLW-032",
     "Name": "Samurott",
     "Value": 0.43,
