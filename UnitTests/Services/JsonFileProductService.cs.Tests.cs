@@ -1,5 +1,6 @@
 using System.Linq;
 using NUnit.Framework;
+using UnitTests;
 
 namespace UnitTests.Services.JsonFileProductService
 {
@@ -228,7 +229,6 @@ namespace UnitTests.Services.JsonFileProductService
         public void GetFirstProduct_Valid_ContainsProducts_Should_ReturnFirst()
         {
             // Arrange
-            const string FirstId = "SVI-001";
 
             // Act
             var firstProduct = TestHelper.ProductService.GetFirstProduct();
@@ -236,7 +236,7 @@ namespace UnitTests.Services.JsonFileProductService
             // Reset
 
             // Assert
-            Assert.AreEqual(FirstId, firstProduct.Id);
+            Assert.AreEqual(TestConstants.ExpectedFirstProductId, firstProduct.Id);
         }
 
         #endregion GetFirstProduct
@@ -282,7 +282,6 @@ namespace UnitTests.Services.JsonFileProductService
         public void GetLastProduct_Valid_ContainsProducts_Should_ReturnLast()
         {
             // Arrange
-            const string LastId = "SUM-077";
 
             // Act
             var lastProduct = TestHelper.ProductService.GetLastProduct();
@@ -290,7 +289,7 @@ namespace UnitTests.Services.JsonFileProductService
             // Reset
 
             // Assert
-            Assert.AreEqual(LastId, lastProduct.Id);
+            Assert.AreEqual(TestConstants.ExpectedLastProductId, lastProduct.Id);
         }
 
         #endregion GetLastProduct
