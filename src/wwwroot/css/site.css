@@ -1,6 +1,16 @@
 ﻿@import url("./core-colors.css");
 @import url("./animation.css");
 
+/****** || Style Variables *******/
+
+:root {
+    --background-image-primary: url('/images/background-sky-light.webp');
+    
+    @media (prefers-color-scheme: dark) {
+        --background-image-primary: url('/images/background-sky-dark.webp');
+    }
+}
+
 /****** || General Style *******/
 
 body {
@@ -44,11 +54,7 @@ a:hover {
 
 body {
     /* Margin bottom by footer height */
-    background-image: url('/images/background-sky-light.webp');
-
-    @media (prefers-color-scheme: dark) {
-        background-image: url('/images/background-sky-dark.webp');
-    }
+    background-image: var(--background-image-primary);
 
     margin-bottom: 60px;
     background-size: cover;
@@ -120,12 +126,8 @@ html {
 }
 
 .modal-content {
-    background-image: url('/images/background-sky-light.webp');
+    background-image: var(--background-image-primary);
     background-size: cover;
-
-    @media (prefers-color-scheme: dark) {
-        background-image: url('/images/background-sky-dark.webp');
-    }
 }
 
 .table {
