@@ -62,7 +62,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Create
         {
             if (ModelState.IsValid)
             {
-                if (Product.Type[0] == null)
+                if ((Product.Type.Count > 0) && (Product.Type[0] == null))
                 {
                     Product.Type = new List<string>();
                 }
