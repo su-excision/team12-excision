@@ -205,5 +205,19 @@
     "Description": "Its disposition is far more violent than its looks would suggest. Don\u2019t let your hand get too close to its face, as it could bite your hand clean off.",
     "Ratings": [],
     "CommentList": []
+  },
+  {
+    "Id": "SSH-186",
+    "Name": "Aurora Energy",
+    "Value": 0.07,
+    "Expansion": "Sword \u0026 Shield",
+    "Rarity": "Uncommon",
+    "Availability": 57,
+    "CardCategory": 302,
+    "Type": [],
+    "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_186.png",
+    "Description": "As long as this card is attached to a Pok\u00E9mon, it provides every type of Energy but provides only 1 Energy at a time.",
+    "Ratings": [],
+    "CommentList": []
   }
 ]
