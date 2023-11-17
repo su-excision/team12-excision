@@ -37,7 +37,6 @@ namespace UnitTests.Controllers
         public void Get_Valid_Test_Reading_Should_Return_IsBadImage_False()
         {
             // Arrange
-            var expectedProductCount = 11;
 
             // Act
             var result = productsController.Get();
@@ -47,7 +46,7 @@ namespace UnitTests.Controllers
             Assert.IsInstanceOf<IEnumerable<ProductModel>>(result);
 
             var actualProducts = (IEnumerable<ProductModel>)result;
-            Assert.AreEqual(expectedProductCount, actualProducts.Count());
+            Assert.AreEqual(TestConstants.ExpectedProductCount, actualProducts.Count());
         }
         #endregion Get
 
