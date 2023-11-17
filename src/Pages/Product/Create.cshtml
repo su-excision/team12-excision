@@ -1,5 +1,6 @@
 ﻿@page
 @using ContosoCrafts.WebSite.Services
+@using ContosoCrafts.WebSite.Models
 @inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.Product.Create.CreateModel
 @{
@@ -47,6 +48,18 @@
         </div>
 
         <div class="form-group">
+            <label asp-for="Product.CardCategory" class="control-label"></label>
+            @{
+                // list from the enum but excludes the undefined value
+                var cardTypes = Html.GetEnumSelectList<CardType>().Where(item => int.Parse(item.Value) > 0);
+            }
+            <select class="form-control" asp-for="Product.CardCategory" asp-items="cardTypes">
+                <option selected="selected">Please select a Card Type</option>
+            </select>
+            <span asp-validation-for="Product.CardCategory" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
             <div class="type-dropdown">
                 <label asp-for="Product.Type" class="control-label"></label>
                 <select asp-for="Product.Type" asp-items="new SelectList(Model.AvailableTypes)">
@@ -69,11 +82,11 @@
             <span asp-validation-for="Product.Description" class="text-danger"></span>
         </div>
 
-        
 
-        
 
-        
+
+
+
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Save</button>
@@ -81,9 +94,8 @@
     </form>
 </div>
 @section Scripts
-    {
+{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-
