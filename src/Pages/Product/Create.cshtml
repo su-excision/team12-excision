@@ -12,38 +12,38 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="form-group">
-            <label asp-for="Product.Id" class="control-label"></label>
-            <input asp-for="Product.Id" class="form-control" />
+            <label asp-for="Product.Id" class="control-label font-weight-bold"></label>
+            <input asp-for="Product.Id" class="form-control input-shadow" />
             <span asp-validation-for="Product.Id" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Product.Name" class="control-label"></label>
-            <input asp-for="Product.Name" class="form-control" />
+            <input asp-for="Product.Name" class="form-control input-shadow" />
             <span asp-validation-for="Product.Name" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Product.Value" class="control-label"></label>
-            <input asp-for="Product.Value" class="form-control" />
+            <input asp-for="Product.Value" class="form-control input-shadow" />
             <span asp-validation-for="Product.Value" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Product.Expansion" class="control-label"></label>
-            <input asp-for="Product.Expansion" class="form-control" />
+            <input asp-for="Product.Expansion" class="form-control input-shadow" />
             <span asp-validation-for="Product.Expansion" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Product.Rarity" class="control-label"></label>
-            <input asp-for="Product.Rarity" class="form-control" />
+            <input asp-for="Product.Rarity" class="form-control input-shadow" />
             <span asp-validation-for="Product.Rarity" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Product.Availability" class="control-label"></label>
-            <input asp-for="Product.Availability" class="form-control" />
+            <input asp-for="Product.Availability" class="form-control input-shadow" />
             <span asp-validation-for="Product.Availability" class="text-danger"></span>
         </div>
 
@@ -53,7 +53,7 @@
                 // list from the enum but excludes the undefined value
                 var cardTypes = Html.GetEnumSelectList<CardType>().Where(item => int.Parse(item.Value) > 0);
             }
-            <select class="form-control" asp-for="Product.CardCategory" asp-items="cardTypes">
+            <select class="form-control input-shadow" asp-for="Product.CardCategory" asp-items="cardTypes">
                 <option selected="selected">Please select a Card Type</option>
             </select>
             <span asp-validation-for="Product.CardCategory" class="text-danger"></span>
@@ -72,13 +72,13 @@
 
         <div class="form-group">
             <label asp-for="Product.Image" class="control-label"></label>
-            <input asp-for="Product.Image" class="form-control" />
+            <input asp-for="Product.Image" class="form-control input-shadow" />
             <span asp-validation-for="Product.Image" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Product.Description" class="control-label"></label>
-            <input asp-for="Product.Description" class="form-control" />
+            <input asp-for="Product.Description" class="form-control input-shadow" />
             <span asp-validation-for="Product.Description" class="text-danger"></span>
         </div>
 
