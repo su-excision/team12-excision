@@ -8,7 +8,7 @@ namespace UnitTests
         /// <summary>
         /// Expected number of products in the JSON datastore file.
         /// </summary>
-        public const int ExpectedProductCount = 12;
+        public const int ExpectedProductCount = 13;
 
         /// <summary>
         /// Expected Product Id for the first product in the JSON
