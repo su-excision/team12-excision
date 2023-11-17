@@ -2,6 +2,7 @@ using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Collections.Generic;
 
 namespace ContosoCrafts.WebSite.Pages.Product.Create
@@ -61,6 +62,10 @@ namespace ContosoCrafts.WebSite.Pages.Product.Create
         {
             if (ModelState.IsValid)
             {
+                if (Product.Type[0] == null)
+                {
+                    Product.Type = new List<string>();
+                }
                 ProductService.AddProduct(Product); // Save the updated data
 
                 return RedirectToPage("./Index"); // Redirect to the product list page
