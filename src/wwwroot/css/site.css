@@ -71,6 +71,18 @@ body {
     border-color: var(--color-button-bg-highlight);
 }
 
+/****** || Style for input boxes *******/
+
+.input-shadow
+{
+    background: #ecf0f3;
+    padding: 0.25em;
+    padding-left: 0.75em;
+    border-radius: 1.25em;
+    box-shadow: inset 0.5em 0.5em 0.5em #cbced1, inset 0.5em 0.5em 0.5em white;
+}
+
+
 /****** || To orient sticky footer *******/
 
 html {
