@@ -25,6 +25,11 @@ a:hover {
     -webkit-text-stroke: .01em var(--color-text-alt-shadow);
 }
 
+.image-wide {
+    width: 100%;
+    height: auto;
+}
+
 /****** || Specific Font Selections ******/
 
 .poketitle {
