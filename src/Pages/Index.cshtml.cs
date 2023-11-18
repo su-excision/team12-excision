@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 
@@ -21,6 +19,9 @@ namespace ContosoCrafts.WebSite.Pages
     /// </summary>
     public class IndexModel : PageModel
     {
+        /// <summary>
+        /// Holds a logger field.
+        /// </summary>
         private readonly ILogger<IndexModel> _logger;
 
         /// <summary>
