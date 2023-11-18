@@ -1,11 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-
 using ContosoCrafts.WebSite.Models;
-
 using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
@@ -187,7 +184,6 @@ namespace ContosoCrafts.WebSite.Services
         /// <returns>true if the update was successful, false otherwise</returns>
         public bool UpdateData(ProductModel updatedProduct)
         {
-
             // product list
             var products = GetProducts();
             var existingProduct = products.FirstOrDefault(p => p.Id == updatedProduct.Id);
@@ -197,21 +193,11 @@ namespace ContosoCrafts.WebSite.Services
             {
                 return false;
             }
-
-            // update the properties affected by the Update page
-            // existingProduct.Name = updatedProduct.Name;
-            // existingProduct.Description = updatedProduct.Description;
-            // existingProduct.Rarity = updatedProduct.Rarity;
-            // existingProduct.Availability = updatedProduct.Availability;
-            // existingProduct.Type = updatedProduct.Type;
-            // existingProduct.Value = updatedProduct.Value;
-
             updatedProduct.CopyTo(existingProduct);
 
             // write the product list to the file
             WriteJsonFile(products);
             return true;
-
         }
 
         /// <summary>
@@ -223,7 +209,6 @@ namespace ContosoCrafts.WebSite.Services
         /// <returns>true if the add was successful, false otherwise</returns>
         public bool AddProduct(ProductModel newProduct)
         {
-
             // load existing product list
             var products = GetProducts();
 
@@ -237,13 +222,11 @@ namespace ContosoCrafts.WebSite.Services
             // append the new product to the end of the product list
             products = products.Append(newProduct);
 
-
             // write the product list to the file
             WriteJsonFile(products);
 
             // operation was successful
             return true;
-
         }
 
         /// <summary>
@@ -272,8 +255,6 @@ namespace ContosoCrafts.WebSite.Services
 
             // let it know it worked
             return true;
-
         }
-
     }
 }
