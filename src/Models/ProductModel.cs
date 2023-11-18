@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace ContosoCrafts.WebSite.Models
 {
+    /// <summary>
+    /// ProductModel class has the logic for the product fields.
+    /// </summary>
     public class ProductModel
     {
         /// <summary>
@@ -39,7 +42,6 @@ namespace ContosoCrafts.WebSite.Models
         [Display(Name = "Expansion Set", Prompt = "Enter the Expansion that the Pokémon Card comes from.")]
         [Required]
         public string Expansion { get; set; }
-
 
         /// <summary>
         /// Field that holds the rarity of the card
@@ -119,12 +121,9 @@ namespace ContosoCrafts.WebSite.Models
             destinationProduct.Rarity = this.Rarity;
             destinationProduct.Availability = this.Availability;
             destinationProduct.Value = this.Value;
-
-
             destinationProduct.Ratings = (int[])this.Ratings.Clone();
             destinationProduct.Type = this.Type.ToList();
             destinationProduct.CommentList = this.CommentList.ToList();
-
         }
     }
 }
