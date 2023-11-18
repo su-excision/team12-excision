@@ -81,6 +81,15 @@ body {
     background-color: var(--color-button-bg-highlight);
     border-color: var(--color-button-bg-highlight);
 }
+.btn-success {
+    background: none;
+    border: none;
+}
+
+.btn-danger {
+    background: none;
+    border: none;
+}
 
 /****** || Style for input boxes *******/
 
@@ -293,12 +302,4 @@ ul.type-list li {
 .custom-navbar .navbar-brand:not(:first-child),
 .custom-navbar .navbar-toggler {
         margin-left: -100%;
-}
-.btn-success {
-    background: none;
-    border: none;
-}
-.btn-danger {
-    background: none;
-    border: none;
 }
