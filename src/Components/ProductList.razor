@@ -4,15 +4,21 @@
 @inject JsonFileProductService ProductService
 @inject NavigationManager Navigation
 
-<div>
+<div class="container my-4">
     <div class="row">
-        <div class="col">
-            <input type="text" test-id="text_filter" @bind="filterString" />
-            <button test-id="filter_button" @onclick="(e => EnableFilterData())" class="btn btn-success"><i class="fa-solid fa-sliders"></i></button>
-            <button test-id="clear_button" @onclick="(e => ClearFilterData())" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
+        <div class="col-md-8 mx-auto">
+            <div class="input-group">
+                <input type="text" class="form-control" test-id="text_filter" @bind="filterString" />
+                <div class="input-group-append">
+                    <button test-id="filter_button" @onclick="(e => EnableFilterData())" class="btn btn-success"><i class="fa-solid fa-sliders"></i></button>
+                    <button test-id="clear_button" @onclick="(e => ClearFilterData())" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
 
 <div class="card-deck">
     @{
