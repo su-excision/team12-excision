@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-
 using Microsoft.AspNetCore.Mvc;
-
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 
@@ -57,7 +55,13 @@ namespace ContosoCrafts.WebSite.Controllers
         /// </summary>
         public class RatingRequest
         {
+            /// <summary>
+            /// Get and set ProductId value
+            /// </summary>
             public string ProductId { get; set; }
+            /// <summary>
+            /// Set and get Rating value
+            /// </summary>
             public int Rating { get; set; }
         }
     }
