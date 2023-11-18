@@ -54,6 +54,27 @@
     animation-iteration-count: infinite;
 }
 
+/****** || Animation for Zubat Flying ******/
+@keyframes zubat-fly {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: -120px;
+    }
+}
+
+.zubat-flying {
+    background: url("/images/zubat-sheet.webp");
+    width: 60px;
+    height: 60px;
+    animation-name: zubat-fly;
+    animation-duration: 500ms;
+    animation-timing-function: steps(2);
+    animation-iteration-count: infinite;
+}
+
 
 /****** || Animation for Walking Pokémon ******/
 
