@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
-
 using Bunit;
 using NUnit.Framework;
 using ContosoCrafts.WebSite.Components;
 using ContosoCrafts.WebSite.Services;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using AngleSharp.Dom;
 
 namespace UnitTests.Components
 {
@@ -33,7 +25,6 @@ namespace UnitTests.Components
             const string TestString = "Pineco";
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
 
-
             // Act
             var cut = RenderComponent<ProductList>();
             var result = cut.Markup;
@@ -42,7 +33,6 @@ namespace UnitTests.Components
 
             // Assert
             Assert.AreEqual(true, result.Contains(TestString));
-
         }
 
         #endregion ProductList
@@ -59,7 +49,6 @@ namespace UnitTests.Components
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             const string TestButtonId = "MoreInfo_SVI-003";
             const string TestDescription = "A small egg-shaped Pokemon";
-
             var cut = RenderComponent<ProductList>();
             var testButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(TestButtonId));
 
@@ -72,7 +61,6 @@ namespace UnitTests.Components
 
             // Assert
             Assert.AreEqual(true, markup.Contains(TestDescription));
-
         }
 
         #endregion SelectProduct
@@ -88,7 +76,6 @@ namespace UnitTests.Components
         {
             const string TextFilterId = "text_filter";
             const string FilterButtonId = "filter_button";
-
             const string ValidSearchText = "rat";
 
             // Arrange
@@ -118,7 +105,6 @@ namespace UnitTests.Components
             // Assert
             Assert.AreEqual(2, resultCount);
             Assert.AreEqual(true, markup.Contains("Raticate"));
-
         }
 
         /// <summary>
@@ -132,9 +118,7 @@ namespace UnitTests.Components
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             const string TextFilterId = "text_filter";
             const string FilterButtonId = "filter_button";
-
             const string InvalidSearchText = "invalid search";
-
             var cut = RenderComponent<ProductList>();
 
             // Act
@@ -150,7 +134,6 @@ namespace UnitTests.Components
 
             // Assert
             Assert.AreEqual(0, resultsDiv.ChildElementCount);
-
         }
 
         /// <summary>
@@ -163,12 +146,10 @@ namespace UnitTests.Components
             const string TextFilterId = "text_filter";
             const string FilterButtonId = "filter_button";
             const string ClearButtonId = "clear_button";
-
             const string ValidSearchText = "Jigglypuff";
 
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-
 
             // Arrange: render the component
             var cut = RenderComponent<ProductList>();
@@ -196,13 +177,11 @@ namespace UnitTests.Components
             // Act: Count how many items appear after clearing
             var finalCount = cut.FindAll("Div").First(element => element.ClassName == "card-deck").ChildElementCount;
 
-
             // Reset
 
             // Assert
             Assert.AreEqual(initialCount, finalCount);
             Assert.AreNotEqual(midCount, finalCount);
-
         }
 
         #endregion TextFilter
@@ -217,10 +196,8 @@ namespace UnitTests.Components
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-
             const string TestButtonId = "MoreInfo_AR-029";
             const string VoteButtonId = "vote_button";
-
             const string PreVoteString = "Be the first to vote!";
             const string PostVoteString = "1 Vote";
 
@@ -241,14 +218,12 @@ namespace UnitTests.Components
             voteButton.Click();
             var postVoteMarkup = cut.Markup;
 
-
             // Reset
 
             // Assert
             Assert.AreEqual(true, preVoteMarkup.Contains(PreVoteString));
             Assert.AreEqual(true, postVoteMarkup.Contains(PostVoteString));
             Assert.AreNotEqual(preVoteMarkup, postVoteMarkup);
-
         }
 
         #endregion AddRating
@@ -259,12 +234,10 @@ namespace UnitTests.Components
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-
             const string TestButtonId = "MoreInfo_AR-029";
             const string NewCommentButtonId = "new_comment_button";
             const string NewCommentInputId = "new_comment_input";
             const string AddCommentButtonId = "add_comment_button";
-
             const string TestComment = "This is a test comment.";
 
             // Arrange: Built and find the More Info button
@@ -278,7 +251,6 @@ namespace UnitTests.Components
             // Arrange: Find comment button and click
             var newCommentButton = cut.FindAll("Button").First(element => element.OuterHtml.Contains(NewCommentButtonId));
             newCommentButton.Click();
-
 
             // Act
 
@@ -297,10 +269,8 @@ namespace UnitTests.Components
             // Assert
             Assert.AreEqual(false, preCommentMarkup.Contains(TestComment));
             Assert.AreEqual(true, postCommentMarkup.Contains(TestComment));
-
         }
 
         #endregion AddComments
-
     }
 }
