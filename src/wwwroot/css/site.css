@@ -269,9 +269,28 @@ ul.type-list li {
     background-repeat: repeat-x;
 }
 
-/* Dark mode adjustment */
+/***** || Dark mode adjustment ******/
 @media (prefers-color-scheme: dark) {
     .grass-background {
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url('/images/GrassPixelBackground.jpeg');
     }
+}
+
+/****** || Logo adjustment ******/
+
+.logo {
+    max-width: 8%;
+    height: auto;
+    margin-top: -2%;
+}
+
+/****** || Header Spacing adjustment ******/
+.custom-navbar {
+    display: flex;
+    align-items: center;
+}
+
+.custom-navbar .navbar-brand:not(:first-child),
+.custom-navbar .navbar-toggler {
+        margin-left: -100%;
 }
