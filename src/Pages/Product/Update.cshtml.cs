@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
-
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace ContosoCrafts.WebSite.Pages.Product.Update
 {
@@ -66,7 +63,6 @@ namespace ContosoCrafts.WebSite.Pages.Product.Update
             }
             ProductService.UpdateData(Product);
             return RedirectToPage("./Index");
-
         }
     }
 }
