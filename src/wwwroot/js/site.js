@@ -2,7 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 /// Plays corresponding audio based on whether victory or defeat message is present
-document.addEventListener('DOMContentLoaded', function () {
+function playPokemonAudio() {
     var audio;
 
     // Check if the page contains a specific message of the battle outcome
@@ -18,4 +18,4 @@ document.addEventListener('DOMContentLoaded', function () {
     if (audio) {
         audio.play();
     }
-});
+}
