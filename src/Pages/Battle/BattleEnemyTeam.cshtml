@@ -1,0 +1,22 @@
+﻿@page
+@model ContosoCrafts.WebSite.Pages.Battle.BattleEnemyTeamModel
+@{
+    ViewData["Title"] = "Battle Enemy Team";
+}
+
+<div class="d-flex flex-column justify-content-center align-items-center bg-blur">
+    <h1 class="page-title">@ViewData["Title"]</h1>
+
+    <p>The enemy team for battle:</p>
+
+    @foreach (var enemyPokemon in Model.EnemyPokemonTeam)
+    {
+        <div>
+            @enemyPokemon.Name
+        </div>
+    }
+
+    <form method="post" asp-page="/Battle/BattleResult">
+        <button type="submit">Battle!</button>
+    </form>
+</div>
