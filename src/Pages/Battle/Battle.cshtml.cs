@@ -75,7 +75,7 @@ namespace ContosoCrafts.WebSite.Pages.Battle
 
                 ViewData["SelectedPokemonNames"] = selectedPokemonNames;
 
-                return RedirectToPage("/Battle/BattleResult");
+                return RedirectToPage("/Battle/BattleEnemyTeam");
             }
             else
             {
