@@ -5,7 +5,7 @@
 
 :root {
     --background-image-primary: url('/images/background-sky-light.webp');
-    
+
     @media (prefers-color-scheme: dark) {
         --background-image-primary: url('/images/background-sky-dark.webp');
     }
@@ -81,6 +81,7 @@ body {
     background-color: var(--color-button-bg-highlight);
     border-color: var(--color-button-bg-highlight);
 }
+
 .btn-success {
     background: none;
     border: none;
@@ -93,8 +94,7 @@ body {
 
 /****** || Style for input boxes *******/
 
-.input-shadow
-{
+.input-shadow {
     background: #ecf0f3;
     padding: 0.25em;
     padding-left: 0.75em;
@@ -289,18 +289,7 @@ ul.type-list li {
 /****** || Logo adjustment ******/
 
 .logo {
-    max-width: 8%;
-    height: auto;
-    margin-top: -2%;
-}
-
-/****** || Header Spacing adjustment ******/
-.custom-navbar {
-    display: flex;
-    align-items: center;
-}
-
-.custom-navbar .navbar-brand:not(:first-child),
-.custom-navbar .navbar-toggler {
-        margin-left: -100%;
+    height: 2.5em;
+    width: auto;
+    margin-top: -1em;
 }
