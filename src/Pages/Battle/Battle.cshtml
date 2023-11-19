@@ -4,6 +4,13 @@
     ViewData["Title"] = "Battle";
 }
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var audio = new Audio('/audio/pokemon-battle.mp3');
+        audio.play();
+    });
+</script>
+
 <div class="d-flex flex-column justify-content-center align-items-center bg-blur">
     <h1 class="page-title">@ViewData["Title"]</h1>
 
