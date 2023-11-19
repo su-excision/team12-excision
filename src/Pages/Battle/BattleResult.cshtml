@@ -7,12 +7,21 @@
 <div class="d-flex flex-column justify-content-center align-items-center bg-blur">
     <h1 class="page-title">@ViewData["Title"]</h1>
 
-    @if (!string.IsNullOrEmpty(Model.BattleOutcomeMessage))
+    @if (Model.BattleOutcomeMessage == "Congratulations! You won the battle!")
     {
-        <p>@Model.BattleOutcomeMessage</p>
+        <p id="victory-message">Congratulations! You won the battle!</p>
     }
-    else
+    else if (Model.BattleOutcomeMessage == "Sorry, you were utterly defeated.")
     {
-        <p>No Pokémon selected.</p>
+        <p id="defeat-message">Sorry, you were utterly defeated.</p>
+    }
+
+    @section Scripts {
+        <script src="~/js/site.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                playPokemonAudio();
+            });
+        </script>
     }
 </div>
