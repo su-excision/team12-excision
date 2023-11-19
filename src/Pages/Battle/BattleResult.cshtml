@@ -1,5 +1,5 @@
 ﻿@page
-@model ContosoCrafts.WebSite.Pages.BattleResultModel
+@model ContosoCrafts.WebSite.Pages.Battle.BattleResultModel
 @{
     ViewData["Title"] = "Battle Result";
 }
@@ -7,6 +7,12 @@
 <div class="d-flex flex-column justify-content-center align-items-center bg-blur">
     <h1 class="page-title">@ViewData["Title"]</h1>
 
-    <p>Congratulations! You won the battle!</p>
-
+    @if (!string.IsNullOrEmpty(Model.BattleOutcomeMessage))
+    {
+        <p>@Model.BattleOutcomeMessage</p>
+    }
+    else
+    {
+        <p>No Pokémon selected.</p>
+    }
 </div>
