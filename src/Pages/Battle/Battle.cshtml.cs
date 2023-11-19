@@ -42,10 +42,10 @@ namespace ContosoCrafts.WebSite.Pages.Battle
         /// </summary>
         public void OnGet()
         {
-            // Retrieve all products from the service.
+            SelectedPokemon = new int[0];
+
             var allProducts = ProductService.GetProducts();
 
-            // Filter and store only Pokémon - General type cards for battle.
             PokemonGeneralCards = allProducts
                 .Where(p => p.CardCategory == CardType.Pokemon)
                 .ToList();
@@ -73,11 +73,11 @@ namespace ContosoCrafts.WebSite.Pages.Battle
 
                 ViewData["SelectedPokemonNames"] = selectedPokemonNames;
 
-                return RedirectToPage("/BattleResult");
+                return RedirectToPage("/Battle/BattleResult");
             }
             else
             {
-                return RedirectToPage("/Error");
+                return RedirectToPage("/Battle/BattleError");
             }
         }
     }
