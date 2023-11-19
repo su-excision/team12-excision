@@ -57,13 +57,15 @@ namespace ContosoCrafts.WebSite.Pages.Battle
         /// <returns>Redirects to the BattleResult page if conditions are met; otherwise, redirects to the Error page.</returns>
         public IActionResult OnPost()
         {
-            if (SelectedPokemon != null && SelectedPokemon.Length == 5)
+            var selectedPokemonValues = Request.Form["SelectedPokemon"];
+
+            if (selectedPokemonValues.Count == 5)
             {
                 List<string> selectedPokemonNames = new List<string>();
 
-                foreach (var productId in SelectedPokemon)
+                foreach (var productId in selectedPokemonValues)
                 {
-                    var selectedPokemon = ProductService.GetProduct(productId.ToString());
+                    var selectedPokemon = ProductService.GetProduct(productId);
 
                     if (selectedPokemon != null)
                     {
