@@ -38,7 +38,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Create
         /// <summary>
         /// GET requests 
         /// </summary>
-        public IActionResult OnGet()
+        public void OnGet()
         {
             /// Initialize the ProductModel with default values
             Product = new ProductModel();
@@ -48,7 +48,6 @@ namespace ContosoCrafts.WebSite.Pages.Product.Create
                 "grass", "lightning", "darkness", "fairy", "fire",
                 "psychic", "metal", "dragon", "water", "fighting", "colorless"
             };
-            return Page();
         }
 
         /// <summary>
