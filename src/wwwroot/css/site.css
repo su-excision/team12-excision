@@ -267,6 +267,7 @@ ul.type-list li {
     background-image: url('/images/GrassPixelBackground.jpeg');
     background-size: contain;
     background-repeat: repeat-x;
+    overflow-y: hidden;
 }
 
 /***** || Dark mode adjustment ******/
