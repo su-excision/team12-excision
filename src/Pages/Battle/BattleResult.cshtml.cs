@@ -19,6 +19,8 @@ namespace ContosoCrafts.WebSite.Pages.Battle
         /// </summary>
         public string BattleOutcomeMessage { get; set; }
 
+        public Random Random { get; set; } = new Random();
+
         /// <summary>
         /// Handles HTTP GET requests for the battle result page.
         /// </summary>
@@ -32,8 +34,7 @@ namespace ContosoCrafts.WebSite.Pages.Battle
         /// </summary>
         public void OnPost()
         {
-            Random random = new Random();
-            if (random.Next(2) == 0)
+            if (Random.Next(2) == 0)
             {
                 BattleOutcomeMessage = "Congratulations! You won the battle!";
             }
