@@ -75,6 +75,29 @@
     animation-iteration-count: infinite;
 }
 
+/****** || Animation for Zubat Flying ******/
+@keyframes snorlax-sleep {
+    from {
+        background-position: 0px;
+    }
+
+    to {
+        background-position: -576px;
+    }
+}
+
+.snorlax-sleeping {
+    background: url("/images/snorlax-sheet.webp");
+    width: 144px;
+    height: 144px;
+    /* background-size: cover; */
+    image-rendering: pixelated;
+    animation-name: snorlax-sleep;
+    animation-duration: 4s;
+    animation-timing-function: steps(4);
+    animation-iteration-count: infinite;
+}
+
 
 /****** || Animation for Walking Pokémon ******/
 
@@ -109,7 +132,7 @@
     }
 
     50% {
-        bototm: 30px;
+        bottom: 30px;
     }
 
     75% {
@@ -121,7 +144,7 @@
     }
 
 
- 
+
 }
 
 .flying-pokemon {
@@ -131,4 +154,12 @@
 
     background-size: 100%;
     animation: walk var(--walking-speed) linear infinite, fly 1.5s linear infinite;
+}
+
+/****** || Animation for Stationary Pokémon ******/
+
+.sleeping-snorlax {
+    position: absolute;
+    bottom: -25px;
+    right: 10%;
 }
