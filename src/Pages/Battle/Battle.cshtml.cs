@@ -23,12 +23,6 @@ namespace ContosoCrafts.WebSite.Pages.Battle
         public IEnumerable<ProductModel> PokemonGeneralCards { get; private set; }
 
         /// <summary>
-        /// Array to store the indices of selected Pokémon for battle.
-        /// </summary>
-        [BindProperty]
-        public int[] SelectedPokemon { get; set; }
-
-        /// <summary>
         /// Constructor for the BattleModel class.
         /// </summary>
         /// <param name="productService">The JSON file product service.</param>
@@ -42,8 +36,6 @@ namespace ContosoCrafts.WebSite.Pages.Battle
         /// </summary>
         public void OnGet()
         {
-            SelectedPokemon = new int[0];
-
             var allProducts = ProductService.GetProducts();
 
             PokemonGeneralCards = allProducts
@@ -61,20 +53,6 @@ namespace ContosoCrafts.WebSite.Pages.Battle
 
             if (selectedPokemonValues.Count == 5)
             {
-                List<string> selectedPokemonNames = new List<string>();
-
-                foreach (var productId in selectedPokemonValues)
-                {
-                    var selectedPokemon = ProductService.GetProduct(productId);
-
-                    if (selectedPokemon != null)
-                    {
-                        selectedPokemonNames.Add(selectedPokemon.Name);
-                    }
-                }
-
-                ViewData["SelectedPokemonNames"] = selectedPokemonNames;
-
                 return RedirectToPage("/Battle/BattleEnemyTeam");
             }
             else
