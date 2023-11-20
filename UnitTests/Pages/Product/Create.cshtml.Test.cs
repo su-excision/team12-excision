@@ -149,6 +149,45 @@ namespace UnitTests.Pages.Product.Create
             // Assert
             Assert.IsInstanceOf<PageResult>(result);
         }
+
+        /// <summary>
+        /// Tests to verify that a product created with no Type selected (which instances a List with a null entry)
+        /// is replaced with an empty List.
+        /// </summary>
+        [Test]
+        public void OnPost_Valid_TypelessEntry_Should_RemoveNullAndRedirect()
+        {
+            // Arrange
+            var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
+            mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
+            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
+            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
+
+            var testWebHostEnvironment = mockWebHostEnvironment.Object;
+            var productService = new JsonFileProductService(testWebHostEnvironment);
+            var createModel = new CreateModel(productService);
+
+            // Arrange: create Test Product with list of null.
+            var listNull = new List<string>() { null };
+            var testProduct = new TestProductBuilder().WithType(listNull).Build();
+
+            createModel.ModelState.Clear();
+            createModel.Product = testProduct;
+
+            // Act
+            createModel.OnPost();
+            var result = productService.GetLastProduct();
+
+
+            // Reset
+            productService.DeleteProduct(testProduct.Id);
+
+            // Assert
+            Assert.AreEqual(0, result.Type.Count);
+
+
+        }
+
         /// <summary>
         /// Test to verify the POST request, the page is valid and
         /// has successfully Created product data
