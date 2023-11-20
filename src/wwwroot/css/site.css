@@ -82,16 +82,6 @@ body {
     border-color: var(--color-button-bg-highlight);
 }
 
-.btn-success {
-    background: none;
-    border: none;
-}
-
-.btn-danger {
-    background: none;
-    border: none;
-}
-
 /****** || Style for input boxes *******/
 
 .input-shadow {
