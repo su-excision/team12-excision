@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
-using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Pages.Battle;
 using ContosoCrafts.WebSite.Services;
 using System.Collections.Generic;
@@ -13,7 +12,6 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Routing;
-using System.Linq;
 
 namespace UnitTests.Pages.Battle
 {
