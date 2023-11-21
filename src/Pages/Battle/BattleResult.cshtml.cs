@@ -10,11 +10,6 @@ namespace ContosoCrafts.WebSite.Pages.Battle
     public class BattleResultModel : PageModel
     {
         /// <summary>
-        /// List of names of selected Pokémon for the battle.
-        /// </summary>
-        public List<string> SelectedPokemonNames { get; set; }
-
-        /// <summary>
         /// Message indicating the outcome of the battle.
         /// </summary>
         public string BattleOutcomeMessage { get; set; }
