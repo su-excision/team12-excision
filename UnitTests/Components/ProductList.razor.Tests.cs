@@ -186,6 +186,46 @@ namespace UnitTests.Components
 
         #endregion TextFilter
 
+        #region TypeFilter
+
+        /// <summary>
+        /// Tests to verify that selecting a type from the type selector
+        /// will filter the list down to only cards containing that type.
+        /// </summary>
+        [Test]
+        public void TypeFilter_Valid_OnFilter_Should_ContainValidResult()
+        {
+            const string TypeFilterId = "type_selector";
+            const string ValidFilter = "Dark";
+
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+
+            // Arrange: render the component
+            var cut = RenderComponent<ProductList>();
+
+            // Act
+
+            // Act: Select the option to filter for.
+            var typeFilter = cut.FindAll("Select").First(element => element.OuterHtml.Contains(TypeFilterId));
+            typeFilter.Change(ValidFilter);
+
+
+            // Act: Count how many items appear on the list
+            var resultCount = cut.FindAll("Div").First(element => element.ClassName == "card-deck").ChildElementCount;
+
+            // Act: get markup for page
+            var markup = cut.Markup;
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, resultCount);
+            Assert.AreEqual(true, markup.Contains("Alolan Raticate"));
+        }
+
+        #endregion
+
         #region AddRating
 
         /// <summary>
