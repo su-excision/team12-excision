@@ -63,5 +63,24 @@ namespace UnitTests.Pages.Battle
             StringAssert.Contains("Sorry, you were utterly defeated.", battleResultModel.BattleOutcomeMessage);
         }
         #endregion OnPost
+
+        #region OnGet
+        /// <summary>
+        /// Tests the behavior of OnGet method.
+        /// </summary>
+        [Test]
+        public void OnGet_Should_Do_Something()
+        {
+            // Arrange
+            var battleResultModel = new BattleResultModel();
+
+            // Act
+            battleResultModel.OnGet();
+
+            // Assert
+            Assert.AreEqual(true, battleResultModel.ModelState.IsValid);
+        }
+        #endregion OnGet
+
     }
 }
