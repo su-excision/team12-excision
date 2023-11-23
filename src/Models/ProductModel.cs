@@ -67,8 +67,8 @@ namespace ContosoCrafts.WebSite.Models
 
         /// <summary>
         /// Energy types of the card which include:
-        /// grass, lightning, darkness, fairy, fire, psychic, 
-        /// metal, dragon, water, fighting and colorless.
+        /// normal, bug, grass, lightning, darkness, fairy, fire, psychic, ice, ground, dark
+        /// electric, poison, rock, ghost, metal, dragon, water, fighting, and flying.
         /// Card may have more multiple types.
         /// </summary>
         public List<string> Type { get; set; } = new List<string>();
