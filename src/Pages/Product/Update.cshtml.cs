@@ -4,6 +4,7 @@ using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 
 namespace ContosoCrafts.WebSite.Pages.Product.Update
 {
@@ -44,7 +45,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Update
         {
             Product = ProductService.GetProduct(id);
 
-            AvailableTypes = new List<EnergyType>(Enum.GetValues(typeof(EnergyType)).Cast<EnergyType>());
+            AvailableTypes = Enum.GetValues(typeof(EnergyType)).Cast<EnergyType>().ToList();
         }
 
         /// <summary>
