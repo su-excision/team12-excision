@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace ContosoCrafts.WebSite.Pages.Product.Update
 {
@@ -33,7 +34,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Update
         /// <summary>
         /// Available product types as a list of strings
         /// </summary>
-        public List<string> AvailableTypes { get; set; }
+        public List<EnergyType> AvailableTypes { get; set; }
 
         /// <summary>
         /// GET requests 
@@ -43,11 +44,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Update
         {
             Product = ProductService.GetProduct(id);
 
-            AvailableTypes = new List<string>
-            {
-                "grass", "lightning", "darkness", "fairy", "fire",
-                "psychic", "metal", "dragon", "water", "fighting", "colorless"
-            };
+            AvailableTypes = new List<EnergyType>(Enum.GetValues(typeof(EnergyType)).Cast<EnergyType>());
         }
 
         /// <summary>
