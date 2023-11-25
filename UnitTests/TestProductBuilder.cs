@@ -154,9 +154,9 @@ namespace UnitTests
         /// </summary>
         /// <param name="type">The Type desired for testing.</param>
         /// <returns>the TestProductBuilder being built</returns>
-        public TestProductBuilder WithType(string type)
+        public TestProductBuilder WithType(EnergyType type)
         {
-            _type.Add(type);
+            _type.Add(type.ToString());
             return this;
         }
 
@@ -167,7 +167,8 @@ namespace UnitTests
         /// <returns>the TestProductBuilder being built</returns>
         public TestProductBuilder WithType(List<string> types)
         {
-            _type = types;
+            // Filter out null entries from the list
+            _type = types.Where(type => type != null).ToList();
             return this;
         }
 
@@ -251,7 +252,7 @@ namespace UnitTests
                 Expansion = _expansion,
                 Rarity = _rarity,
                 Availability = _availability,
-                Type = _type,
+                Type = _type.Select(Enum.Parse<EnergyType>).ToList(),
                 Image = _image,
                 Description = _description,
                 Ratings = _ratings,
