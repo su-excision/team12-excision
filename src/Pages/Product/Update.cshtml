@@ -57,7 +57,7 @@
             <div class="form-group">
                 <div class="type-dropdown">
                     <label asp-for="Product.Type" class="control-label font-weight-bold"></label>
-                    <select asp-for="Product.Type" asp-items="new SelectList(Model.AvailableTypes)">
+                    <select asp-for="Product.Type" asp-items="Html.GetEnumSelectList<EnergyType>()">
                         <option value=""></option>
                     </select>
                 </div>
