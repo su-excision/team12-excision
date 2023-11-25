@@ -7,9 +7,7 @@
     "Rarity": "Common",
     "Availability": 15,
     "CardCategory": 100,
-    "Type": [
-      "grass"
-    ],
+    "Type": [ 3 ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SV01/SV01_EN_1.png",
     "Description": "A blue-green, pinecone-like pokemon",
     "Ratings": [
@@ -34,10 +32,7 @@
     "Rarity": "Uncommon",
     "Availability": 8,
     "CardCategory": 100,
-    "Type": [
-      "Bug",
-      "Fighting"
-    ],
+    "Type": [ 2, 17 ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SV01/SV01_EN_2.png",
     "Description": "It gathers in forests to search for tree sap, its favorite food. It\u0027s strong enough to hurl foes.",
     "Ratings": [
@@ -57,10 +52,7 @@
     "Rarity": "Ultra Rare",
     "Availability": 2,
     "CardCategory": 100,
-    "Type": [
-      "Fighting",
-      "Steel"
-    ],
+    "Type": [ 17, 14 ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SM6/SM6_EN_122.png",
     "Description": "They can detect the species of a living being\u2014 and its emotions\u2014from over half a mile away. They control auras and hunt their prey in packs.",
     "Ratings": [
@@ -80,10 +72,7 @@
     "Rarity": "Common",
     "Availability": 15,
     "CardCategory": 100,
-    "Type": [
-      "Normal",
-      "Fairy"
-    ],
+    "Type": [ 1, 6 ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/XY1/XY1_EN_88.png",
     "Description": "When its huge eyes waver, it sings a mysteriously soothing melody that lulls its enemies to sleep.",
     "Ratings": [],
@@ -97,9 +86,7 @@
     "Rarity": "Rare",
     "Availability": 3,
     "CardCategory": 100,
-    "Type": [
-      "Grass"
-    ],
+    "Type": [ 3 ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SV01/SV01_EN_3.png",
     "Description": "A small egg-shaped Pokemon",
     "Ratings": [
@@ -116,9 +103,7 @@
     "Rarity": "Rare",
     "Availability": 2,
     "CardCategory": 100,
-    "Type": [
-      "Normal"
-    ],
+    "Type": [ 1 ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/PL4/PL4_EN_29.png",
     "Description": "It whittles its constantly growing fangs by gnawing on hard things. It can chew apart cinder walls.",
     "Ratings": [],
@@ -132,9 +117,7 @@
     "Rarity": "Common",
     "Availability": 15,
     "CardCategory": 100,
-    "Type": [
-      "Fire"
-    ],
+    "Type": [ 7 ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_22.png",
     "Description": "While young, it has six gorgeous tails. When it grows, several new tails are sprouted.",
     "Ratings": [],
@@ -148,9 +131,7 @@
     "Rarity": "Rare",
     "Availability": 4,
     "CardCategory": 100,
-    "Type": [
-      "Water"
-    ],
+    "Type": [ 16 ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_48.png",
     "Description": "It loves crossing the sea with people and Pok\u00E9mon on its back. It understands human speech.",
     "Ratings": [],
@@ -178,9 +159,7 @@
     "Rarity": "Rare",
     "Availability": 2,
     "CardCategory": 100,
-    "Type": [
-      "Water"
-    ],
+    "Type": [ 16 ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/BW1/BW1_EN_32.png",
     "Description": "One swing of the sword incorporated in its armor can fell an opponent. A simple glare from one of them quiets everybody.",
     "Ratings": [],
@@ -194,10 +173,7 @@
     "Rarity": "Uncommon",
     "Availability": 8,
     "CardCategory": 100,
-    "Type": [
-      "Psychic",
-      "Flying"
-    ],
+    "Type": [ 8, 18 ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/BW1/BW1_EN_51.png",
     "Description": "It emits sound waves of various frequencies from its nose, including some powerful enough to destroy rocks.",
     "Ratings": [],
@@ -211,10 +187,7 @@
     "Rarity": "Uncommon",
     "Availability": 5,
     "CardCategory": 100,
-    "Type": [
-      "Dark",
-      "Normal"
-    ],
+    "Type": [ 5, 1 ],
     "img": "https://assets.pokemon.com/assets/cms2/img/cards/web/SM1/SM1_EN_77.png",
     "Description": "Its disposition is far more violent than its looks would suggest. Don\u2019t let your hand get too close to its face, as it could bite your hand clean off.",
     "Ratings": [],

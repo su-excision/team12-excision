@@ -43,7 +43,7 @@
         if (selectedFilterOption != "All")
         {
             // filter the product list
-            productList = productList.Where(product => product.Type.Any(type => type.ToUpper().Contains(selectedFilterOption.ToUpper())));
+            productList = productList.Where(product => product.Name.Contains(filterString, StringComparison.OrdinalIgnoreCase));
         }
 
         // build the card layout for the cards

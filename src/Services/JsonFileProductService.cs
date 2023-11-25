@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text.Json;
 using ContosoCrafts.WebSite.Models;
 using Microsoft.AspNetCore.Hosting;
+using System.Text.Json.Serialization;
+
 
 namespace ContosoCrafts.WebSite.Services
 {
@@ -44,11 +46,12 @@ namespace ContosoCrafts.WebSite.Services
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
-                return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
-                    new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    Converters = { new JsonStringEnumConverter() } // Add this line to convert enums
+                };
+                return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(), options);
             }
         }
 
@@ -165,14 +168,12 @@ namespace ContosoCrafts.WebSite.Services
         {
             using (var outputStream = File.Create(JsonFileName))
             {
-                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
-                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }),
-                    products
-                );
+                var options = new JsonSerializerOptions
+                {
+                    WriteIndented = true,
+                    Converters = { new JsonStringEnumConverter() }
+                };
+                JsonSerializer.Serialize<IEnumerable<ProductModel>>(new Utf8JsonWriter(outputStream, new JsonWriterOptions()), products, options);
             }
         }
 

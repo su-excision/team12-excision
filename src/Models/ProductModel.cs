@@ -68,7 +68,8 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Energy types of the card.
         /// </summary>
-        public List<string> Type { get; set; } = new List<string>();
+        [Display(Name = "Energy Types")]
+        public List<EnergyType> Type { get; set; } = new List<EnergyType>();
 
         /// <summary>
         /// Link to an image of the associated card.

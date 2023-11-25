@@ -26,12 +26,11 @@
                 <h2 class="h4 card-title">@Model.Product.Description</h2>
                 <div class="row d-flex justify-content-center">
                     <ul class="type-list">
-                        @foreach (var typeName in @Model.Product.Type)
+                        @foreach (var typeName in Model.Product.Type)
                         {
-                            <li class="h4 poketype @typeName.ToLower()">@typeName</li>
+                            <li class="h4 poketype">@typeName.ToString().ToLower()</li>
                         }
                     </ul>
-
                 </div>
                 <div class="row">
                     <div class="col-md-6">

@@ -34,12 +34,11 @@
                 <h2 class="h4 card-title">@Model.Product.Description</h2>
                 <div class="row d-flex justify-content-center">
                     <ul class="type-list">
-                        @foreach (var typeName in @Model.Product.Type)
+                        @foreach (var typeName in Model.Product.Type)
                         {
-                            <li class="h4 poketype @typeName.ToLower()">@typeName</li>
+                            <li class="h4 poketype">@typeName.ToString().ToLower()</li>
                         }
                     </ul>
-
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -76,23 +75,23 @@
                     // If there are Comments, show them.
                     if (Model.Product.CommentList.Count > 0)
                     {
-                        <br />
-                        <br />
-                        <table class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Comments</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var comment in Model.Product.CommentList)
+                    <br />
+                    <br />
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var comment in Model.Product.CommentList)
                                 {
-                                    <tr>
-                                        <td>@comment.Comment</td>
-                                    </tr>
+                            <tr>
+                                <td>@comment.Comment</td>
+                            </tr>
                                 }
-                            </tbody>
-                        </table>
+                        </tbody>
+                    </table>
                     }
                 }
                 <br />
