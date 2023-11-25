@@ -179,8 +179,7 @@ namespace UnitTests.Pages.Product.Update
                 Value = 14.99f,
                 Rarity = "Uncommon",
                 Availability = 8,
-                Type = new List<string> { "Bug", "Fighting" }
-
+                Type = new List<EnergyType> { EnergyType.Bug, EnergyType.Fighting }
             };
 
             // Act
@@ -221,7 +220,7 @@ namespace UnitTests.Pages.Product.Update
                 Value = 14.99f,
                 Rarity = "Uncommon",
                 Availability = 8,
-                Type = new List<string> { "Bug", "Fighting" }
+                Type = new List<EnergyType> { EnergyType.Bug, EnergyType.Fighting }
             };
 
             // Act
@@ -255,15 +254,15 @@ namespace UnitTests.Pages.Product.Update
             var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
             var updateModel = new UpdateModel(productService);
 
-            updateModel.AvailableTypes = new List<string>
+            updateModel.AvailableTypes = new List<EnergyType>
             {
-                "grass", "lightning", "darkness", "fairy", "fire",
-                "psychic", "metal", "dragon", "water", "fighting", "colorless"
+                EnergyType.Grass, EnergyType.Electric, EnergyType.Darkness, EnergyType.Fairy, EnergyType.Fire,
+                EnergyType.Psychic, EnergyType.Steel, EnergyType.Dragon, EnergyType.Water, EnergyType.Fighting, EnergyType.Colorless
             };
-            var expectedTypes = new List<string>
+                        var expectedTypes = new List<EnergyType>
             {
-                "grass", "lightning", "darkness", "fairy", "fire",
-                "psychic", "metal", "dragon", "water", "fighting", "colorless"
+                EnergyType.Grass, EnergyType.Electric, EnergyType.Darkness, EnergyType.Fairy, EnergyType.Fire,
+                EnergyType.Psychic, EnergyType.Steel, EnergyType.Dragon, EnergyType.Water, EnergyType.Fighting, EnergyType.Colorless
             };
 
             // Act
@@ -295,8 +294,11 @@ namespace UnitTests.Pages.Product.Update
             };
 
             // Act
-            updateModel.AvailableTypes = expectedTypes;
-
+            updateModel.AvailableTypes = new List<EnergyType>
+            {
+                EnergyType.Grass, EnergyType.Electric, EnergyType.Darkness, EnergyType.Fairy, EnergyType.Fire,
+                EnergyType.Psychic, EnergyType.Steel, EnergyType.Dragon, EnergyType.Water, EnergyType.Fighting, EnergyType.Colorless
+            };
             // Assert
             CollectionAssert.AreEqual(expectedTypes, updateModel.AvailableTypes);
         }
@@ -350,7 +352,7 @@ namespace UnitTests.Pages.Product.Update
                 Value = 14.99f,
                 Rarity = "Uncommon",
                 Availability = 8,
-                Type = new List<string> { "Bug", "Fighting" }
+                Type = new List<EnergyType> { EnergyType.Bug, EnergyType.Fighting }
             };
 
             updateModel.ModelState.Clear();
@@ -390,7 +392,7 @@ namespace UnitTests.Pages.Product.Update
                 Value = 14.99f,
                 Rarity = "Uncommon",
                 Availability = 8,
-                Type = new List<string> { "Bug", "Fighting" }
+                Type = new List<EnergyType> { EnergyType.Bug, EnergyType.Fighting }
             };
 
             updateModel.ModelState.Clear();
