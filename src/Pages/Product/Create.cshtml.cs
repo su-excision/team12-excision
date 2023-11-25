@@ -2,7 +2,9 @@ using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ContosoCrafts.WebSite.Pages.Product.Create
 {
@@ -33,7 +35,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Create
         /// <summary>
         /// Available product types as a list of strings
         /// </summary>
-        public List<string> AvailableTypes { get; set; }
+        public List<EnergyType> AvailableTypes { get; set; }
 
         /// <summary>
         /// GET requests 
@@ -43,11 +45,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Create
             /// Initialize the ProductModel with default values
             Product = new ProductModel();
             /// Display the list of types
-            AvailableTypes = new List<string>
-            {
-                "grass", "lightning", "darkness", "fairy", "fire",
-                "psychic", "metal", "dragon", "water", "fighting", "colorless"
-            };
+            AvailableTypes = Enum.GetValues(typeof(EnergyType)).Cast<EnergyType>().ToList();
         }
 
         /// <summary>
@@ -60,7 +58,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Create
             {
                 if (Product.Type == null)
                 {
-                    Product.Type = new List<ContosoCrafts.WebSite.Models.EnergyType>();
+                    Product.Type = new List<EnergyType>();
                 }
 
                 ProductService.AddProduct(Product); // Save the updated data
