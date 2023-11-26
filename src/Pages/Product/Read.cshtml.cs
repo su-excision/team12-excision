@@ -44,7 +44,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             Product = _productService.GetProduct(id);
             if (Product == null)
             {
-                return NotFound();
+                return BadRequest();
             }
             return Page();
         }
