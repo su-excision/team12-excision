@@ -1,6 +1,7 @@
 using System.Linq;
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc;
 
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
@@ -37,9 +38,15 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// the desired Product from the datastore based on the product Id passed to it.
         /// </summary>
         /// <param name="id">the Product Id for the desired Product to load.</param>
-        public void OnGet(string id)
+        public IActionResult OnGet(string id)
         {
+
             Product = _productService.GetProduct(id);
+            if (Product == null)
+            {
+                return NotFound();
+            }
+            return Page();
         }
     }
 }
