@@ -43,6 +43,8 @@ namespace ContosoCrafts.WebSite
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseStatusCodePagesWithReExecute("/Error", "?errorCode={0}");
+
             app.UseRouting();
 
             app.UseAuthorization();
