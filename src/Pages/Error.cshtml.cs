@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +23,19 @@ namespace ContosoCrafts.WebSite.Pages
         public string RequestId { get; set; }
 
         /// <summary>
+        /// The StatusCode generated that resulted in being redirected to this page.
+        /// </summary>
+        public string ErrorCode { get; set; }
+
+        /// <summary>
         /// True if the RequestId has been set. False otherwise.
         /// </summary>
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+        /// <summary>
+        /// True if the ErrorCode has been set. False otherwise.
+        /// </summary>
+        public bool IsErrorCodeAvailable => !string.IsNullOrEmpty(ErrorCode);
 
         /// <summary>
         /// Logger used for creating logs of site operation.
@@ -44,8 +55,10 @@ namespace ContosoCrafts.WebSite.Pages
         /// Method that is called when the page is loaded (after a GET request). Sets
         /// the value of RequestId on execution.
         /// </summary>
-        public void OnGet()
+        public void OnGet(string errorCode)
         {
+            ErrorCode = errorCode;
+
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
         }
     }
