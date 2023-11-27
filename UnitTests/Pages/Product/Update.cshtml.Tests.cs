@@ -19,6 +19,7 @@ using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Pages.Product.Update;
 using ContosoCrafts.WebSite.Models;
 using System.Collections.Generic;
+using System;
 
 namespace UnitTests.Pages.Product.Update
 {
@@ -113,6 +114,7 @@ namespace UnitTests.Pages.Product.Update
 
             var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
             var updateModel = new UpdateModel(productService);
+            var enumValues = Enum.GetValues(typeof(EnergyType)).Cast<EnergyType>();
 
             // Act
             updateModel.OnGet(productId);
@@ -125,9 +127,7 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual(14.99f, updateModel.Product.Value);
             Assert.AreEqual("Uncommon", updateModel.Product.Rarity);
             Assert.AreEqual(8, updateModel.Product.Availability);
-            CollectionAssert.AreEqual(
-                new List<string> { "grass", "lightning", "darkness", "fairy", "fire", "psychic", "metal", "dragon", "water", "fighting", "colorless" },
-                updateModel.AvailableTypes);
+            CollectionAssert.AreEqual(enumValues, updateModel.AvailableTypes);
         }
         #endregion OnGet
 
@@ -287,20 +287,17 @@ namespace UnitTests.Pages.Product.Update
 
             var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
             var updateModel = new UpdateModel(productService);
-            var expectedTypes = new List<string>
-            {
-                "grass", "lightning", "darkness", "fairy", "fire",
-                "psychic", "metal", "dragon", "water", "fighting", "colorless"
-            };
+            var enumValues = Enum.GetValues(typeof(EnergyType)).Cast<EnergyType>();
 
             // Act
             updateModel.AvailableTypes = new List<EnergyType>
             {
-                EnergyType.Grass, EnergyType.Electric, EnergyType.Darkness, EnergyType.Fairy, EnergyType.Fire,
-                EnergyType.Psychic, EnergyType.Steel, EnergyType.Dragon, EnergyType.Water, EnergyType.Fighting, EnergyType.Colorless
+                EnergyType.All, EnergyType.Normal, EnergyType.Bug, EnergyType.Grass, EnergyType.Electric, EnergyType.Darkness, EnergyType.Fairy, EnergyType.Fire,
+                EnergyType.Psychic, EnergyType.Ice, EnergyType.Ground, EnergyType.Poison, EnergyType.Rock, EnergyType.Ghost, EnergyType.Steel, EnergyType.Dragon, 
+                EnergyType.Water, EnergyType.Fighting, EnergyType.Flying, EnergyType.Colorless
             };
             // Assert
-            CollectionAssert.AreEqual(expectedTypes, updateModel.AvailableTypes);
+            CollectionAssert.AreEqual(enumValues, updateModel.AvailableTypes);
         }
         #endregion AvailableTypesProperty Setter
 
