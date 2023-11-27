@@ -17,6 +17,7 @@ using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Pages.Product.Create;
 using System.Collections.Generic;
+using ContosoCrafts.WebSite.Models;
 using System.Linq;
 using System;
 
@@ -101,6 +102,7 @@ namespace UnitTests.Pages.Product.Create
 
             var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
             var createModel = new CreateModel(productService);
+            var enumValues = Enum.GetValues(typeof(EnergyType)).Cast<EnergyType>();
 
             // Act
             createModel.OnGet();
@@ -116,9 +118,7 @@ namespace UnitTests.Pages.Product.Create
             Assert.AreEqual(null, createModel.Product.Image);
             Assert.AreEqual(null, createModel.Product.Description);
             Assert.IsEmpty(createModel.Product.Ratings);
-            CollectionAssert.AreEqual(
-                new List<string> { "grass", "lightning", "darkness", "fairy", "fire", "psychic", "metal", "dragon", "water", "fighting", "colorless" },
-                createModel.AvailableTypes);
+            CollectionAssert.AreEqual(enumValues, createModel.AvailableTypes);
         }
         #endregion OnGet
 
