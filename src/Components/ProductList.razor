@@ -17,10 +17,13 @@
             </div>
         </div>
         <div class="col-md-4 mx-auto">
+            @{
+                var enumValues = Enum.GetValues(typeof(EnergyType)).Cast<EnergyType>();
+            }
             <select class="form-control" test-id="type_selector" @bind="selectedFilterOption">
-                @foreach (var option in filterOptions)
+                @foreach (var value in enumValues)
                 {
-                    <option value="@option">@option</option>
+                    <option value="@value">@Enum.GetName(typeof(EnergyType), value)</option>
                 }
             </select>
         </div>
@@ -43,7 +46,12 @@
         if (selectedFilterOption != "All")
         {
             // filter the product list
-            productList = productList.Where(product => product.Name.Contains(filterString, StringComparison.OrdinalIgnoreCase));
+            productList = ProductService.GetProducts()
+            .Where(product =>
+            product.Name.ToUpper().Contains(filterString.ToUpper()) &&
+            (selectedFilterOption == "All" || product.Type.Any(t => t == Enum.Parse<EnergyType>(selectedFilterOption)))
+            )
+            .ToList();
         }
 
         // build the card layout for the cards
@@ -188,8 +196,6 @@
     string filterString = "";
     bool isListFiltered = false;
 
-    List<string> filterOptions = new List<string> {"All", "Grass", "Dark", "Fairy", "Fire", "Bug", "Steel",
-"Psychic", "Normal", "Water", "Fighting", "Flying"};
     string selectedFilterOption = "All";
 
     void SelectProduct(string productId)
