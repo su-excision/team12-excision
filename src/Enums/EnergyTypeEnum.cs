@@ -11,8 +11,8 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Energy Type is undefined
         /// </summary>
-        [Display(Name = "")]
-        Undefined = 0,
+        [Display(Name = "All")]
+        All = 0,
 
         /// <summary>
         /// Normal Energy
