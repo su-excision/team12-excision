@@ -56,11 +56,6 @@ namespace ContosoCrafts.WebSite.Pages.Product.Create
         {
             if (ModelState.IsValid)
             {
-                if (Product.Type == null)
-                {
-                    Product.Type = new List<EnergyType>();
-                }
-
                 ProductService.AddProduct(Product); // Save the updated data
 
                 return RedirectToPage("./Index"); // Redirect to the product list page
