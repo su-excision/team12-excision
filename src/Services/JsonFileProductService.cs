@@ -49,7 +49,6 @@ namespace ContosoCrafts.WebSite.Services
                 var options = new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true,
-                    Converters = { new JsonStringEnumConverter() } // Add this line to convert enums
                 };
                 return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(), options);
             }
@@ -170,8 +169,7 @@ namespace ContosoCrafts.WebSite.Services
             {
                 var options = new JsonSerializerOptions
                 {
-                    WriteIndented = true,
-                    Converters = { new JsonStringEnumConverter() }
+                    WriteIndented = true
                 };
                 var writerOptions = new JsonWriterOptions
                 {
