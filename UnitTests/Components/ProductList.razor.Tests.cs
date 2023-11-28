@@ -196,7 +196,7 @@ namespace UnitTests.Components
         public void TypeFilter_Valid_OnFilter_Should_ContainValidResult()
         {
             const string TypeFilterId = "type_selector";
-            const string ValidFilter = "Dark";
+            const string ValidFilter = "Darkness";
 
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
