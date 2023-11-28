@@ -6,13 +6,14 @@
 
 <h1 class="text-danger text-center poketitle">Uh Oh!</h1>
 
-<p class="h1">@Model.ErrorMessage</p>
+<p class="h1">You tried something we didn't think of! @Model.ErrorMessage</p>
+<p class="h1 text-center">That's a problem!</p>
 
-<p> If you believe you reached this page in error, please contact the webmaster.</p>
+<p class="text-center">If you believe you reached this page in error, please contact the webmaster.</p>
 
 @if (Model.ShowRequestId)
 {
-    <p>
+    <p class="text-center">
     <strong>Request ID:</strong> <code>@Model.RequestId</code>
 </p>
 }
