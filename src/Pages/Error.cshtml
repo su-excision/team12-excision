@@ -4,15 +4,13 @@
     ViewData["Title"] = "Error";
 }
 
-<h1 class="text-danger">Uh Oh!</h1>
-<h2 class="text-danger">You tried soemthing we didn't think of!</h2>
+<h1 class="text-danger text-center poketitle">Uh Oh!</h1>
 
 @if (Model.IsErrorCodeAvailable)
 {
-    <p>
-    <strong>Error Code:</strong> <code>@Model.ErrorCode</code>
-</p>
+    <p class="h1">@Model.ErrorMessage</p>
 }
+<p> If you believe you reached this page in error, please contact the webmaster.</p>
 
 @if (Model.ShowRequestId)
 {
