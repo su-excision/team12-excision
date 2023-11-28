@@ -24,11 +24,6 @@ namespace ContosoCrafts.WebSite.Pages
         public string RequestId { get; set; }
 
         /// <summary>
-        /// The StatusCode generated that resulted in being redirected to this page.
-        /// </summary>
-        public string ErrorCode { get; set; }
-
-        /// <summary>
         /// The Error Message that will be communicated to the user.
         /// </summary>
         public string ErrorMessage { get; set; }
@@ -37,11 +32,6 @@ namespace ContosoCrafts.WebSite.Pages
         /// True if the RequestId has been set. False otherwise.
         /// </summary>
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-
-        /// <summary>
-        /// True if the ErrorCode has been set. False otherwise.
-        /// </summary>
-        public bool IsErrorCodeAvailable => !string.IsNullOrEmpty(ErrorCode);
 
         /// <summary>
         /// Logger used for creating logs of site operation.
@@ -63,7 +53,6 @@ namespace ContosoCrafts.WebSite.Pages
         /// </summary>
         public void OnGet(string errorCode)
         {
-            ErrorCode = errorCode;
 
             switch (errorCode)
             {
