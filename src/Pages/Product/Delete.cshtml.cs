@@ -36,9 +36,17 @@ namespace ContosoCrafts.WebSite.Pages.Product.Delete
         /// the desired Product from the datastore based on the product Id passed to it.
         /// </summary>
         /// <param name="id">the Product Id for the desired Product to load.</param>
-        public void OnGet(string id)
+        public IActionResult OnGet(string id)
         {
-            Product = _productService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            Product = _productService.GetProduct(id);
+
+            if (Product == null)
+            {
+                return BadRequest();
+            }
+
+            return Page();
+
         }
 
         /// <summary>
@@ -47,9 +55,17 @@ namespace ContosoCrafts.WebSite.Pages.Product.Delete
         /// <returns> Index page if successful 
         public IActionResult OnPost(string id)
         {
-            ProductModel product = _productService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));   
-            _productService.DeleteProduct(id);
-            return RedirectToPage("/Index"); 
+            ProductModel product = _productService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            var successfulDelete = _productService.DeleteProduct(id);
+
+            // if the delete was not successful
+            if (successfulDelete == false)
+            {
+                // throw a 400
+                return BadRequest();
+            }
+
+            return RedirectToPage("/Index");
         }
     }
 }
