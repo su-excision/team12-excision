@@ -6,10 +6,8 @@
 
 <h1 class="text-danger text-center poketitle">Uh Oh!</h1>
 
-@if (Model.IsErrorCodeAvailable)
-{
-    <p class="h1">@Model.ErrorMessage</p>
-}
+<p class="h1">@Model.ErrorMessage</p>
+
 <p> If you believe you reached this page in error, please contact the webmaster.</p>
 
 @if (Model.ShowRequestId)
