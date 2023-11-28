@@ -62,9 +62,6 @@ namespace ContosoCrafts.WebSite.Pages
                 case "404":
                     ErrorMessage = "You have attempted to navigate to a page of this site that does not exist.";
                     break;
-                default:
-                    ErrorMessage = "You tried something we did not think of!";
-                    break;
             }
 
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
