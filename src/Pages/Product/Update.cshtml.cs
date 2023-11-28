@@ -41,11 +41,20 @@ namespace ContosoCrafts.WebSite.Pages.Product.Update
         /// GET requests 
         /// </summary>
         /// <param name="id"></param>
-        public void OnGet(string id)
+        public IActionResult OnGet(string id)
         {
             Product = ProductService.GetProduct(id);
 
+            // if the product didn't exist
+            if (Product == null)
+            {
+                // throw a 400
+                return BadRequest();
+            }
+
             AvailableTypes = Enum.GetValues(typeof(EnergyType)).Cast<EnergyType>().ToList();
+
+            return Page();
         }
 
         /// <summary>
