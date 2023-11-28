@@ -173,7 +173,11 @@ namespace ContosoCrafts.WebSite.Services
                     WriteIndented = true,
                     Converters = { new JsonStringEnumConverter() }
                 };
-                JsonSerializer.Serialize<IEnumerable<ProductModel>>(new Utf8JsonWriter(outputStream, new JsonWriterOptions()), products, options);
+                var writerOptions = new JsonWriterOptions
+                {
+                    Indented = true
+                };
+                JsonSerializer.Serialize<IEnumerable<ProductModel>>(new Utf8JsonWriter(outputStream, writerOptions), products, options);
             }
         }
 
