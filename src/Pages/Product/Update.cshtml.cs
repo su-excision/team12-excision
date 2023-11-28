@@ -68,8 +68,20 @@ namespace ContosoCrafts.WebSite.Pages.Product.Update
             {
                 return Page();
             }
-            ProductService.UpdateData(Product);
+
+
+            bool successfulUpdate = ProductService.UpdateData(Product);
+
+            // if update was not successful
+            if (successfulUpdate == false)
+            {
+                // throw a 400 error
+                return BadRequest();
+
+            }
+
             return RedirectToPage("./Index");
+
         }
     }
 }
