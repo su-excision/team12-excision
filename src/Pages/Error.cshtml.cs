@@ -3,6 +3,7 @@ using System.Diagnostics;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Logging;
 
 
@@ -26,6 +27,11 @@ namespace ContosoCrafts.WebSite.Pages
         /// The StatusCode generated that resulted in being redirected to this page.
         /// </summary>
         public string ErrorCode { get; set; }
+
+        /// <summary>
+        /// The Error Message that will be communicated to the user.
+        /// </summary>
+        public string ErrorMessage { get; set; }
 
         /// <summary>
         /// True if the RequestId has been set. False otherwise.
@@ -58,6 +64,19 @@ namespace ContosoCrafts.WebSite.Pages
         public void OnGet(string errorCode)
         {
             ErrorCode = errorCode;
+
+            switch (errorCode)
+            {
+                case "400":
+                    ErrorMessage = "You have attempted to access data that does not exist or have otherwise caused some upset with our database.";
+                    break;
+                case "404":
+                    ErrorMessage = "You have attempted to navigate to a page of this site that does not exist.";
+                    break;
+                default:
+                    ErrorMessage = "You tried something we did not think of!";
+                    break;
+            }
 
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
         }
