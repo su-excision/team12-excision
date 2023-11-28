@@ -94,7 +94,7 @@ namespace UnitTests.Pages.Error
             activity.Start();
 
             // Act
-            pageModel.OnGet();
+            pageModel.OnGet(string.Empty);
 
             // Reset
             activity.Stop();
@@ -113,7 +113,7 @@ namespace UnitTests.Pages.Error
             // Arrange
 
             // Act
-            pageModel.OnGet();
+            pageModel.OnGet(string.Empty);
 
             // Reset
 
