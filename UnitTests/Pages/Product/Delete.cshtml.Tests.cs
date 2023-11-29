@@ -95,6 +95,22 @@ public class DeleteTests
         Assert.IsNotNull(pageModel.Product);
         Assert.AreEqual(TestConstants.ExpectedLastProductId, pageModel.Product.Id);
     }
+
+    /// <summary>
+    /// Tests that when Delete tries to read a page that doesn't exist, it returns an Error Code 400.
+    /// </summary>
+    [Test]
+    public void OnGet_Invalid_InvalidProduct_Should_ReturnBadResponse()
+    {
+        // arrange
+        const string InvalidId = "Invalid Id";
+
+        // act
+        var result = pageModel.OnGet(InvalidId);
+
+        // assert
+        Assert.IsInstanceOf<BadRequestResult>(result);
+    }
     #endregion OnGet
 
     #region OnPost
@@ -126,5 +142,25 @@ public class DeleteTests
         Assert.AreEqual("/Index", redirectToPageResult.PageName);
 
     }
+
+    /// <summary>
+    /// Tests that if it tries to delete a thing htat doesn't exist in goes to error page
+    /// </summary>
+    [Test]
+    public void OnPost_Invalid_InvalidId_Should_ReturnError()
+    {
+        // arrange
+        const string InvalidId = "Invalid Id";
+
+        // act
+        var result = pageModel.OnPost(InvalidId);
+
+        // reset
+
+        // assert
+        Assert.IsInstanceOf<BadRequestResult>(result);
+
+    }
+
     #endregion OnPost
 }
