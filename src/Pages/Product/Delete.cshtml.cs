@@ -14,7 +14,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Delete
         /// <summary>
         /// ProductService for retrieving products from the datastore.
         /// </summary>
-        private readonly JsonFileProductService _productService;
+        public readonly JsonFileProductService ProductService;
 
         /// <summary>
         /// Constructor for the Delete Page Model.
@@ -23,7 +23,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Delete
         /// from the datastore.</param>
         public DeleteModel(JsonFileProductService productService)
         {
-            _productService = productService;
+            ProductService = productService;
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace ContosoCrafts.WebSite.Pages.Product.Delete
         /// <param name="id">the Product Id for the desired Product to load.</param>
         public IActionResult OnGet(string id)
         {
-            Product = _productService.GetProduct(id);
+            Product = ProductService.GetProduct(id);
 
             if (Product == null)
             {
@@ -55,8 +55,8 @@ namespace ContosoCrafts.WebSite.Pages.Product.Delete
         /// <returns> Index page if successful 
         public IActionResult OnPost(string id)
         {
-            ProductModel product = _productService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
-            var successfulDelete = _productService.DeleteProduct(id);
+            ProductModel product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            var successfulDelete = ProductService.DeleteProduct(id);
 
             // if the delete was not successful
             if (successfulDelete == false)
