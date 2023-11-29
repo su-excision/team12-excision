@@ -122,6 +122,57 @@ namespace UnitTests.Pages.Error
             Assert.AreEqual("trace", pageModel.RequestId);
             Assert.AreEqual(true, pageModel.ShowRequestId);
         }
+
+        /// <summary>
+        /// Tests that the Error Message on the Error page is correct for
+        /// a 404 when the error code is 404.
+        /// </summary>
+        [Test]
+        public void OnGet_Valid_Error404_Should_ContainErrorMessage()
+        {
+            // Arrange
+            const string ExpectedErrorMessage = "You have attempted to navigate to a page of this site that does not exist.";
+
+            Activity activity = new Activity("activity");
+            activity.Start();
+
+            // Act
+            pageModel.OnGet("404");
+
+            // Reset
+            activity.Stop();
+
+            // Assert
+            Assert.AreEqual(ExpectedErrorMessage, pageModel.ErrorMessage);
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(activity.Id, pageModel.RequestId);
+        }
+
+        /// <summary>
+        /// Tests that the Error Message on the Error page is correct for
+        /// a 404 when the error code is 404.
+        /// </summary>
+        [Test]
+        public void OnGet_Valid_Error400_Should_ContainErrorMessage()
+        {
+            // Arrange
+            const string ExpectedErrorMessage = "You have attempted to access data that does not exist or have otherwise caused some upset with our database.";
+
+            Activity activity = new Activity("activity");
+            activity.Start();
+
+            // Act
+            pageModel.OnGet("400");
+
+            // Reset
+            activity.Stop();
+
+            // Assert
+            Assert.AreEqual(ExpectedErrorMessage, pageModel.ErrorMessage);
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(activity.Id, pageModel.RequestId);
+        }
+
         #endregion OnGet
     }
 }
