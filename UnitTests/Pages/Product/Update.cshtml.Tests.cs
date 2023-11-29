@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using System;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Http.HttpResults;
+using ContosoCrafts.WebSite.Pages;
 
 namespace UnitTests.Pages.Product.Update
 {
@@ -73,7 +74,7 @@ namespace UnitTests.Pages.Product.Update
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
-            var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>();
+            var MockLoggerDirect = Mock.Of<ILogger<UpdateModel>>();
             JsonFileProductService productService;
 
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
@@ -339,6 +340,23 @@ namespace UnitTests.Pages.Product.Update
             // Assert
             Assert.IsInstanceOf<PageResult>(result);
         }
+
+        [Test]
+        public void OnPost_Invalid_ProductDoesNotExist_Should_ReturnBadRequest()
+        {
+            // Arrange
+            const string InvalidId = "Invalid Id";
+            pageModel.OnGet(TestConstants.TestCaseId);
+
+
+            // Act
+            pageModel.Product.Id = InvalidId;
+            var result = pageModel.OnPost();
+
+            // Assert
+            Assert.IsInstanceOf<BadRequestResult>(result);
+        }
+
         ///<summary>
         ///This test checks if the OnPost method, when called with a valid model, updates the product and returns a Redirect To Page Result.
         ///</summary>
