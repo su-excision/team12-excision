@@ -91,6 +91,25 @@ namespace UnitTests.Pages.Product.Read
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Pineco", pageModel.Product.Name);
         }
+
+        /// <summary>
+        /// Tests that the read page throws a bad resposne on invalid ID
+        /// </summary>
+        [Test]
+        public void OnGet_Invalid_BadId_Should_ReturnBadResponse()
+        {
+            // Arrange
+            const string InvalidId = "Invalid Id";
+
+            // Act
+            var result = pageModel.OnGet(InvalidId);
+
+            // Reset
+
+            // Assert
+            Assert.IsInstanceOf<BadRequestResult>(result);
+
+        }
         #endregion OnGet
     }
 }
