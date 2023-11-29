@@ -102,30 +102,23 @@ public class DeleteTests
     /// Test to verify that ON POST request, product is removed from data store and from Index page
     /// </summary>
     [Test]
-    public void OnPost_Valid_Should_Delete_Product()
+    public void OnPost_Valid_Should_DeleteProduct()
     {
         // Arrange
-        var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
-        mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
-        mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
-        mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
-
-        var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
-
-        var lastProduct = productService.GetLastProduct();
-        var deleteModel = new DeleteModel(productService);
+        pageModel.OnGet(TestConstants.ExpectedLastProductId);
+        var lastProduct = pageModel.Product;
 
         // Act
-        var firstCount = productService.GetProducts().Count();
-        var result = deleteModel.OnPost(lastProduct.Id);
-        var isProductInList = productService.GetProduct(lastProduct.Id) != null;
-        var lastCount = productService.GetProducts().Count();
+        var result = pageModel.OnPost(TestConstants.ExpectedLastProductId);
+        var isProductInList = pageModel.ProductService.GetProducts().Contains(lastProduct);
+        var afterCount = pageModel.ProductService.GetProducts().Count();
+
 
         // Reset
-        productService.AddProduct(lastProduct);
+        pageModel.ProductService.AddProduct(lastProduct);
 
         // Assert
-        Assert.AreEqual(firstCount - 1, lastCount);
+        Assert.AreEqual(TestConstants.ExpectedProductCount - 1, afterCount);
         Assert.AreEqual(false, isProductInList);
 
         Assert.IsInstanceOf<RedirectToPageResult>(result);
