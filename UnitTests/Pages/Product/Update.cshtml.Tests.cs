@@ -20,6 +20,8 @@ using ContosoCrafts.WebSite.Pages.Product.Update;
 using ContosoCrafts.WebSite.Models;
 using System.Collections.Generic;
 using System;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace UnitTests.Pages.Product.Update
 {
@@ -40,7 +42,7 @@ namespace UnitTests.Pages.Product.Update
         public static TempDataDictionary tempData;
         public static PageContext pageContext;
 
-        public static IndexModel pageModel;
+        public static UpdateModel pageModel;
 
         [SetUp]
         public void TestInitialize()
@@ -76,7 +78,7 @@ namespace UnitTests.Pages.Product.Update
 
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
-            pageModel = new IndexModel(productService)
+            pageModel = new UpdateModel(productService)
             {
             };
         }
@@ -85,20 +87,24 @@ namespace UnitTests.Pages.Product.Update
 
         #region OnGet
         ///<summary>
-        ///This test checks if OnGet method, when called with valid parameters, returns the expected products.
+        ///This test checks if OnGet method, when called with a valid Product ID contains the appropriate Product information.
         ///</summary>
         [Test]
-        public void OnGet_Valid_Should_Return_Products()
+        public void OnGet_Valid_ValidProductId_Should_ReturnProductInfo()
         {
             // Arrange
 
+
             // Act
-            pageModel.OnGet();
+            pageModel.OnGet(TestConstants.TestCaseId);
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(TestConstants.ExpectedProductCount, pageModel.Products.ToList().Count);
+            Assert.AreEqual(TestConstants.TestCaseName, pageModel.Product.Name);
         }
+
+
+
         ///<summary>
         ///This test checks if the OnGet method populates the Product and AvailableTypes properties correctly.
         ///</summary>
@@ -259,7 +265,7 @@ namespace UnitTests.Pages.Product.Update
                 EnergyType.Grass, EnergyType.Electric, EnergyType.Darkness, EnergyType.Fairy, EnergyType.Fire,
                 EnergyType.Psychic, EnergyType.Steel, EnergyType.Dragon, EnergyType.Water, EnergyType.Fighting, EnergyType.Colorless
             };
-                        var expectedTypes = new List<EnergyType>
+            var expectedTypes = new List<EnergyType>
             {
                 EnergyType.Grass, EnergyType.Electric, EnergyType.Darkness, EnergyType.Fairy, EnergyType.Fire,
                 EnergyType.Psychic, EnergyType.Steel, EnergyType.Dragon, EnergyType.Water, EnergyType.Fighting, EnergyType.Colorless
@@ -293,7 +299,7 @@ namespace UnitTests.Pages.Product.Update
             updateModel.AvailableTypes = new List<EnergyType>
             {
                 EnergyType.All, EnergyType.Normal, EnergyType.Bug, EnergyType.Grass, EnergyType.Electric, EnergyType.Darkness, EnergyType.Fairy, EnergyType.Fire,
-                EnergyType.Psychic, EnergyType.Ice, EnergyType.Ground, EnergyType.Poison, EnergyType.Rock, EnergyType.Ghost, EnergyType.Steel, EnergyType.Dragon, 
+                EnergyType.Psychic, EnergyType.Ice, EnergyType.Ground, EnergyType.Poison, EnergyType.Rock, EnergyType.Ghost, EnergyType.Steel, EnergyType.Dragon,
                 EnergyType.Water, EnergyType.Fighting, EnergyType.Flying, EnergyType.Colorless
             };
             // Assert
