@@ -39,7 +39,7 @@ public class DeleteTests
     public static TempDataDictionary tempData;
     public static PageContext pageContext;
 
-    public static IndexModel pageModel;
+    public static DeleteModel pageModel;
 
     [SetUp]
     public void TestInitialize()
@@ -67,14 +67,12 @@ public class DeleteTests
         mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
         mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
-        var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>();
+        var MockLoggerDirect = Mock.Of<ILogger<DeleteModel>>();
         JsonFileProductService productService;
 
         productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
-        pageModel = new IndexModel(productService)
-        {
-        };
+        pageModel = new DeleteModel(productService);
     }
     #endregion TestSetup
 
@@ -83,29 +81,19 @@ public class DeleteTests
     /// Test that a GET request returns a valid product from datastore
     /// </summary>
     [Test]
-    public void OnGet_Valid_Should_Return_Product()
+    public void OnGet_Valid_Should_ReturnProduct()
     {
         // Arrange
-        var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
-        mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
-        mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
-        mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
-
-        var productService = new JsonFileProductService(mockWebHostEnvironment.Object);
-
-        var deleteModel = new DeleteModel(productService);
-
-        var lastProductId = productService.GetLastProduct().Id;
 
         // Act
-        deleteModel.OnGet(lastProductId);
+        pageModel.OnGet(TestConstants.ExpectedLastProductId);
 
         // 
 
         // Assert
-        Assert.AreEqual(true, deleteModel.ModelState.IsValid);
-        Assert.IsNotNull(deleteModel.Product);
-        Assert.AreEqual(lastProductId, deleteModel.Product.Id);
+        Assert.AreEqual(true, pageModel.ModelState.IsValid);
+        Assert.IsNotNull(pageModel.Product);
+        Assert.AreEqual(TestConstants.ExpectedLastProductId, pageModel.Product.Id);
     }
     #endregion OnGet
 
