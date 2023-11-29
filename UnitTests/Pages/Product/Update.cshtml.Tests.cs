@@ -103,6 +103,21 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual(TestConstants.TestCaseName, pageModel.Product.Name);
         }
 
+        [Test]
+        public void OnGet_Invalid_Error400_Should_ReturnNullProduct()
+        {
+            // Arrange
+            const string BadTestId = "Bad Test Id";
+
+            // Act
+            pageModel.OnGet(BadTestId);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(null, pageModel.Product);
+        }
 
 
         ///<summary>
