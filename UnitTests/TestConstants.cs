@@ -1,3 +1,5 @@
+using ContosoCrafts.WebSite.Models;
+
 namespace UnitTests
 {
     /// <summary>
@@ -21,6 +23,11 @@ namespace UnitTests
         /// datastore file.
         /// </summary>
         public const string ExpectedLastProductId = "SSH-186";
+
+        public const string TestCaseId = "FLI-122";
+
+        public const string TestCaseName = "Lucario-GX";
     }
+
 
 };
