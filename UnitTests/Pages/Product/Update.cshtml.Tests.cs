@@ -327,22 +327,14 @@ namespace UnitTests.Pages.Product.Update
         ///This test checks if the OnPost method, when called with valid model state, returns a Redirect To Page Result.
         ///</summary>
         [Test]
-        public void OnPost_Valid_Model_Should_Return_Redirect_To_PageResult()
+        public void OnPost_Invalid_ValidProductWithInvalidChange_Should_ReturnRedirectToPage()
         {
             // Arrange
-            var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
-            mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
-            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
-            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
-
-            var testWebHostEnvironment = mockWebHostEnvironment.Object;
-            var productService = new JsonFileProductService(testWebHostEnvironment);
-            var updateModel = new UpdateModel(productService);
-
-            updateModel.ModelState.AddModelError("PropertyName", "Error");
+            pageModel.OnGet(TestConstants.TestCaseId);
+            pageModel.ModelState.AddModelError("PropertyName", "Error");
 
             // Act
-            var result = updateModel.OnPost();
+            var result = pageModel.OnPost();
 
             // Assert
             Assert.IsInstanceOf<PageResult>(result);
