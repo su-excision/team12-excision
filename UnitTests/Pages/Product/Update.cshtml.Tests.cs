@@ -45,6 +45,9 @@ namespace UnitTests.Pages.Product.Update
 
         public static UpdateModel pageModel;
 
+        /// <summary>
+        /// Initializes Tests for Update.cshtml.Tests.cs
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -104,6 +107,9 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual(TestConstants.TestCaseName, pageModel.Product.Name);
         }
 
+        /// <summary>
+        /// Tests that on a bad product ID OnGet returns a null product
+        /// </summary>
         [Test]
         public void OnGet_Invalid_Error400_Should_ReturnNullProduct()
         {
@@ -341,6 +347,9 @@ namespace UnitTests.Pages.Product.Update
             Assert.IsInstanceOf<PageResult>(result);
         }
 
+        /// <summary>
+        /// Tests that OnPost returns a BadRequest result on an invalid ID
+        /// </summary>
         [Test]
         public void OnPost_Invalid_ProductDoesNotExist_Should_ReturnBadRequest()
         {
